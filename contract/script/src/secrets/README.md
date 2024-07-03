@@ -23,7 +23,7 @@ Upload the encrypted secrets JSON to Firebase Storage or Amazon S3, and copy the
 Run the following command to encrypt the URL and pass it to the SecretsUrls in the [smart contract](../../../).
 
 ```
-$ node .{Path}/EncryptedSecretsUrl.js "${COPIED_URL}"
+$ node ./${Path}/EncryptedSecretsUrl.js "${COPIED_URL}"
 ```
 
 > Example: 0x81422 .. a6d74
