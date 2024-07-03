@@ -10,8 +10,8 @@ This section includes the following code:
 
 | Name                                            | Description                   |
 |:------------------------------------------------|:------------------------------|
-| [CreateVoteSource](./src/firestore/vote/create) | Stores vote data in Firestore |
-| [CloseVoteSource](./src/firestore/vote/close)   | Closing the voting            |
+| [CreateVoteSource](src/sources/firestore/vote/create) | Stores vote data in Firestore |
+| [CloseVoteSource](src/sources/firestore/vote/close)   | Closing the voting            |
 
 ## Secrets
 
