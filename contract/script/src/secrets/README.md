@@ -1,6 +1,6 @@
 ## Summary
 
-This document explains how to encrypt the [environment]((../../README.md)) and securely pass it to ChainLink Functions.
+This document explains how to encrypt the [environment](../..) and securely pass it to ChainLink Functions.
 
 > This project uses Chainlink's' [Off-chain Hosted](https://github.com/smartcontractkit/functions-toolkit?tab=readme-ov-file#off-chain-hosted-secrets) Secrets.
 
