@@ -8,14 +8,14 @@ This section includes the following code:
 
 ## Sources
 
-| Key                                             | 내용                            |
+| Name                                             | Description                   |
 |-------------------------------------------------|-------------------------------|
 | [CreateVoteSource](./src/firestore/vote/create) | Stores vote data in Firestore |
 | [CloseVoteSource](./src/firestore/vote/close)   | Closing the voting            |
 
 ## Secrets
 
-| Key                                  | 내용                                                                         |
+| Name                                 | Description                                                                |
 |--------------------------------------|----------------------------------------------------------------------------|
 | [CreateSecretsJson](./src/secrets)   | Encrypts environment variables into a format that ChainLink can understand |
 | [EncryptedSecretsUrl](./src/secrets) | Encrypts the URL into a format that ChainLink can understand               |
@@ -46,7 +46,7 @@ $ npx env-enc set
 
 > Enter the information from the following table into the environment variables
 
-| Key              | 내용                                                                                                                                                                                           |
+| Key              | Description                                                                                                                                                                                  |
 |------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | EMAIL            | Email of the [Authentication](https://firebase.google.com/docs/auth) account with write permissions to Firestore                                                                             |
 | PASSWORD         | Password for the registered email account                                                                                                                                                    |
