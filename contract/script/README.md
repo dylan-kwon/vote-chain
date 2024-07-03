@@ -5,7 +5,7 @@ This section includes the following code:
 - Source code runnable on ChainLink Functions.
 - A simulation to test locally before uploading to ChainLink.
 - Encryption methods to secure sensitive data like API keys.
-
+  (default)
 ## Sources
 
 | Name                                            | Description                   |
