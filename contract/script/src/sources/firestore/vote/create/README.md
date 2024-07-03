@@ -13,7 +13,7 @@ contract.
 Perform local testing before storing in the smart contract.
 
 ```
-$ node ./${PATH}/CreateVoteSimulation.js" 
+$ node ./${PATH}/CreateVoteSimulation.js 
 ```
 
 ### Precautions
