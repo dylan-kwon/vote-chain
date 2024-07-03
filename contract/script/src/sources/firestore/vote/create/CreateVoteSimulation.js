@@ -6,17 +6,16 @@ const {
 
 require('@chainlink/env-enc').config();
 
-const dbName = process.argv.length >= 3 ? process.argv[2] : "test"
 const createdAt = new Date().getTime()
 const newId = createdAt.toString()
 
 const args = [
-    dbName,                                                     // dbName
+    "test",                                                     // dbName
     newId,                                                      // voteId
     `Title: ${newId}`,                                          // title
     `Content: ${newId}`,                                        // content
     'https://img.hankyung.com/photo/202401/03.35225885.1.jpg',  // imageUrl
-    createdAt.toString(),                                       // createdAt
+    newId,                                                      // createdAt
     'false'                                                     // isClosed
 ]
 
@@ -42,6 +41,7 @@ const run = async () => {
         throw (response.errorString)
     }
 
+    console.log('✅ New Vote ID: ', newId);
     console.log('✅ Simulation Ok: ', response);
 }
 
