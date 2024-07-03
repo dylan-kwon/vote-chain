@@ -6,10 +6,10 @@ const {
 
 require('@chainlink/env-enc').config();
 
-const id = '54'
+const id = process.argv[2]
 
 const args = [
-    '(default)',     // DbName
+    "test",     // DbName
     id,         // voteId
 ]
 
