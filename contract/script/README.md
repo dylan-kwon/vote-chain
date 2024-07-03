@@ -2,9 +2,9 @@
 
 This section includes the following code:
 
-- Source code runnable on ChainLink Functions
-- A simulation to test locally before uploading to ChainLink
-- Encryption methods to secure sensitive data like API keys
+- Source code runnable on ChainLink Functions.
+- A simulation to test locally before uploading to ChainLink.
+- Encryption methods to secure sensitive data like API keys.
 
 ## Sources
 
@@ -22,7 +22,7 @@ This section includes the following code:
 
 ## Environment
 
-To use the script, follow these steps
+To use the script, follow these steps.
 
 ### 1. NPM Install
 
@@ -30,7 +30,7 @@ To use the script, follow these steps
 $ npm install
 ```
 
-> Create `node_modules` in the project root
+> Create `node_modules` in the project root.
 
 ### 2. Create Environment
 
@@ -38,13 +38,13 @@ $ npm install
 $ npx env-enc set-pw
 ```
 
-> Enter the password for encrypting the environment variables
+> Enter the password for encrypting the environment variables.
 
 ```
 $ npx env-enc set
 ```
 
-> Enter the key and value from the following table
+> Enter the key and value from the following table.
 
 | Key              | Description                                                                                                                                                                                  |
 |:-----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
