@@ -9,9 +9,9 @@ const path = require('path')
 require('@chainlink/env-enc').config()
 
 const privateKey = process.env.PRIVATE_KEY
-const rpcUrl = process.env.ETHEREUM_SEPOLIA_RPC_URL
-const routerAddress = '0x234a5fb5Bd614a7AA2FfAB244D603abFA0Ac5C5C'
-const donId = 'fun-arbitrum-sepolia-1'
+const rpcUrl = process.env.ETHEREUM_RPC_URL
+const routerAddress = process.env.ROUTER_ADDRESS
+const donId = process.env.DON_ID
 
 const secrets = {
     firebaseApiKey: process.env.FIREBASE_API_KEY,
