@@ -1,6 +1,6 @@
 
 .DS_Store
 
-**/deps/
-**/states/
-**/deploys/
+**/.deps/
+**/.states/
+**/.deploys/

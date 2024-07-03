@@ -1,5 +1,5 @@
 
 
-**/deps/
-**/states/
-**/deploys/
+**/.deps/
+**/.states/
+**/.deploys/
