@@ -6,20 +6,6 @@ This section includes the following code:
 - A simulation to test locally before uploading to ChainLink.
 - Encryption methods to secure sensitive data like API keys.
 
-## Sources
-
-| Name                                            | Description                   |
-|:------------------------------------------------|:------------------------------|
-| [CreateVoteSource](src/sources/firestore/vote/create) | Stores vote data in Firestore |
-| [CloseVoteSource](src/sources/firestore/vote/close)   | Closing the voting            |
-
-## Secrets
-
-| Name                                 | Description                                                                |
-|:-------------------------------------|:---------------------------------------------------------------------------|
-| [CreateSecretsJson](./src/secrets)   | Encrypts environment variables into a format that ChainLink can understand |
-| [EncryptedSecretsUrl](./src/secrets) | Encrypts the URL into a format that ChainLink can understand               |
-
 ## Environment
 
 To use the script, follow these steps.
@@ -66,3 +52,17 @@ $ npx env-enc view
 ```
 
 > Check the entered environment variables
+
+## Secrets
+
+| Name                                 | Description                                                                |
+|:-------------------------------------|:---------------------------------------------------------------------------|
+| [CreateSecretsJson](./src/secrets)   | Encrypts environment variables into a format that ChainLink can understand |
+| [EncryptedSecretsUrl](./src/secrets) | Encrypts the URL into a format that ChainLink can understand               |
+
+## Sources
+
+| Name                                                  | Description                   |
+|:------------------------------------------------------|:------------------------------|
+| [CreateVoteSource](src/sources/firestore/vote/create) | Stores vote data in Firestore |
+| [CloseVoteSource](src/sources/firestore/vote/close)   | Closing the voting            |
