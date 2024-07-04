@@ -31,7 +31,7 @@ contract Vote is ChainLinkClient {
         bytes memory secretsUrls,
         uint64 subscriptionId,
         uint32 gasLimit,
-        string memory saveVoteSource,
+        string memory createVoteSource,
         string memory closeVoteSource 
     ) ChainLinkClient(
         router, 
@@ -41,7 +41,7 @@ contract Vote is ChainLinkClient {
         gasLimit
     ) {
         setDbName(_dbName);
-        setCreateVoteSource(saveVoteSource);
+        setCreateVoteSource(createVoteSource);
         setCloseVoteSource(closeVoteSource);
     }
 
@@ -107,10 +107,10 @@ contract Vote is ChainLinkClient {
 
         latestVoteId = newId;
 
-        return requestSaveVote(newVote);
+        return requestCreateVote(newVote);
     }
 
-    function requestSaveVote(Model.Vote storage vote) internal returns (bytes32) {
+    function requestCreateVote(Model.Vote storage vote) internal returns (bytes32) {
         string memory source = sources[SourceType.CreateVote];
         string[] memory args = new string[](7);
         
