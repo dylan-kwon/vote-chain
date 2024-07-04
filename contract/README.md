@@ -32,16 +32,16 @@ entire dataset.
 
 ## Constructor
 
-| Name            | Type    | Description                                               | Reference                                                              |
-|:----------------|:--------|:----------------------------------------------------------|:-----------------------------------------------------------------------|
-| dbName          | string  | The database name of Firestore                            | `(default)` or `test`                                                  |
-| router          | address | The router address of a network supported by Chainlink    | [Link](https://docs.chain.link/chainlink-functions/supported-networks) |
-| donId           | bytes32 | The don id of a network supported by Chainlink            | [Link](https://docs.chain.link/chainlink-functions/supported-networks) |
-| secretsUrls     | bytes   | The URL for the secret value to be used with Chainlink    | [Link](./script/src/secrets)                                           |
-| subscriptionId  | uint64  | The subscription ID of Chainlink                          | [Link](https://functions.chain.link/arbitrum-sepolia)                  |
-| gasLimit        | uint32  | The gas limit per call for Chainlink                      | Maximum 300,000                                                        |
-| SaveVoteSource  | string  | The js for storing vote data in Firestore                 | [Link](./script/src/sources/firestore/vote/create)                     |
-| CloseVoteSource | string  | The js for calling Firebase to change the voting end flag | [Link](./script/src/sources/firestore/vote/close)                      |
+| Name             | Type    | Description                                               | Reference                                                              |
+|:-----------------|:--------|:----------------------------------------------------------|:-----------------------------------------------------------------------|
+| dbName           | string  | The database name of Firestore                            | `(default)` or `test`                                                  |
+| router           | address | The router address of a network supported by Chainlink    | [Link](https://docs.chain.link/chainlink-functions/supported-networks) |
+| donId            | bytes32 | The don id of a network supported by Chainlink            | [Link](https://docs.chain.link/chainlink-functions/supported-networks) |
+| secretsUrls      | bytes   | The URL for the secret value to be used with Chainlink    | [Link](./script/src/secrets)                                           |
+| subscriptionId   | uint64  | The subscription ID of Chainlink                          | [Link](https://functions.chain.link/arbitrum-sepolia)                  |
+| gasLimit         | uint32  | The gas limit per call for Chainlink                      | Maximum 300,000                                                        |
+| CreateVoteSource | string  | The js for storing vote data in Firestore                 | [Link](./script/src/sources/firestore/vote/create)                     |
+| CloseVoteSource  | string  | The js for calling Firebase to change the voting end flag | [Link](./script/src/sources/firestore/vote/close)                      |
 
 > To reduce the frequency of redeploying the smart contract, setter methods for the constructor items are provided.
 
