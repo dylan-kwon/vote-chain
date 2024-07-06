@@ -30,7 +30,7 @@ contract Vote is ChainLinkClient {
         bytes32 donId, 
         bytes memory secretsUrls,
         uint64 subscriptionId,
-        uint32 gasLimit,
+        uint32 chainLinkGasLimit,
         string memory createVoteSource,
         string memory closeVoteSource 
     ) ChainLinkClient(
@@ -38,7 +38,7 @@ contract Vote is ChainLinkClient {
         donId,
         secretsUrls,
         subscriptionId,
-        gasLimit
+        chainLinkGasLimit
     ) {
         setDbName(_dbName);
         setCreateVoteSource(createVoteSource);
