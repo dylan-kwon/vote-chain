@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7fb9e483-79da-4d17-940e-191076c70784" name="Changes" comment="Update .gitignore of Remix.">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="test" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
+  </component>
+  <component name="GitRewordedCommitMessages">
+    <option name="commitMessagesMapping">
+      <RewordedCommitMessageMapping>
+        <option name="originalMessage" value="Update README.md of contract/scripts" />
+        <option name="rewordedMessage" value="Update README.md of contract/scripts" />
+      </RewordedCommitMessageMapping>
+    </option>
+    <option name="currentCommit" value="1" />
+    <option name="onto" value="9248ee6fbd1da48dc43d454b3aa5dd06501fc13b" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2iiMl5p9Y8DUw20RtIVeeDWLDOZ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Volumes/D/project/private/service/VoteChain/contract&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/dylan/Applications/IntelliJ IDEA.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/contract" />
+      <recent name="$PROJECT_DIR$/contract/script/src/sources/firestore/vote/close" />
+      <recent name="$PROJECT_DIR$/contract/script/src/secrets" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/contract/script/src/sources/firestore/vote/create" />
+      <recent name="$PROJECT_DIR$/contract/script/src/sources" />
+      <recent name="$PROJECT_DIR$/contract/script" />
+      <recent name="$PROJECT_DIR$/contract/solidity" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="VoteChain" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="VoteChain" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7fb9e483-79da-4d17-940e-191076c70784" name="Changes" comment="" />
+      <created>1719969093088</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1719969093088</updated>
+      <workItem from="1719969094132" duration="25056000" />
+      <workItem from="1720037105263" duration="69000" />
+      <workItem from="1720037176221" duration="21000" />
+      <workItem from="1720037199600" duration="93000" />
+      <workItem from="1720037295042" duration="112000" />
+      <workItem from="1720037409530" duration="7000" />
+    </task>
+    <task id="LOCAL-00001" summary="Update .gitignore&#10;+ .DS_Store">
+      <option name="closed" value="true" />
+      <created>1719975635637</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1719975635637</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Move constants defined in the Contract/Script to environment variables&#10;&#10;- donId&#10;- routerAddress&#10;- secretsUrls">
+      <option name="closed" value="true" />
+      <created>1719975824031</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1719975824031</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Add README.md of contract/scripts&#10;&#10;- donId&#10;- routerAddress&#10;- secretsUrls">
+      <option name="closed" value="true" />
+      <created>1719981493765</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1719981493765</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Add README.md of contract/scripts">
+      <option name="closed" value="true" />
+      <created>1719981672020</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1719981672020</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Add README.md of contract/scripts">
+      <option name="closed" value="true" />
+      <created>1719981738982</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1719981738982</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Add README.md of contract/scripts">
+      <option name="closed" value="true" />
+      <created>1719981841280</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1719981841280</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Add README.md of contract/scripts">
+      <option name="closed" value="true" />
+      <created>1719981968177</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1719981968177</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Update README.md of contract/scripts&#10;- Language ko -&gt; en">
+      <option name="closed" value="true" />
+      <created>1719982139717</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1719982139717</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Update README.md of contract/scripts&#10;- Table Align: Center -&gt; Left">
+      <option name="closed" value="true" />
+      <created>1719982278409</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1719982278409</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Update README.md of contract/scripts">
+      <option name="closed" value="true" />
+      <created>1720020723804</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1720020723804</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Update README.md of contract/scripts">
+      <option name="closed" value="true" />
+      <created>1720021153153</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1720021153153</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Move ./src/firebase to ./src/source/firestore">
+      <option name="closed" value="true" />
+      <created>1720022164146</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1720022164146</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Add README.md .contract/scripts/src/secrets">
+      <option name="closed" value="true" />
+      <created>1720025361019</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1720025361019</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Add README.md ./contract/scripts">
+      <option name="closed" value="true" />
+      <created>1720025504475</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1720025504475</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Update README.md ./contract/scripts/src/secrets">
+      <option name="closed" value="true" />
+      <created>1720025717525</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1720025717525</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Update README.md ./contract/scripts/src/secrets">
+      <option name="closed" value="true" />
+      <created>1720025769865</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1720025769865</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Update CreateVoteSimulation.js&#10;- Add command line argv: dbName">
+      <option name="closed" value="true" />
+      <created>1720030761621</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1720030761621</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Update README.md contract/script/src/secrets">
+      <option name="closed" value="true" />
+      <created>1720030850550</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1720030850550</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Rollback CreateVoteSimulation.js&#10;- Remove command line argv: dbName">
+      <option name="closed" value="true" />
+      <created>1720031577205</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1720031577205</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Update CloseVoteSimulation.js&#10;- Add command line argv: id&#10;- Change DbName: (default) to test">
+      <option name="closed" value="true" />
+      <created>1720031630412</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1720031630412</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Add README.md scripts/../vote/create">
+      <option name="closed" value="true" />
+      <created>1720032073431</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1720032073431</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Update README.md scripts/../vote/create&#10;- Correcting typos">
+      <option name="closed" value="true" />
+      <created>1720032136420</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1720032136420</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Add .idea settings.">
+      <option name="closed" value="true" />
+      <created>1720032153215</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1720032153215</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Add README.md scripts/../vote/close">
+      <option name="closed" value="true" />
+      <created>1720032425304</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1720032425304</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Add README.md contract">
+      <option name="closed" value="true" />
+      <created>1720036822457</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1720036822457</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Update .gitignore of Remix.">
+      <option name="closed" value="true" />
+      <created>1720037281906</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1720037281906</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Update .gitignore&#10;+ .DS_Store" />
+    <MESSAGE value="Move constants defined in the Contract/Script to environment variables&#10;&#10;- donId&#10;- routerAddress&#10;- secretsUrls" />
+    <MESSAGE value="Add README.md of contract/scripts&#10;&#10;- donId&#10;- routerAddress&#10;- secretsUrls" />
+    <MESSAGE value="Add README.md of contract/scripts" />
+    <MESSAGE value="Update README.md of contract/scripts&#10;- Language ko -&gt; en" />
+    <MESSAGE value="Update README.md of contract/scripts&#10;- Table Align: Center -&gt; Left" />
+    <MESSAGE value="Update README.md of contract/scripts" />
+    <MESSAGE value="Move ./src/firebase to ./src/source/firestore" />
+    <MESSAGE value="Add README.md .contract/scripts/src/secrets" />
+    <MESSAGE value="Add README.md ./contract/scripts" />
+    <MESSAGE value="Update README.md ./contract/scripts/src/secrets" />
+    <MESSAGE value="Update CreateVoteSimulation.js&#10;- Add command line argv: dbName" />
+    <MESSAGE value="Update README.md contract/script/src/secrets" />
+    <MESSAGE value="Rollback CreateVoteSimulation.js&#10;- Remove command line argv: dbName" />
+    <MESSAGE value="Update CloseVoteSimulation.js&#10;- Add command line argv: id&#10;- Change DbName: (default) to test" />
+    <MESSAGE value="Add README.md scripts/../vote/create" />
+    <MESSAGE value="Update README.md scripts/../vote/create&#10;- Correcting typos" />
+    <MESSAGE value="Add .idea settings." />
+    <MESSAGE value="Add README.md scripts/../vote/close" />
+    <MESSAGE value="Add README.md contract" />
+    <MESSAGE value="Update .gitignore of Remix." />
+    <option name="LAST_COMMIT_MESSAGE" value="Update .gitignore of Remix." />
+  </component>
+</project>

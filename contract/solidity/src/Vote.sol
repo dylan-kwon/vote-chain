@@ -30,15 +30,15 @@ contract Vote is ChainLinkClient {
         bytes32 donId, 
         bytes memory secretsUrls,
         uint64 subscriptionId,
-        uint32 gasLimit,
+        uint32 chainLinkGasLimit,
         string memory createVoteSource,
-        string memory closeVoteSource 
+        string memory closeVoteSource
     ) ChainLinkClient(
         router, 
         donId,
         secretsUrls,
         subscriptionId,
-        gasLimit
+        chainLinkGasLimit
     ) {
         setDbName(_dbName);
         setCreateVoteSource(createVoteSource);
