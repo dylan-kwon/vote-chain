@@ -73,17 +73,20 @@ contract Vote is ChainLinkClient {
     }
 
     event CreateVote(
+        address indexed owner,
         uint indexed voteId,
         bytes32 indexed chainLinkRequestId
     );
 
     event Voting(
+        address indexed owner,
         uint indexed voteId,
         address indexed voter,
         uint[] indexes
     );
 
     event CloseVote(
+        address indexed owner,
         uint indexed voteId,
         bytes32 indexed chainLinkRequestId
     );
