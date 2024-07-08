@@ -129,6 +129,7 @@ contract Vote is ChainLinkClient {
         latestVoteId = newId;
 
         emit CreateVote(
+            msg.sender,
             newVote.id,
             requestCreateVote(newVote)
         );
@@ -185,6 +186,7 @@ contract Vote is ChainLinkClient {
         );
 
         emit Voting(
+            msg.sender,
             id,
             msg.sender,
             indexes
@@ -196,6 +198,7 @@ contract Vote is ChainLinkClient {
         vote.isClosed = true;
 
         emit CloseVote(
+            msg.sender,
             id,
             requestCloseVote(vote)
         );
