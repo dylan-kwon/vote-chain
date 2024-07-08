@@ -42,6 +42,12 @@ contract ChainLinkClient is FunctionsClient {
         _;
     } 
 
+    event ChainLinkResponse(
+        bytes32 indexed requestId,
+        string response,
+        string err
+    );
+
     function setNetwork(address _router, bytes32 _donId) public onlyOwner {
         router = _router;
         donId = _donId;
@@ -100,10 +106,4 @@ contract ChainLinkClient is FunctionsClient {
             string(err)
         );
     }
-
-    event ChainLinkResponse(
-        bytes32 indexed requestId,
-        string response,
-        string err
-    );
 }

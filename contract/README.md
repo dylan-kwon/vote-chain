@@ -34,11 +34,11 @@ entire dataset.
 | Name              | Type    | Description                                               | Reference                                                              |
 |:------------------|:--------|:----------------------------------------------------------|:-----------------------------------------------------------------------|
 | dbName            | string  | The database name of Firestore                            | `(default)` or `test`                                                  |
-| router            | address | The router address of a network supported by Chainlink    | [Link](https://docs.chain.link/chainlink-functions/supported-networks) |
-| donId             | bytes32 | The don id of a network supported by Chainlink            | [Link](https://docs.chain.link/chainlink-functions/supported-networks) |
-| secretsUrls       | bytes   | The URL for the secret value to be used with Chainlink    | [Link](./script/src/secrets)                                           |
-| subscriptionId    | uint64  | The subscription ID of Chainlink                          | [Link](https://functions.chain.link/arbitrum-sepolia)                  |
-| chainLinkGasLimit | uint32  | The gas limit per call for Chainlink                      | Maximum 300,000                                                        |
+| router            | address | The router address of a network supported by ChainLink    | [Link](https://docs.chain.link/chainlink-functions/supported-networks) |
+| donId             | bytes32 | The don id of a network supported by ChainLink            | [Link](https://docs.chain.link/chainlink-functions/supported-networks) |
+| secretsUrls       | bytes   | The URL for the secret value to be used with ChainLink    | [Link](./script/src/secrets)                                           |
+| subscriptionId    | uint64  | The subscription ID of ChainLink                          | [Link](https://functions.chain.link/arbitrum-sepolia)                  |
+| chainLinkGasLimit | uint32  | The gas limit per call for ChainLink                      | Maximum 300,000                                                        |
 | CreateVoteSource  | string  | The js for storing vote data in Firestore                 | [Link](./script/src/sources/firestore/vote/create)                     |
 | CloseVoteSource   | string  | The js for calling Firebase to change the voting end flag | [Link](./script/src/sources/firestore/vote/close)                      |
 
@@ -99,3 +99,14 @@ Once the contract is deployed, the contract address must be registered as a cust
 | setGasLimit         | Set the gas limit                                                                    |
 | setCreateVoteSource | Set the JS code to create voting data in Firestore                                   |
 | setCloseVoteSource  | Set the JS code to change the voting end flag to true for a vote stored in Firestore |
+
+## Event
+
+In the `External` method, if it changes the state and has a return value, it can be received using `eth_getlogs`.
+
+| Name              | Description                                    |
+|:------------------|:-----------------------------------------------|
+| CreateVote        | Receive results after creating a vote          |
+| Voting            | Receive results after voting                   |
+| CloseVote         | Receive results after the vote close           |
+| ChainLinkResponse | Response from the source executed by ChainLink |

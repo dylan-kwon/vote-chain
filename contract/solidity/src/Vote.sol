@@ -72,6 +72,22 @@ contract Vote is ChainLinkClient {
         _;
     }
 
+    event CreateVote(
+        uint indexed voteId,
+        bytes32 indexed chainLinkRequestId
+    );
+
+    event Voting(
+        uint indexed voteId,
+        address indexed voter,
+        uint[] indexes
+    );
+
+    event CloseVote(
+        uint indexed voteId,
+        bytes32 indexed chainLinkRequestId
+    );
+
     function setDbName(string memory _dbName) public {
         dbName = _dbName;
     }
@@ -81,8 +97,8 @@ contract Vote is ChainLinkClient {
         string calldata content,
         string calldata imageUrl,
         bool isAllowDuplicateVoting,
-        Model.BallotItem[] calldata ballotItems
-    ) external returns (bytes32) {
+        string[] calldata ballotItems
+    ) external {
         require(
             ballotItems.length > 0, 
             "Must be at least one Ballot Item."
@@ -101,13 +117,18 @@ contract Vote is ChainLinkClient {
         newVote.isClosed = false;
         
         for (uint i = 0; i < ballotItems.length; i++) {
-            Model.BallotItem memory item = ballotItems[i];
+            Model.BallotItem memory item = Model.BallotItem(
+                ballotItems[i], 0
+            );
             newVote.ballotItems.push(item);
         }
 
         latestVoteId = newId;
 
-        return requestCreateVote(newVote);
+        emit CreateVote(
+            newVote.id,
+            requestCreateVote(newVote)
+        );
     }
 
     function requestCreateVote(Model.Vote storage vote) internal returns (bytes32) {
@@ -159,12 +180,22 @@ contract Vote is ChainLinkClient {
         vote.voters[msg.sender] = Model.Voter(
             msg.sender, indexes
         );
+
+        emit Voting(
+            id,
+            msg.sender,
+            indexes
+        );
     }
 
-    function closeVote(uint id) external onlyVoteOwner(id) isVoteOpen(id) returns (bytes32) {
+    function closeVote(uint id) external onlyVoteOwner(id) isVoteOpen(id)  {
         Model.Vote storage vote = votes[id];
         vote.isClosed = true;
-        return requestCloseVote(vote);
+
+        emit CloseVote(
+            id,
+            requestCloseVote(vote)
+        );
     }
 
     function requestCloseVote(Model.Vote storage vote) internal returns (bytes32) {
