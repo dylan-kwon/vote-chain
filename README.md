@@ -13,4 +13,4 @@ This project is currently in progress
 
 ### Client
 
-- Not yet
+- [In Progress](./android)
