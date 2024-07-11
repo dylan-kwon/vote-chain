@@ -78,7 +78,7 @@ class AndroidApplicationPlugin : ProjectPlugin() {
         }
     }
 
-    override fun DependencyHandler.onDependencies(libs: VersionCatalog) {
+    override fun DependencyHandler.onDependencies() {
         addJvmDesugaringDependency(libs)
     }
 

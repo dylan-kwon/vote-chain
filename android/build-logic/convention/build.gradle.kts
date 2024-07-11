@@ -41,5 +41,9 @@ gradlePlugin {
             id = "votechain.compose"
             implementationClass = "${pluginPackage}.ComposePlugin"
         }
+        register("hilt") {
+            id = "votechain.hilt"
+            implementationClass = "${pluginPackage}.HiltPlugin"
+        }
     }
 }

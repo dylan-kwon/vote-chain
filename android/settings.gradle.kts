@@ -22,6 +22,8 @@ dependencyResolutionManagement {
 
 rootProject.name = "VoteChain"
 
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+
 include(":app")
 
 include(":feature:vote")

@@ -9,7 +9,27 @@ import org.gradle.api.plugins.ExtensionContainer
 import org.gradle.api.plugins.PluginManager
 
 open class ProjectPlugin : Plugin<Project> {
+
+    private lateinit var target: Project
+
+    protected val libs: VersionCatalog
+        get() = target.libs
+
+    val isAndroid: Boolean
+        get() = isAndroidApplication || isAndroidLibrary
+
+    val isAndroidApplication: Boolean
+        get() = target.plugins.hasPlugin("com.android.application")
+
+    val isAndroidLibrary: Boolean
+        get() = target.plugins.hasPlugin("com.android.library")
+
+    val isJvmLibrary: Boolean
+        get() = target.plugins.hasPlugin("java-library")
+
     override fun apply(target: Project) {
+        this.target = target
+
         with(target) {
             with(pluginManager) {
                 onPlugin()
@@ -18,7 +38,7 @@ open class ProjectPlugin : Plugin<Project> {
                 onExtensions()
             }
             with(dependencies) {
-                onDependencies(libs)
+                onDependencies()
             }
             onProject()
         }
@@ -30,5 +50,5 @@ open class ProjectPlugin : Plugin<Project> {
 
     open fun ExtensionContainer.onExtensions() {}
 
-    open fun DependencyHandler.onDependencies(libs: VersionCatalog) {}
+    open fun DependencyHandler.onDependencies() {}
 }

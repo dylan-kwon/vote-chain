@@ -10,7 +10,7 @@ import dylan.kwon.votechain.build_logic.convention.common.buildName
 import org.jetbrains.kotlin.konan.properties.loadProperties
 import java.io.File
 
-fun CommonExtension<*, *, *, *, *, *>.configureAndroidCommon() {
+internal fun CommonExtension<*, *, *, *, *, *>.configureAndroidCommon() {
     compileSdk = Config.Android.COMPILE_SDK
 
     defaultConfig {

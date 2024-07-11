@@ -2,7 +2,7 @@ package dylan.kwon.votechain.build_logic.convention.extension.android.applicatio
 
 import org.gradle.api.plugins.PluginManager
 
-fun PluginManager.applyAndroidApplicationPlugin() {
+internal fun PluginManager.applyAndroidApplicationPlugin() {
     apply("com.android.application")
     apply("org.jetbrains.kotlin.android")
 }
