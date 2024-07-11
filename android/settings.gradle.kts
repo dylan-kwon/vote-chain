@@ -20,6 +20,18 @@ dependencyResolutionManagement {
     }
 }
 
+plugins {
+    id("de.fayard.refreshVersions") version "0.60.5"
+}
+
+refreshVersions {
+    rejectVersionIf {
+        candidate.stabilityLevel.isLessStableThan(current.stabilityLevel)
+    }
+    file("build/tmp/refreshVersions").mkdirs()
+    versionsPropertiesFile = file("build/tmp/refreshVersions/versions.properties")
+}
+
 rootProject.name = "VoteChain"
 
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
