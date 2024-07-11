@@ -11,5 +11,6 @@ Here, there is a plugin that defines build scripts commonly used across modules.
 | [JvmLibraryPlugin](./convention/src/main/java/dylan/kwon/votechain/build_logic/convention/plugin/JvmLibraryPlugin.kt)                 | votechain.android.application | Common Script for JVM Library          |
 | [ComposePlugin](./convention/src/main/java/dylan/kwon/votechain/build_logic/convention/plugin/ComposePlugin.kt)                       | votechain.compose             | Add Compose Dependency                 |
 | [HiltPlugin](./convention/src/main/java/dylan/kwon/votechain/build_logic/convention/plugin/HiltPlugin.kt)                             | votechain.hilt                | Add Hilt Dependency                    |
+| [CoroutinePlugin](./convention/src/main/java/dylan/kwon/votechain/build_logic/convention/plugin/CoroutinePlugin.kt)                   | votechain.hilt                | Add Coroutine Dependency               |
 
 

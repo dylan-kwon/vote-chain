@@ -45,5 +45,9 @@ gradlePlugin {
             id = "votechain.hilt"
             implementationClass = "${pluginPackage}.HiltPlugin"
         }
+        register("coroutine") {
+            id = "votechain.coroutine"
+            implementationClass = "${pluginPackage}.CoroutinePlugin"
+        }
     }
 }
