@@ -2,13 +2,6 @@
 
 In Progress..
 
-### Build Type
-
-| Name      | 
-|:----------|
-| `release` |
-| `debug`   |
-
 ## KeyStore
 
 Add the release and debug keyStores and properties.
@@ -24,3 +17,7 @@ keyAlias=..
 keyPassword=..
 storePassword=..
 ```
+
+## Convention Plugin
+
+[Here](./build-logic)
