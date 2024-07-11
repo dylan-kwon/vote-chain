@@ -8,7 +8,6 @@ espressoCore = "3.6.1"
 lifecycleRuntimeKtx = "2.8.3"
 activityCompose = "1.9.0"
 composeBom = "2024.06.00"
-composeDestination = "2.1.0-beta09"
 appcompat = "1.7.0"
 jetbrainsKotlinJvm = "2.0.0"
 androidDesugarJdkLibs = "2.0.4"
@@ -17,6 +16,7 @@ hilt-android = "1.2.0"
 ksp = "2.0.0-1.0.21"
 coroutine = "1.9.0-RC"
 kotlinx-serialization-json = "1.7.1"
+navigation = "2.7.7"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -36,9 +36,7 @@ compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling
 compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 compose-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 compose-material3 = { group = "androidx.compose.material3", name = "material3" }
-compose-destination-ksp = { group = "io.github.raamcosta.compose-destinations", name = "ksp", version.ref = "composeDestination" }
-compose-destination-core = { group = "io.github.raamcosta.compose-destinations", name = "core", version.ref = "composeDestination" }
-compose-destination-bottomSheet = { group = "io.github.raamcosta.compose-destinations", name = "bottom-sheet", version.ref = "composeDestination" }
+compose-navigation = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigation" }
 
 # Desugar
 android-desugarJdkLibs = { group = "com.android.tools", name = "desugar_jdk_libs", version.ref = "androidDesugarJdkLibs" }

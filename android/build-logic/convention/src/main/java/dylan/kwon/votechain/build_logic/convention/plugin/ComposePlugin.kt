@@ -43,9 +43,7 @@ class ComposePlugin : ProjectPlugin() {
         add("implementation", libs.findLibrary("compose-ui-tooling-preview").get())
         add("implementation", libs.findLibrary("compose-material3").get())
 
-        add("ksp", libs.findLibrary("compose-destination-ksp").get())
-        add("implementation", libs.findLibrary("compose-destination-core").get())
-        add("implementation", libs.findLibrary("compose-destination-bottomSheet").get())
+        add("implementation", libs.findLibrary("compose-navigation").get())
 
         add("debugImplementation", libs.findLibrary("compose-ui-tooling").get())
         add("debugImplementation", libs.findLibrary("compose-ui-test-manifest").get())
