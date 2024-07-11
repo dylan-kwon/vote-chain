@@ -20,6 +20,7 @@ kotlin {
 dependencies {
     compileOnly(libs.android.gradlePlugin)
     compileOnly(libs.kotlin.gradlePlugin)
+    compileOnly(libs.kotlin.gradlePlugin)
 }
 
 gradlePlugin {
@@ -48,6 +49,10 @@ gradlePlugin {
         register("coroutine") {
             id = "votechain.coroutine"
             implementationClass = "${pluginPackage}.CoroutinePlugin"
+        }
+        register("serialization") {
+            id = "votechain.serialization"
+            implementationClass = "${pluginPackage}.KotlinSerializationPlugin"
         }
     }
 }

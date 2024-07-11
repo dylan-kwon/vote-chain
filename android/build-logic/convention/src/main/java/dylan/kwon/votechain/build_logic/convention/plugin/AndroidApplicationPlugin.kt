@@ -13,7 +13,6 @@ import dylan.kwon.votechain.build_logic.convention.extension.android.configureAn
 import dylan.kwon.votechain.build_logic.convention.extension.android.configureKotlinJvmTargetInAndroid
 import dylan.kwon.votechain.build_logic.convention.plugin.base.ProjectPlugin
 import org.gradle.api.Project
-import org.gradle.api.artifacts.VersionCatalog
 import org.gradle.api.artifacts.dsl.DependencyHandler
 import org.gradle.api.plugins.ExtensionContainer
 import org.gradle.api.plugins.PluginManager
