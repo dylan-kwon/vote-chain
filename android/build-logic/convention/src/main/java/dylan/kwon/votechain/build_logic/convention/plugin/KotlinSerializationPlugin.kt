@@ -7,7 +7,7 @@ import org.gradle.api.plugins.PluginManager
 class KotlinSerializationPlugin : ProjectPlugin() {
 
     override fun PluginManager.onPlugin() {
-//        apply("org.jetbrains.kotlin.plugin.serialization")
+        apply("org.jetbrains.kotlin.plugin.serialization")
     }
 
     override fun DependencyHandler.onDependencies() {
