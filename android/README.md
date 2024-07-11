@@ -18,7 +18,7 @@ keyPassword=..
 storePassword=..
 ```
 
-## Dependency Update
+## Update Dependency
 
 - Run the version update command
 
@@ -26,7 +26,7 @@ storePassword=..
  $ ./gradlew refreshVersions 
 ```
 
-- Uncomment the desired version in Update libs.versions.toml
+- Uncomment the desired version in Update [libs.versions.toml](./gradle/libs.versions.toml)
 
 ## Convention Plugin
 
