@@ -27,6 +27,6 @@ internal fun DependencyHandler.addAndroidLifecycleDependencies(libs: VersionCata
 
 internal fun DependencyHandler.addAndroidTestLifecycleDependencies(libs: VersionCatalog) {
     addJvmTestDependencies(libs)
-    add("testImplementation", libs.findLibrary("androidx-junit").get())
     add("testImplementation", libs.findLibrary("androidx-espresso-core").get())
+    add("androidTestImplementation", libs.findLibrary("androidx-junit-ktx").get())
 }
