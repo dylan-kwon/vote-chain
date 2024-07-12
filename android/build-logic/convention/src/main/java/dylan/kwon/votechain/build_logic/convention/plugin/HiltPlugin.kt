@@ -21,6 +21,11 @@ class HiltPlugin : ProjectPlugin() {
         if (isAndroid) {
             add("ksp", libs.findLibrary("hilt-android-compiler").get())
             add("implementation", libs.findLibrary("hilt-android").get())
+
+            add("kspTest", libs.findLibrary("hilt-android-compiler").get())
+            add("kspAndroidTest", libs.findLibrary("hilt-android-compiler").get())
+            add("testImplementation", libs.findLibrary("hilt-android-testing").get())
+            add("androidTestAnnotationProcessor", libs.findLibrary("hilt-android-testing").get())
         }
     }
 }
