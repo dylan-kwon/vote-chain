@@ -1,4 +1,4 @@
-package dylan.kwon.auth
+package dylan.kwon.votechain.core.architecture.mvi
 
 import org.junit.Test
 
