@@ -21,6 +21,7 @@ class HiltPlugin : ProjectPlugin() {
         if (isAndroid) {
             add("ksp", libs.findLibrary("hilt-android-compiler").get())
             add("implementation", libs.findLibrary("hilt-android").get())
+            add("implementation", libs.findLibrary("hilt-navigation-compose").get())
 
             add("kspTest", libs.findLibrary("hilt-android-compiler").get())
             add("kspAndroidTest", libs.findLibrary("hilt-android-compiler").get())
