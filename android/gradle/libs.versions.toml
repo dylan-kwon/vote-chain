@@ -48,6 +48,7 @@ androidx-compose = "2024.06.00"
 truth = "1.4.3"
 mockk = "1.13.11"
 robolectric = "4.13"
+material = "1.12.0"
 
 [libraries]
 
@@ -79,6 +80,7 @@ hilt-core = { group = "com.google.dagger", name = "hilt-core", version.ref = "go
 hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt" }
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "google-dagger" }
 hilt-android-compiler = { group = "androidx.hilt", name = "hilt-compiler", version.ref = "hilt-android" }
+hilt-android-testing = { group = "com.google.dagger", name = "hilt-android-testing", version.ref = "hilt" }
 
 # Coroutine
 kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "kotlinx-coroutines" }
@@ -98,3 +100,4 @@ robolectric = { group = "org.robolectric", name = "robolectric", version.ref = "
 
 android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "agp" }
 kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }

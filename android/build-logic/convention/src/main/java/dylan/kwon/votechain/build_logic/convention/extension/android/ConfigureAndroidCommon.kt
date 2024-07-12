@@ -7,10 +7,11 @@ import dylan.kwon.votechain.build_logic.convention.common.FlavorDimension
 import dylan.kwon.votechain.build_logic.convention.common.KeyStore
 import dylan.kwon.votechain.build_logic.convention.common.ProductFlavor
 import dylan.kwon.votechain.build_logic.convention.common.buildName
+import dylan.kwon.votechain.build_logic.convention.extension.getOrCreate
 import org.jetbrains.kotlin.konan.properties.loadProperties
 import java.io.File
 
-internal fun CommonExtension<*, *, *, *, *, *>.configureAndroidCommon() {
+internal fun CommonExtension<*, *, *, *, *, *>.configureAndroidCommon(projectRootDir: File) {
     compileSdk = Config.Android.COMPILE_SDK
 
     defaultConfig {
@@ -30,8 +31,10 @@ internal fun CommonExtension<*, *, *, *, *, *>.configureAndroidCommon() {
 
     signingConfigs {
         KeyStore.values().forEach { keyStore ->
-            create(keyStore.name) {
-                val properties = loadProperties(keyStore.propertyPath)
+            getOrCreate(keyStore.buildName) {
+                val properties = loadProperties(
+                    File(projectRootDir, keyStore.propertyPath).toString()
+                )
                 storeFile = File(properties.getProperty("storeFile"))
                 storePassword = properties.getProperty("storePassword")
                 keyAlias = properties.getProperty("keyAlias")

@@ -8,7 +8,6 @@ import dylan.kwon.votechain.build_logic.convention.common.applicationIdSuffix
 import dylan.kwon.votechain.build_logic.convention.common.buildName
 import dylan.kwon.votechain.build_logic.convention.common.versionNameSuffix
 import dylan.kwon.votechain.build_logic.convention.extension.android.addAndroidCommonDependencies
-import dylan.kwon.votechain.build_logic.convention.extension.android.addJvmDesugaringDependency
 import dylan.kwon.votechain.build_logic.convention.extension.android.application.applyAndroidApplicationPlugin
 import dylan.kwon.votechain.build_logic.convention.extension.android.configureAndroidCommon
 import dylan.kwon.votechain.build_logic.convention.extension.android.configureKotlinJvmTargetInAndroid
@@ -31,7 +30,7 @@ class AndroidApplicationPlugin : ProjectPlugin() {
 
     override fun ExtensionContainer.onExtensions() {
         configure<ApplicationExtension> {
-            configureAndroidCommon()
+            configureAndroidCommon(target.rootDir)
             configureAndroidApplication()
         }
     }
@@ -67,7 +66,7 @@ class AndroidApplicationPlugin : ProjectPlugin() {
                 getByName(BuildType.Release.buildName) {
                     isShrinkResources = buildType.isShrinkResources
 
-                    signingConfig = signingConfigs.getByName(buildType.keyStore.name)
+                    signingConfig = signingConfigs.getByName(buildType.keyStore.buildName)
 
                     if (buildType.useSuffix) {
                         versionNameSuffix = buildType.versionNameSuffix

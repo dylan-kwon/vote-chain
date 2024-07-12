@@ -10,3 +10,6 @@ enum class KeyStore(
         propertyPath = "./keystore/debug/debug-keystore.properties"
     )
 }
+
+val KeyStore.buildName
+    get() = name.lowercase()

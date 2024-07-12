@@ -26,7 +26,7 @@ class AndroidLibraryPlugin : ProjectPlugin() {
 
     override fun ExtensionContainer.onExtensions() {
         configure<LibraryExtension> {
-            configureAndroidCommon()
+            configureAndroidCommon(target.rootDir)
             configureAndroidLibrary()
         }
     }
@@ -46,7 +46,7 @@ class AndroidLibraryPlugin : ProjectPlugin() {
         buildTypes {
             BuildType.values().forEach { buildType ->
                 getByName(buildType.buildName) {
-                    signingConfig = signingConfigs.getByName(buildType.keyStore.name)
+                    signingConfig = signingConfigs.getByName(buildType.keyStore.buildName)
                 }
             }
         }

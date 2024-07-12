@@ -10,7 +10,7 @@ import org.gradle.api.plugins.PluginManager
 
 open class ProjectPlugin : Plugin<Project> {
 
-    private lateinit var target: Project
+    protected lateinit var target: Project
 
     protected val libs: VersionCatalog
         get() = target.libs

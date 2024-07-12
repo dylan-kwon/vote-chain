@@ -37,11 +37,10 @@ rootProject.name = "VoteChain"
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 include(":app")
-
 include(":feature:auth")
 include(":feature:vote")
 include(":feature:crypto-wallet")
-
 include(":core:domain:entity")
 include(":core:domain:use-case")
-
+include(":core:architecture:mvi")
+include(":core:coroutine:android")
