@@ -29,6 +29,7 @@
             <option value="$PROJECT_DIR$/core/domain/entity" />
             <option value="$PROJECT_DIR$/core/domain/use-case" />
             <option value="$PROJECT_DIR$/feature" />
+            <option value="$PROJECT_DIR$/feature/auth" />
             <option value="$PROJECT_DIR$/feature/crypto-wallet" />
             <option value="$PROJECT_DIR$/feature/vote" />
           </set>

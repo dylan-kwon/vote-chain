@@ -20,10 +20,7 @@ android {
 dependencies {
     implementation(projects.core.domain.useCase)
 
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
-
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
+    implementation(projects.feature.auth)
+    implementation(projects.feature.vote)
+    implementation(projects.feature.cryptoWallet)
 }

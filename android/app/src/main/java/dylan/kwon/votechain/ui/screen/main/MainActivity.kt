@@ -6,7 +6,6 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import dagger.hilt.android.AndroidEntryPoint
 import dylan.kwon.votechain.ui.VoteChainApp
-import dylan.kwon.votechain.ui.theme.VoteChainTheme
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {

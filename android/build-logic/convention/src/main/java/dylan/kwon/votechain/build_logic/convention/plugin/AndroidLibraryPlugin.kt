@@ -3,13 +3,12 @@ package dylan.kwon.votechain.build_logic.convention.plugin
 import com.android.build.gradle.LibraryExtension
 import dylan.kwon.votechain.build_logic.convention.common.BuildType
 import dylan.kwon.votechain.build_logic.convention.common.buildName
-import dylan.kwon.votechain.build_logic.convention.extension.android.addJvmDesugaringDependency
+import dylan.kwon.votechain.build_logic.convention.extension.android.addAndroidCommonDependencies
 import dylan.kwon.votechain.build_logic.convention.extension.android.configureAndroidCommon
 import dylan.kwon.votechain.build_logic.convention.extension.android.configureKotlinJvmTargetInAndroid
 import dylan.kwon.votechain.build_logic.convention.extension.android.library.applyAndroidLibraryPlugin
 import dylan.kwon.votechain.build_logic.convention.plugin.base.ProjectPlugin
 import org.gradle.api.Project
-import org.gradle.api.artifacts.VersionCatalog
 import org.gradle.api.artifacts.dsl.DependencyHandler
 import org.gradle.api.plugins.ExtensionContainer
 import org.gradle.api.plugins.PluginManager
@@ -54,6 +53,6 @@ class AndroidLibraryPlugin : ProjectPlugin() {
     }
 
     override fun DependencyHandler.onDependencies() {
-        addJvmDesugaringDependency(libs)
+        addAndroidCommonDependencies(libs)
     }
 }

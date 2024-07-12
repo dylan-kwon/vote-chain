@@ -66,6 +66,12 @@ internal fun CommonExtension<*, *, *, *, *, *>.configureAndroidCommon() {
         }
     }
 
+    testOptions {
+        unitTests {
+            isIncludeAndroidResources = true
+        }
+    }
+
     packaging {
         resources {
             excludes.add("/META-INF/{AL2.0,LGPL2.1}")

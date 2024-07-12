@@ -5,8 +5,8 @@
 android-application = { id = "com.android.application", version.ref = "agp" }
 android-library = { id = "com.android.library", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvm" }
-jetbrains-kotlin-serializable = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "jetbrainsKotlinJvm" }
+jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrains-kotlin-jvm" }
+jetbrains-kotlin-serializable = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "jetbrains-kotlin-jvm" }
 
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
@@ -26,67 +26,45 @@ agp = "8.4.0"
 ##⬆= "8.4.1"
 ##⬆= "8.4.2"
 ##⬆= "8.5.0"
+##⬆= "8.5.1"
 kotlin = "2.0.0"
 coreKtx = "1.13.1"
 junit = "4.13.2"
-junitVersion = "1.2.1"
-espressoCore = "3.6.1"
-lifecycleRuntimeKtx = "2.8.3"
-activityCompose = "1.9.0"
-composeBom = "2024.06.00"
+junit-android = "1.2.1"
+espresso = "3.6.1"
+lifecycle = "2.8.3"
+compose-activity = "1.9.0"
 appcompat = "1.7.0"
-jetbrainsKotlinJvm = "2.0.0"
-androidDesugarJdkLibs = "2.0.4"
+jetbrains-kotlin-jvm = "2.0.0"
+android-desugar-jdk-libs = "2.0.4"
 hilt = "2.51.1"
 hilt-android = "1.2.0"
-ksp = "2.0.0-1.0.22"
-coroutine = "1.9.0-RC"
-kotlinx-serialization-json = "1.7.1"
+ksp = "2.0.0-1.0.23"
 navigation = "2.8.0-beta05"
-
 google-dagger = "2.51.1"
-
-androidx-hilt = "1.2.0"
-
 kotlinx-coroutines = "1.9.0-RC"
-
 kotlinx-serialization = "1.7.1"
-
 androidx-compose = "2024.06.00"
-
-androidx-activity = "1.9.0"
-
-androidx-navigation = "2.8.0-beta05"
-
-androidx-core = "1.13.1"
-
-androidx-lifecycle = "2.8.3"
-
-androidx-test-ext-junit = "1.2.1"
-
-androidx-test-espresso = "3.6.1"
-
-android-tools-desugar_jdk_libs = "2.0.4"
-
-junit-junit = "4.13.2"
-
-androidx-compose-compiler = "1.5.14"
-
-androidx-appcompat = "1.7.0"
+truth = "1.4.3"
+mockk = "1.13.11"
+robolectric = "4.13"
 
 [libraries]
 
+# Android
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
-junit = { group = "junit", name = "junit", version.ref = "junit" }
-androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
-androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
-androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
-android-desugarJdkLibs = { group = "com.android.tools", name = "desugar_jdk_libs", version.ref = "androidDesugarJdkLibs" }
+android-desugarJdkLibs = { group = "com.android.tools", name = "desugar_jdk_libs", version.ref = "android-desugar-jdk-libs" }
+
+# Lifecycle
+androidx-lifecycle-lifecycle-compose = { group = "androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "lifecycle" }
+androidx-lifecycle-viewmodel-compose = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "lifecycle" }
+androidx-lifecycle-viewmodel-savedstate = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-savedstate", version.ref = "lifecycle" }
+androidx-lifecycle-runtime-testing = { group = "androidx.lifecycle", name = "lifecycle-runtime-testing", version.ref = "lifecycle" }
 
 # Compose
 compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "androidx-compose" }
-compose-activity = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
+compose-activity = { group = "androidx.activity", name = "activity-compose", version.ref = "compose-activity" }
 compose-ui = { group = "androidx.compose.ui", name = "ui" }
 compose-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
 compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
@@ -109,6 +87,14 @@ kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-cor
 
 # Serializable
 kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
+
+# Test
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junit-android" }
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso" }
+truth = { group = "com.google.truth", name = "truth", version.ref = "truth" }
+mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
+robolectric = { group = "org.robolectric", name = "robolectric", version.ref = "robolectric" }
 
 android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "agp" }
 kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }

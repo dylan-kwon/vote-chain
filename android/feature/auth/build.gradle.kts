@@ -7,7 +7,7 @@ plugins {
 }
 
 android {
-    namespace = "dylan.kwon.votechain.feature.crypto_wallet"
+    namespace = "dylan.kwon.auth"
 }
 
 dependencies {

@@ -7,6 +7,7 @@ import dylan.kwon.votechain.build_logic.convention.common.ProductFlavor
 import dylan.kwon.votechain.build_logic.convention.common.applicationIdSuffix
 import dylan.kwon.votechain.build_logic.convention.common.buildName
 import dylan.kwon.votechain.build_logic.convention.common.versionNameSuffix
+import dylan.kwon.votechain.build_logic.convention.extension.android.addAndroidCommonDependencies
 import dylan.kwon.votechain.build_logic.convention.extension.android.addJvmDesugaringDependency
 import dylan.kwon.votechain.build_logic.convention.extension.android.application.applyAndroidApplicationPlugin
 import dylan.kwon.votechain.build_logic.convention.extension.android.configureAndroidCommon
@@ -78,7 +79,7 @@ class AndroidApplicationPlugin : ProjectPlugin() {
     }
 
     override fun DependencyHandler.onDependencies() {
-        addJvmDesugaringDependency(libs)
+        addAndroidCommonDependencies(libs)
     }
 
 }
