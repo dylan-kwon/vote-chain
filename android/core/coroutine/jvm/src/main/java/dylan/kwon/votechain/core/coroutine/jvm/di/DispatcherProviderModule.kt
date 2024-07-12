@@ -1,11 +1,11 @@
-package dylan.kwon.votechain.core.coroutine.android.di//package dylan.kwon.auth.ui.screen.simplePassword
+package dylan.kwon.votechain.core.coroutine.jvm.di
 
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import dylan.kwon.votechain.core.coroutine.android.dispatcher.DefaultDispatcherProvider
-import dylan.kwon.votechain.core.coroutine.android.dispatcher.DispatcherProvider
+import dylan.kwon.votechain.core.coroutine.jvm.dispatcher.DefaultDispatcherProvider
+import dylan.kwon.votechain.core.coroutine.jvm.dispatcher.DispatcherProvider
 import javax.inject.Singleton
 
 

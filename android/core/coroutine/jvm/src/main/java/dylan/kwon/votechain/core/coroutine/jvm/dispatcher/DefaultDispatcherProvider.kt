@@ -1,4 +1,4 @@
-package dylan.kwon.votechain.core.coroutine.android.dispatcher
+package dylan.kwon.votechain.core.coroutine.jvm.dispatcher
 
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
