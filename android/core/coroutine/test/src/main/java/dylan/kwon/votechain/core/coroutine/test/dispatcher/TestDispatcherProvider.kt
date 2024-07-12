@@ -1,5 +1,6 @@
-package dylan.kwon.votechain.core.coroutine.android.dispatcher
+package dylan.kwon.votechain.core.coroutine.test.dispatcher
 
+import dylan.kwon.votechain.core.coroutine.jvm.dispatcher.DispatcherProvider
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.test.TestDispatcher
 import javax.inject.Inject

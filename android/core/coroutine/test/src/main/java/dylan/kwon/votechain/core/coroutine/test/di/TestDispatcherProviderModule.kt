@@ -1,12 +1,13 @@
-package dylan.kwon.votechain.core.coroutine.android.di//package dylan.kwon.auth.ui.screen.simplePassword
+package dylan.kwon.votechain.core.coroutine.test.di
 
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.components.SingletonComponent
 import dagger.hilt.testing.TestInstallIn
-import dylan.kwon.votechain.core.coroutine.android.dispatcher.DispatcherProvider
-import dylan.kwon.votechain.core.coroutine.android.dispatcher.TestDispatcherProvider
+import dylan.kwon.votechain.core.coroutine.jvm.di.DispatcherProviderModule
+import dylan.kwon.votechain.core.coroutine.jvm.dispatcher.DispatcherProvider
+import dylan.kwon.votechain.core.coroutine.test.dispatcher.TestDispatcherProvider
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import javax.inject.Singleton
 
