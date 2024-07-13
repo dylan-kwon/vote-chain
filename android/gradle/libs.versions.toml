@@ -12,13 +12,17 @@ ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 
+# VoteChain Plugins
 votechain-jvm-library = { id = "votechain.jvm.library", version = "unspecified" }
 votechain-android-library = { id = "votechain.android.library", version = "unspecified" }
 votechain-android-application = { id = "votechain.android.application", version = "unspecified" }
+votechain-android-lifecycle = { id = "votechain.android.lifecycle", version = "unspecified" }
 votechain-hilt = { id = "votechain.hilt", version = "unspecified" }
 votechain-compose = { id = "votechain.compose", version = "unspecified" }
 votechain-coroutine = { id = "votechain.coroutine", version = "unspecified" }
 votechain-serialization = { id = "votechain.serialization", version = "unspecified" }
+votechain-immutableCollections = { id = "votechain.immutableCollections", version = "unspecified" }
+votechain-datastore = { id = "votechain.datastore", version = "unspecified" }
 
 [versions]
 
@@ -42,13 +46,16 @@ hilt-android = "1.2.0"
 ksp = "2.0.0-1.0.23"
 navigation = "2.8.0-beta05"
 kotlinx-coroutines = "1.9.0-RC"
+kotlinx-collections-immutable = "0.3.7"
 kotlinx-serialization = "1.7.1"
 androidx-compose = "2024.06.00"
-truth = "1.4.3"
+compose-gridLayout = "2.0.0"
+datastore = "1.1.1"
+truth = "1.4.4"
 mockk = "1.13.11"
 robolectric = "4.13"
-material = "1.12.0"
 junitVersion = "1.2.1"
+material = "1.12.0"
 
 [libraries]
 
@@ -74,6 +81,8 @@ compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-mani
 compose-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 compose-material3 = { group = "androidx.compose.material3", name = "material3" }
 compose-navigation = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigation" }
+compose-gridLayout = { group = "com.cheonjaeung.compose.grid", name = "grid", version.ref = "compose-gridLayout" }
+compose-material-icons-extended = { group = "androidx.compose.material", name = "material-icons-extended" }
 
 # Hilt
 hilt-core = { group = "com.google.dagger", name = "hilt-core", version.ref = "hilt" }
@@ -88,8 +97,15 @@ kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-cor
 kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "kotlinx-coroutines" }
 kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "kotlinx-coroutines" }
 
+# Immutable Collections
+kotlinx-collections-immutable = { group = "org.jetbrains.kotlinx", name = "kotlinx-collections-immutable", version.ref = "kotlinx-collections-immutable" }
+
 # Serializable
 kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
+
+# DataStore
+datastore-preferences = { group = "androidx.datastore", name = "datastore-preferences", version.ref = "datastore" }
+datastore-preferences-core = { group = "androidx.datastore", name = "datastore-preferences-core", version.ref = "datastore" }
 
 # Test
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -99,7 +115,9 @@ truth = { group = "com.google.truth", name = "truth", version.ref = "truth" }
 mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
 robolectric = { group = "org.robolectric", name = "robolectric", version.ref = "robolectric" }
 
+# Dependencies of the included build-logic
 android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "agp" }
 kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
-material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+compose-gradlePlugin = { module = "org.jetbrains.kotlin:compose-compiler-gradle-plugin", version.ref = "kotlin" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }

@@ -6,7 +6,6 @@ plugins {
 
 dependencies {
     implementation(projects.core.coroutine.jvm)
-    implementation(libs.hilt.android.testing)
     implementation(libs.kotlinx.coroutines.test)
     implementation(libs.junit)
 }

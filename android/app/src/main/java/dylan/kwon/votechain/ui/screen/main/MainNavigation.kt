@@ -9,7 +9,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 object MainNavigation
 
-fun NavGraphBuilder.mainScreen() {
+fun NavGraphBuilder.attachMainScreen() {
     composable<MainNavigation> {
         MainRoute()
     }

@@ -20,7 +20,7 @@ kotlin {
 dependencies {
     compileOnly(libs.android.gradlePlugin)
     compileOnly(libs.kotlin.gradlePlugin)
-    compileOnly(libs.kotlin.gradlePlugin)
+    compileOnly(libs.compose.gradlePlugin)
 }
 
 gradlePlugin {
@@ -38,6 +38,10 @@ gradlePlugin {
             id = "votechain.android.application"
             implementationClass = "${pluginPackage}.AndroidApplicationPlugin"
         }
+        register("androidLifecycle") {
+            id = "votechain.android.lifecycle"
+            implementationClass = "${pluginPackage}.AndroidLifecyclePlugin"
+        }
         register("compose") {
             id = "votechain.compose"
             implementationClass = "${pluginPackage}.ComposePlugin"
@@ -53,6 +57,14 @@ gradlePlugin {
         register("serialization") {
             id = "votechain.serialization"
             implementationClass = "${pluginPackage}.KotlinSerializationPlugin"
+        }
+        register("immutableCollections") {
+            id = "votechain.immutableCollections"
+            implementationClass = "${pluginPackage}.KotlinImmutableCollectionsPlugin"
+        }
+        register("dataStore") {
+            id = "votechain.datastore"
+            implementationClass = "${pluginPackage}.DataStorePlugin"
         }
     }
 }

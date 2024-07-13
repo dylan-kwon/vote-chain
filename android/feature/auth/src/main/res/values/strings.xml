@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="backspace">Backspace</string>
+    <string name="password_set_message">Please set your password</string>
+</resources>

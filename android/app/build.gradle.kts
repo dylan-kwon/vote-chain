@@ -1,7 +1,9 @@
 plugins {
     alias(libs.plugins.votechain.android.application)
+    alias(libs.plugins.votechain.android.lifecycle)
     alias(libs.plugins.votechain.coroutine)
     alias(libs.plugins.votechain.serialization)
+    alias(libs.plugins.votechain.immutableCollections)
     alias(libs.plugins.votechain.hilt)
     alias(libs.plugins.votechain.compose)
 }
@@ -18,7 +20,10 @@ android {
 }
 
 dependencies {
+    implementation(projects.core.data.bundleDi)
     implementation(projects.core.domain.useCase)
+
+    implementation(projects.core.ui.designSystem)
 
     implementation(projects.feature.auth)
     implementation(projects.feature.vote)

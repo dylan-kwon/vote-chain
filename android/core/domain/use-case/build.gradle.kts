@@ -6,5 +6,7 @@ plugins {
 }
 
 dependencies {
+    api(projects.core.architecture.cleanArchitecture)
     api(projects.core.domain.entity)
+    implementation(projects.core.domain.port)
 }
