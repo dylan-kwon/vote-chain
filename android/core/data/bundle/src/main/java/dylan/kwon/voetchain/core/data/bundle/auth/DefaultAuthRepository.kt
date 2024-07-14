@@ -2,8 +2,8 @@ package dylan.kwon.voetchain.core.data.bundle.auth
 
 import dylan.kwon.votechain.core.coroutine.jvm.dispatcher.DispatcherProvider
 import dylan.kwon.votechain.core.data.datastore.auth.AuthDataStore
-import dylan.kwon.votechain.core.domain.entity.simplePassword.SimplePassword
-import dylan.kwon.votechain.core.domain.port.auth.AuthRepository
+import dylan.kwon.votechain.core.domain.auth.entity.SimplePassword
+import dylan.kwon.votechain.core.domain.auth.port.AuthRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.flow.map
@@ -15,20 +15,20 @@ import javax.inject.Singleton
 class DefaultAuthRepository @Inject constructor(
     private val dispatcherProvider: DispatcherProvider,
     private val authDataStore: AuthDataStore
-) : AuthRepository {
+) : dylan.kwon.votechain.core.domain.auth.port.AuthRepository {
 
     override val isInitializedSimplePassword: Flow<Boolean>
         get() = authDataStore.simplePassword.map {
             it.isNotEmpty()
         }
 
-    override suspend fun updateSimplePassword(password: SimplePassword) {
+    override suspend fun updateSimplePassword(password: dylan.kwon.votechain.core.domain.auth.entity.SimplePassword) {
         withContext(dispatcherProvider.io) {
             authDataStore.updateSimplePassword(password.value)
         }
     }
 
-    override suspend fun authSimplePassword(password: SimplePassword): Boolean {
+    override suspend fun authSimplePassword(password: dylan.kwon.votechain.core.domain.auth.entity.SimplePassword): Boolean {
         return withContext(dispatcherProvider.io) {
             authDataStore.simplePassword.firstOrNull() == password.value
         }

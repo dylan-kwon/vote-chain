@@ -8,10 +8,9 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -23,16 +22,22 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import dylan.kwon.votechain.core.ui.design_system.theme.VoteChainTheme
-import dylan.kwon.votechain.feature.auth.R
+import dylan.kwon.votechain.core.ui.design_system.theme.composable.messageCard.MessageCard
 import dylan.kwon.votechain.feature.auth.ui.composable.numPad.NumPad
 import dylan.kwon.votechain.feature.auth.ui.composable.passwordDisplay.PasswordDisplay
 
 @Composable
 internal fun SimplePasswordRoute(
     modifier: Modifier = Modifier,
-    viewModel: SimplePasswordViewModel = hiltViewModel()
+    viewModel: SimplePasswordViewModel = hiltViewModel(),
+    onResult: (SimplePasswordNavigationResult) -> Unit
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
+
+    val result = uiState.result
+    if (result == true) LaunchedEffect(result) {
+        onResult(SimplePasswordNavigationResult(result))
+    }
 
     SimplePasswordScreen(
         modifier = modifier,
@@ -81,18 +86,6 @@ internal fun SimplePasswordScreen(
 }
 
 @Composable
-fun Message(
-    modifier: Modifier = Modifier,
-    message: String
-) {
-    Text(
-        modifier = modifier,
-        text = message,
-        style = MaterialTheme.typography.headlineSmall
-    )
-}
-
-@Composable
 private fun PortraitScreen(
     modifier: Modifier = Modifier,
     uiState: SimplePasswordUiState,
@@ -108,25 +101,24 @@ private fun PortraitScreen(
                 .weight(1f)
                 .padding(horizontal = 24.dp),
             verticalArrangement = Arrangement.spacedBy(
-                48.dp, Alignment.CenterVertically
+                56.dp, Alignment.CenterVertically
             ),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            uiState.messageResId?.let { messageResId ->
-                Message(
-                    modifier = Modifier,
-                    message = stringResource(id = messageResId)
-                )
-            }
+            MessageCard(
+                message = stringResource(id = uiState.message.stringResId),
+                state = uiState.message.state
+            )
+
             PasswordDisplay(
                 modifier = Modifier.fillMaxWidth(),
-                maximumSize = uiState.maximumPasswordSize,
-                inputtedSize = uiState.inputPasswordSize
+                maximumSize = uiState.passwordLength,
+                inputtedSize = uiState.inputSize
             )
         }
+
         NumPad(
-            modifier = Modifier
-                .fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth(),
             onNumberClick = onNumberClick,
             onDeleteClick = onDeleteClick,
         )
@@ -149,20 +141,19 @@ private fun LandscapeScreen(
                 .weight(1f)
                 .padding(horizontal = 24.dp),
             verticalArrangement = Arrangement.spacedBy(
-                48.dp, Alignment.CenterVertically
+                56.dp, Alignment.CenterVertically
             ),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            uiState.messageResId?.let { messageResId ->
-                Message(
-                    modifier = Modifier,
-                    message = stringResource(id = messageResId)
-                )
-            }
+            MessageCard(
+                message = stringResource(id = uiState.message.stringResId),
+                state = uiState.message.state
+            )
+
             PasswordDisplay(
                 modifier = Modifier.fillMaxWidth(),
-                maximumSize = uiState.maximumPasswordSize,
-                inputtedSize = uiState.inputPasswordSize
+                maximumSize = uiState.passwordLength,
+                inputtedSize = uiState.inputSize
             )
         }
 
@@ -181,9 +172,7 @@ private fun LandscapeScreen(
 private fun SimplePasswordScreenLandscapePreview() {
     VoteChainTheme {
         PortraitScreen(
-            uiState = SimplePasswordUiState(
-                messageResId = R.string.password_set_message
-            ),
+            uiState = SimplePasswordUiState(),
             onNumberClick = {},
             onDeleteClick = {}
         )
@@ -195,9 +184,7 @@ private fun SimplePasswordScreenLandscapePreview() {
 private fun SimplePasswordScreenPortraitPreview() {
     VoteChainTheme {
         LandscapeScreen(
-            uiState = SimplePasswordUiState(
-                messageResId = R.string.password_set_message
-            ),
+            uiState = SimplePasswordUiState(),
             onNumberClick = {},
             onDeleteClick = {}
         )

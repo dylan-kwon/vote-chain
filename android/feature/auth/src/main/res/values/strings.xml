@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="backspace">Backspace</string>
-    <string name="password_set_message">Please set your password</string>
+    <string name="password_enter_message">Enter your password</string>
+    <string name="error">Error</string>
+    <string name="success">Success</string>
 </resources>

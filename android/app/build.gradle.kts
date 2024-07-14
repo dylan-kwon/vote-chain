@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.votechain.android.application)
+    alias(libs.plugins.votechain.android.parcelize)
     alias(libs.plugins.votechain.android.lifecycle)
     alias(libs.plugins.votechain.coroutine)
     alias(libs.plugins.votechain.serialization)
@@ -21,8 +22,9 @@ android {
 
 dependencies {
     implementation(projects.core.data.bundleDi)
-    implementation(projects.core.domain.useCase)
+    implementation(projects.core.domain)
 
+    implementation(projects.core.ui.navigation)
     implementation(projects.core.ui.designSystem)
 
     implementation(projects.feature.auth)

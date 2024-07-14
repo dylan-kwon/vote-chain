@@ -66,5 +66,9 @@ gradlePlugin {
             id = "votechain.datastore"
             implementationClass = "${pluginPackage}.DataStorePlugin"
         }
+        register("parcelize") {
+            id = "votechain.android.parcelize"
+            implementationClass = "${pluginPackage}.ParcelizePlugin"
+        }
     }
 }

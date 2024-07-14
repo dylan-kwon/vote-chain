@@ -5,7 +5,7 @@ import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dylan.kwon.voetchain.core.data.bundle.auth.DefaultAuthRepository
-import dylan.kwon.votechain.core.domain.port.auth.AuthRepository
+import dylan.kwon.votechain.core.domain.auth.port.AuthRepository
 import javax.inject.Singleton
 
 @Module
@@ -15,5 +15,5 @@ abstract class AuthRepositoryModule {
     @Singleton
     abstract fun bindsDefaultAuthRepository(
         authRepository: DefaultAuthRepository
-    ): AuthRepository
+    ): dylan.kwon.votechain.core.domain.auth.port.AuthRepository
 }

@@ -9,5 +9,5 @@ android {
 
 dependencies {
     implementation(projects.core.data.bundle)
-    implementation(projects.core.domain.port)
+    implementation(projects.core.domain)
 }

@@ -1,12 +1,10 @@
 package dylan.kwon.votechain.core.data.datastore.auth
 
 import android.content.Context
-import androidx.datastore.core.DataStore
-import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
-import androidx.datastore.preferences.preferencesDataStore
 import dagger.hilt.android.qualifiers.ApplicationContext
+import io.github.osipxd.security.crypto.encryptedPreferencesDataStore
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
@@ -14,7 +12,7 @@ import javax.inject.Singleton
 
 private const val NAME = "auth"
 
-private val Context.authDataStore: DataStore<Preferences> by preferencesDataStore(name = NAME)
+private val Context.authDataStore by encryptedPreferencesDataStore(name = NAME)
 
 @Singleton
 class DefaultAuthDataStore @Inject constructor(
@@ -33,7 +31,7 @@ class DefaultAuthDataStore @Inject constructor(
 
     override suspend fun updateSimplePassword(simplePassword: String) {
         applicationContext.authDataStore.edit { prefs ->
-            prefs[Key.SIMPLE_PASSWORD]
+            prefs[Key.SIMPLE_PASSWORD] = simplePassword
         }
     }
 }
