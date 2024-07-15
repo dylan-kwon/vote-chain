@@ -42,7 +42,7 @@ internal fun SimplePasswordRoute(
     SimplePasswordScreen(
         modifier = modifier,
         uiState = uiState,
-        onClickNumPad = viewModel::inputPassword,
+        onNumberClick = viewModel::inputPassword,
         onDeleteClick = viewModel::deletePassword
     )
 }
@@ -51,7 +51,8 @@ internal fun SimplePasswordRoute(
 internal fun SimplePasswordScreen(
     modifier: Modifier = Modifier,
     uiState: SimplePasswordUiState,
-    onClickNumPad: (number: Int) -> Unit,
+    orientation: Int = LocalConfiguration.current.orientation,
+    onNumberClick: (number: Int) -> Unit,
     onDeleteClick: () -> Unit
 ) {
     Scaffold(
@@ -62,13 +63,12 @@ internal fun SimplePasswordScreen(
             .fillMaxSize()
             .padding(paddingValues)
 
-        val configuration = LocalConfiguration.current
-        when (configuration.orientation) {
+        when (orientation) {
             Configuration.ORIENTATION_PORTRAIT -> {
                 PortraitScreen(
                     modifier = modifier,
                     uiState = uiState,
-                    onNumberClick = onClickNumPad,
+                    onNumberClick = onNumberClick,
                     onDeleteClick = onDeleteClick
                 )
             }
@@ -77,7 +77,7 @@ internal fun SimplePasswordScreen(
                 LandscapeScreen(
                     modifier = modifier,
                     uiState = uiState,
-                    onNumberClick = onClickNumPad,
+                    onNumberClick = onNumberClick,
                     onDeleteClick = onDeleteClick
                 )
             }
@@ -171,8 +171,9 @@ private fun LandscapeScreen(
 @Preview(showBackground = true)
 private fun SimplePasswordScreenLandscapePreview() {
     VoteChainTheme {
-        PortraitScreen(
+        SimplePasswordScreen(
             uiState = SimplePasswordUiState(),
+            orientation = Configuration.ORIENTATION_PORTRAIT,
             onNumberClick = {},
             onDeleteClick = {}
         )
@@ -183,8 +184,9 @@ private fun SimplePasswordScreenLandscapePreview() {
 @Preview(showBackground = true, device = Devices.AUTOMOTIVE_1024p)
 private fun SimplePasswordScreenPortraitPreview() {
     VoteChainTheme {
-        LandscapeScreen(
+        SimplePasswordScreen(
             uiState = SimplePasswordUiState(),
+            orientation = Configuration.ORIENTATION_LANDSCAPE,
             onNumberClick = {},
             onDeleteClick = {}
         )
