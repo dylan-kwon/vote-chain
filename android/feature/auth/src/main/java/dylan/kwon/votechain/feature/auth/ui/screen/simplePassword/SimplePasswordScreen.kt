@@ -169,7 +169,7 @@ private fun LandscapeScreen(
 
 @Composable
 @Preview(showBackground = true)
-private fun SimplePasswordScreenLandscapePreview() {
+private fun LandscapePreview() {
     VoteChainTheme {
         SimplePasswordScreen(
             uiState = SimplePasswordUiState(),
@@ -182,7 +182,7 @@ private fun SimplePasswordScreenLandscapePreview() {
 
 @Composable
 @Preview(showBackground = true, device = Devices.AUTOMOTIVE_1024p)
-private fun SimplePasswordScreenPortraitPreview() {
+private fun PortraitPreview() {
     VoteChainTheme {
         SimplePasswordScreen(
             uiState = SimplePasswordUiState(),

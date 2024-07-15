@@ -15,5 +15,5 @@ abstract class AuthRepositoryModule {
     @Singleton
     abstract fun bindsDefaultAuthRepository(
         authRepository: DefaultAuthRepository
-    ): dylan.kwon.votechain.core.domain.auth.port.AuthRepository
+    ): AuthRepository
 }

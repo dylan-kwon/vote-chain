@@ -70,5 +70,9 @@ gradlePlugin {
             id = "votechain.android.parcelize"
             implementationClass = "${pluginPackage}.ParcelizePlugin"
         }
+        register("androidFeature") {
+            implementationClass = "${pluginPackage}.AndroidFeaturePlugin"
+            id = "votechain.android.feature"
+        }
     }
 }

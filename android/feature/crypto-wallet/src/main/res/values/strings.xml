@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="crypto_wallet">Crypto Wallet</string>
+    <string name="create_new_crypto_wallet">Create New Crypto Wallet</string>
+    <string name="load">Load</string>
+    <string name="create">Create</string>
+    <string name="refresh">Refresh</string>
+    <string name="copy">Copy</string>
+    <string name="next">Next</string>
+    <string name="mnemonic">Mnemonic</string>
+    <string name="mnemonic_guide_message">Please remember the following words.</string>
+</resources>
