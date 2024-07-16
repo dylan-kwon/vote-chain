@@ -2,7 +2,7 @@ package dylan.kwon.votechain.feature.crypto_wallet.ui.newCryptoWallet
 
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
-import androidx.navigation.NavOptions
+import androidx.navigation.NavOptionsBuilder
 import androidx.navigation.compose.composable
 import kotlinx.serialization.Serializable
 
@@ -10,18 +10,18 @@ import kotlinx.serialization.Serializable
 object NewCryptoWalletNavigation
 
 fun NavGraphBuilder.attachNewCryptoWalletScreen(
-    onNextClick: () -> Unit,
+    onCryptoWalletCreated: () -> Unit
 ) {
     composable<NewCryptoWalletNavigation> {
         NewCryptoWalletRoute(
-            onNextClick = onNextClick
+            onCryptoWalletCreated = onCryptoWalletCreated
         )
     }
 }
 
 fun NavHostController.navigateToNewCryptoWallet(
-    navOptions: NavOptions? = null,
+    builder: NavOptionsBuilder.() -> Unit = {},
 ) {
-    navigate(NewCryptoWalletNavigation, navOptions)
+    navigate(NewCryptoWalletNavigation, builder)
 }
 

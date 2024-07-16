@@ -1,6 +1,6 @@
 package dylan.kwon.votechain.core.domain.auth.usecase
 
-import dylan.kwon.votechain.core.architecture.clean_architecture.SuspendUseCase
+import dylan.kwon.votechain.core.architecture.clean_architecture.UseCase
 import dylan.kwon.votechain.core.domain.auth.entity.SimplePassword
 import dylan.kwon.votechain.core.domain.auth.port.AuthRepository
 import kotlinx.coroutines.flow.first
@@ -8,7 +8,7 @@ import javax.inject.Inject
 
 class SubmitSimplePasswordUseCase @Inject constructor(
     private val authRepository: AuthRepository
-) : SuspendUseCase<SimplePassword, Boolean>() {
+) : UseCase<SimplePassword, Boolean>() {
 
     override suspend fun onInvoke(input: SimplePassword): Boolean {
         if (!input.isValidate) {

@@ -6,11 +6,13 @@ import androidx.navigation.compose.NavHost
 import dylan.kwon.votechain.core.ui.navigation.result.setResult
 import dylan.kwon.votechain.feature.auth.ui.screen.simplePassword.SimplePasswordNavigationResult
 import dylan.kwon.votechain.feature.auth.ui.screen.simplePassword.attachSimplePasswordScreen
+import dylan.kwon.votechain.feature.auth.ui.screen.simplePassword.navigateToSimplePassword
 import dylan.kwon.votechain.feature.crypto_wallet.ui.addCryptoWallet.attachAddCryptoWalletScreen
 import dylan.kwon.votechain.feature.crypto_wallet.ui.addCryptoWallet.navigateToAddCryptoWallet
 import dylan.kwon.votechain.feature.crypto_wallet.ui.newCryptoWallet.NewCryptoWalletNavigation
 import dylan.kwon.votechain.feature.crypto_wallet.ui.newCryptoWallet.attachNewCryptoWalletScreen
 import dylan.kwon.votechain.ui.VoteChainAppState
+import dylan.kwon.votechain.ui.screen.main.MainNavigation
 import dylan.kwon.votechain.ui.screen.main.attachMainScreen
 
 @Composable
@@ -45,8 +47,10 @@ fun VoteChainNavHost(
         )
 
         attachNewCryptoWalletScreen(
-            onNextClick = {
-                // todo:
+            onCryptoWalletCreated = {
+                appState.navController.navigateToSimplePassword {
+                    popUpTo(MainNavigation)
+                }
             }
         )
     }

@@ -2,7 +2,7 @@ package dylan.kwon.votechain.feature.crypto_wallet.ui.addCryptoWallet
 
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
-import androidx.navigation.NavOptions
+import androidx.navigation.NavOptionsBuilder
 import androidx.navigation.compose.composable
 import kotlinx.serialization.Serializable
 
@@ -24,8 +24,8 @@ fun NavGraphBuilder.attachAddCryptoWalletScreen(
 }
 
 fun NavHostController.navigateToAddCryptoWallet(
-    navOptions: NavOptions? = null,
+    builder: NavOptionsBuilder.() -> Unit = {},
 ) {
-    navigate(AddCryptoWalletNavigation, navOptions)
+    navigate(AddCryptoWalletNavigation, builder)
 }
 

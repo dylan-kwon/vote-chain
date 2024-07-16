@@ -4,6 +4,7 @@ import android.os.Parcelable
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.NavOptions
+import androidx.navigation.NavOptionsBuilder
 import androidx.navigation.compose.composable
 import kotlinx.parcelize.Parcelize
 import kotlinx.serialization.Serializable
@@ -32,8 +33,8 @@ fun NavGraphBuilder.attachSimplePasswordScreen(
 }
 
 fun NavHostController.navigateToSimplePassword(
-    navOptions: NavOptions? = null,
+    builder: NavOptionsBuilder.() -> Unit = {},
 ) {
-    navigate(SimplePasswordNavigation, navOptions)
+    navigate(SimplePasswordNavigation, builder)
 }
 

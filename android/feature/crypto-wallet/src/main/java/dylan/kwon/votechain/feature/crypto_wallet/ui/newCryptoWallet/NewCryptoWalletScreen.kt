@@ -5,7 +5,6 @@ package dylan.kwon.votechain.feature.crypto_wallet.ui.newCryptoWallet
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
-import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.Crossfade
 import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.layout.Arrangement
@@ -21,6 +20,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -44,6 +44,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -61,14 +62,19 @@ import kotlinx.collections.immutable.persistentListOf
 @Composable
 internal fun NewCryptoWalletRoute(
     viewModel: NewCryptoWalletViewModel = hiltViewModel(),
-    onNextClick: () -> Unit
+    onCryptoWalletCreated: () -> Unit
 ) {
     val context = LocalContext.current
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
+
+    if (uiState.cryptoWalletState.isSaved) LaunchedEffect(Unit) {
+        onCryptoWalletCreated()
+    }
+
     NewCryptoWalletScreen(
         uiState = uiState,
         onRefreshClick = viewModel::refresh,
-        onNextClick = onNextClick,
+        onNextClick = viewModel::save,
         onCopyClick = {
             context.copyMnemonic(uiState.mnemonic)
         },
@@ -97,8 +103,9 @@ internal fun NewCryptoWalletScreen(
             )
         },
         floatingActionButton = {
-            AnimatedVisibility(visible = uiState.mnemonic.isLoaded) {
+            if (uiState.mnemonic.isLoaded) {
                 NextButton(
+                    isProgress = uiState.cryptoWalletState.isSaving,
                     onClick = onNextClick
                 )
             }
@@ -122,24 +129,16 @@ internal fun NewCryptoWalletScreen(
                     .padding(4.dp),
                 mnemonic = uiState.mnemonic,
                 onRefreshClick = onRefreshClick,
-            )
-            Spacer(
-                modifier = Modifier.height(24.dp)
-            )
-            if (uiState.mnemonic.isLoaded) {
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.spacedBy(8.dp, Alignment.End),
-                ) {
-                    RefreshButton(
-                        onClick = onRefreshClick
-                    )
-                    CopyButton(
-                        onClick = onCopyClick
-                    )
+                menus = {
+                    if (uiState.isShowingMnemonicMenus) {
+                        MnemonicMenus(
+                            modifier = Modifier.padding(top = 24.dp),
+                            onCopyClick = onCopyClick,
+                            onRefreshClick = onRefreshClick,
+                        )
+                    }
                 }
-            }
+            )
         }
     }
 }
@@ -148,7 +147,8 @@ internal fun NewCryptoWalletScreen(
 private fun Mnemonic(
     modifier: Modifier = Modifier,
     mnemonic: NewCryptoWalletUiState.Mnemonic,
-    onRefreshClick: () -> Unit
+    onRefreshClick: () -> Unit,
+    menus: (@Composable () -> Unit)? = null
 ) {
     Crossfade(
         modifier = Modifier.animateContentSize(),
@@ -162,7 +162,8 @@ private fun Mnemonic(
 
             is NewCryptoWalletUiState.Mnemonic.Loaded -> MnemonicLoaded(
                 modifier = modifier,
-                mnemonic = it
+                mnemonic = it,
+                menus = menus
             )
 
             is NewCryptoWalletUiState.Mnemonic.Error -> MnemonicError(
@@ -188,17 +189,23 @@ private fun MnemonicLoading(
 @Composable
 private fun MnemonicLoaded(
     modifier: Modifier = Modifier,
-    mnemonic: NewCryptoWalletUiState.Mnemonic.Loaded
+    mnemonic: NewCryptoWalletUiState.Mnemonic.Loaded,
+    menus: (@Composable () -> Unit)? = null
 ) {
-    FlowRow(
-        modifier = modifier,
-        verticalArrangement = Arrangement.spacedBy(8.dp, Alignment.Top),
-        horizontalArrangement = Arrangement.spacedBy(8.dp, Alignment.Start),
-    ) {
-        repeat(mnemonic.size) { index ->
-            MnemonicItem(
-                word = mnemonic.words[index]
-            )
+    Column {
+        FlowRow(
+            modifier = modifier,
+            verticalArrangement = Arrangement.spacedBy(8.dp, Alignment.Top),
+            horizontalArrangement = Arrangement.spacedBy(8.dp, Alignment.Start),
+        ) {
+            repeat(mnemonic.size) { index ->
+                MnemonicItem(
+                    word = mnemonic.words[index]
+                )
+            }
+        }
+        menus?.let {
+            it()
         }
     }
 }
@@ -247,6 +254,26 @@ private fun MnemonicItem(
 }
 
 @Composable
+fun MnemonicMenus(
+    modifier: Modifier = Modifier,
+    onRefreshClick: () -> Unit,
+    onCopyClick: () -> Unit
+) {
+    Row(
+        modifier = modifier.fillMaxWidth(),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(8.dp, Alignment.End),
+    ) {
+        RefreshButton(
+            onClick = onRefreshClick
+        )
+        CopyButton(
+            onClick = onCopyClick
+        )
+    }
+}
+
+@Composable
 private fun RefreshButton(
     modifier: Modifier = Modifier,
     onClick: () -> Unit
@@ -287,16 +314,24 @@ private fun CopyButton(
 @Composable
 private fun NextButton(
     modifier: Modifier = Modifier,
+    isProgress: Boolean = false,
     onClick: () -> Unit
 ) {
     FloatingActionButton(
         modifier = modifier,
         onClick = onClick
     ) {
-        Icon(
-            imageVector = Icons.Default.PlayArrow,
-            contentDescription = stringResource(id = R.string.next),
-        )
+        when (isProgress) {
+            true -> CircularProgressIndicator(
+                modifier = Modifier.size(24.dp),
+                strokeWidth = 2.dp
+            )
+
+            else -> Icon(
+                imageVector = Icons.Default.PlayArrow,
+                contentDescription = stringResource(id = R.string.next),
+            )
+        }
     }
 }
 

@@ -1,6 +1,6 @@
 package dylan.kwon.votechain.core.ui.design_system.theme.composable.messageCard
 
-import androidx.compose.animation.AnimatedContent
+import androidx.compose.animation.Crossfade
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -16,12 +16,12 @@ fun MessageCard(
     message: String,
     state: MessageCard.State
 ) {
-    AnimatedContent(
+    Crossfade(
         modifier = modifier,
-        targetState = message,
+        targetState = state,
         label = "messageCard-crossFade"
     ) {
-        when (state) {
+        when (it) {
             MessageCard.State.Default -> DefaultMessageCard(message = message)
             MessageCard.State.Success -> SuccessMessageCard(message = message)
             MessageCard.State.Error -> ErrorMessageCard(message = message)

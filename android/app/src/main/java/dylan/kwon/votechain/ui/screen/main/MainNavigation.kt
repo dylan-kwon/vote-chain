@@ -4,6 +4,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.NavOptions
+import androidx.navigation.NavOptionsBuilder
 import androidx.navigation.compose.composable
 import kotlinx.serialization.Serializable
 
@@ -20,8 +21,8 @@ fun NavGraphBuilder.attachMainScreen(go: () -> Unit) {
 }
 
 fun NavHostController.navigateToMain(
-    navOptions: NavOptions? = null,
+    builder: NavOptionsBuilder.() -> Unit = {},
 ) {
-    navigate(MainNavigation, navOptions)
+    navigate(MainNavigation, builder)
 }
 

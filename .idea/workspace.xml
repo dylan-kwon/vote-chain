@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7fb9e483-79da-4d17-940e-191076c70784" name="Changes" comment="Update .gitignore of Remix.">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="7fb9e483-79da-4d17-940e-191076c70784" name="Changes" comment="[Android] Add android project and common gradle plugins">
+      <change beforePath="$PROJECT_DIR$/android/.idea/deploymentTargetSelector.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/.idea/deploymentTargetSelector.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/feature/crypto-wallet/src/main/java/dylan/kwon/votechain/feature/crypto_wallet/ui/newCryptoWallet/NewCryptoWalletScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/feature/crypto-wallet/src/main/java/dylan/kwon/votechain/feature/crypto_wallet/ui/newCryptoWallet/NewCryptoWalletScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/feature/crypto-wallet/src/main/java/dylan/kwon/votechain/feature/crypto_wallet/ui/newCryptoWallet/NewCryptoWalletViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/feature/crypto-wallet/src/main/java/dylan/kwon/votechain/feature/crypto_wallet/ui/newCryptoWallet/NewCryptoWalletViewModel.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,21 +70,6 @@
       <recent name="$PROJECT_DIR$/contract/script" />
       <recent name="$PROJECT_DIR$/contract/solidity" />
     </key>
-  </component>
-  <component name="RunManager">
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="VoteChain" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="VoteChain" />
-      <option name="filePath" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -317,15 +302,61 @@
       <option name="project" value="LOCAL" />
       <updated>1720037281906</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="[Contract] Update contract README.md&#10;- Correcting a typo">
+      <option name="closed" value="true" />
+      <created>1720528926359</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1720528926359</updated>
+    </task>
+    <task id="LOCAL-00028" summary="[Android] Add android project and common gradle plugins">
+      <option name="closed" value="true" />
+      <created>1720626015707</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1720626015707</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="7f22338a-c77a-4a5d-8272-36b81eb9eb1e" value="TOOL_WINDOW" />
+      </map>
+    </option>
     <option name="TAB_STATES">
       <map>
+        <entry key="7f22338a-c77a-4a5d-8272-36b81eb9eb1e">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="roots">
+                    <value>
+                      <list>
+                        <option value="$PROJECT_DIR$" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+            </State>
+          </value>
+        </entry>
         <entry key="MAIN">
           <value>
             <State />
@@ -356,6 +387,9 @@
     <MESSAGE value="Add README.md scripts/../vote/close" />
     <MESSAGE value="Add README.md contract" />
     <MESSAGE value="Update .gitignore of Remix." />
-    <option name="LAST_COMMIT_MESSAGE" value="Update .gitignore of Remix." />
+    <MESSAGE value="[Contract] Update contract README.md&#10;- gasLimit to chainLinkGasLimit" />
+    <MESSAGE value="[Contract] Update contract README.md&#10;- Correcting a typo" />
+    <MESSAGE value="[Android] Add android project and common gradle plugins" />
+    <option name="LAST_COMMIT_MESSAGE" value="[Android] Add android project and common gradle plugins" />
   </component>
 </project>
