@@ -63,7 +63,7 @@ class AndroidApplicationPlugin : ProjectPlugin() {
     private fun ApplicationExtension.configureBuildType() {
         buildTypes {
             BuildType.values().forEach { buildType ->
-                getByName(BuildType.Release.buildName) {
+                getByName(buildType.buildName) {
                     isShrinkResources = buildType.isShrinkResources
 
                     signingConfig = signingConfigs.getByName(buildType.keyStore.buildName)
@@ -79,6 +79,7 @@ class AndroidApplicationPlugin : ProjectPlugin() {
 
     override fun DependencyHandler.onDependencies() {
         addAndroidCommonDependencies(libs)
+        add("implementation", libs.findLibrary("androidx-startup-runtime").get())
     }
 
 }
