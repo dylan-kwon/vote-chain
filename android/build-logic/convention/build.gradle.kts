@@ -74,5 +74,9 @@ gradlePlugin {
             implementationClass = "${pluginPackage}.AndroidFeaturePlugin"
             id = "votechain.android.feature"
         }
+        register("firebase") {
+            implementationClass = "${pluginPackage}.FirebasePlugin"
+            id = "votechain.firebase"
+        }
     }
 }

@@ -14,13 +14,14 @@ import dylan.kwon.votechain.feature.crypto_wallet.ui.loadCryptoWallet.navigateTo
 import dylan.kwon.votechain.feature.crypto_wallet.ui.newCryptoWallet.attachNewCryptoWalletScreen
 import dylan.kwon.votechain.feature.crypto_wallet.ui.newCryptoWallet.navigateToNewCryptoWallet
 import dylan.kwon.votechain.ui.VoteChainAppState
+import dylan.kwon.votechain.ui.screen.main.MainNavigation
 import dylan.kwon.votechain.ui.screen.main.attachMainScreen
 
 @Composable
 fun VoteChainNavHost(
     modifier: Modifier = Modifier,
     appState: VoteChainAppState,
-    startDestination: Any = AddCryptoWalletNavigation
+    startDestination: Any = MainNavigation
 ) {
     NavHost(
         modifier = modifier,

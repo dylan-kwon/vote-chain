@@ -7,6 +7,7 @@ plugins {
     alias(libs.plugins.votechain.immutableCollections)
     alias(libs.plugins.votechain.hilt)
     alias(libs.plugins.votechain.compose)
+    alias(libs.plugins.votechain.firebase)
 }
 
 android {

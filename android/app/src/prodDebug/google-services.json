@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "94876122270",
+    "project_id": "vote-chain-e92b0",
+    "storage_bucket": "vote-chain-e92b0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:94876122270:android:e07ff16c110f1914044f8f",
+        "android_client_info": {
+          "package_name": "dylan.kwon.votechain.debug"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "94876122270-20q01h06o7rfkl7pq3ot0terngd78hnf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARZuhTk0pDuml6gppryAvmEzxDA2JLLvA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "94876122270-20q01h06o7rfkl7pq3ot0terngd78hnf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
