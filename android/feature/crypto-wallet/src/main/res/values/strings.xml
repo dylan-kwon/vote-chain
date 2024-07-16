@@ -3,10 +3,12 @@
     <string name="crypto_wallet">Crypto Wallet</string>
     <string name="create_new_crypto_wallet">Create New Crypto Wallet</string>
     <string name="load">Load</string>
+    <string name="load_crypto_wallet">Load Crypto Wallet</string>
     <string name="create">Create</string>
     <string name="refresh">Refresh</string>
     <string name="copy">Copy</string>
     <string name="next">Next</string>
     <string name="mnemonic">Mnemonic</string>
     <string name="mnemonic_guide_message">Please remember the following words.</string>
+    <string name="mnemonic_input_hint">Input your mnemonic.</string>
 </resources>

@@ -11,7 +11,7 @@ class SubmitSimplePasswordUseCase @Inject constructor(
 ) : UseCase<SimplePassword, Boolean>() {
 
     override suspend fun onInvoke(input: SimplePassword): Boolean {
-        if (!input.isValidate) {
+        if (!input.isValid) {
             return false
         }
         return when (isInitialized()) {

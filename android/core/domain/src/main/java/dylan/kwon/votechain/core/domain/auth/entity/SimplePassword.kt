@@ -8,5 +8,5 @@ data class SimplePassword(
         const val PASSWORD_LENGTH = 6
     }
 
-    internal val isValidate = value.length == PASSWORD_LENGTH
+    internal val isValid = value.length == PASSWORD_LENGTH
 }

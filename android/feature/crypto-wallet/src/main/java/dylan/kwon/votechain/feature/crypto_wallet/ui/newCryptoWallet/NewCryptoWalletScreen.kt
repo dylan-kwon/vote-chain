@@ -20,7 +20,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -35,7 +34,6 @@ import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -56,6 +54,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import dylan.kwon.votechain.core.ui.design_system.theme.VoteChainTheme
+import dylan.kwon.votechain.core.ui.design_system.theme.composable.loadingActionButton.LoadingActionButton
 import dylan.kwon.votechain.feature.crypto_wallet.R
 import kotlinx.collections.immutable.persistentListOf
 
@@ -67,7 +66,7 @@ internal fun NewCryptoWalletRoute(
     val context = LocalContext.current
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
-    if (uiState.cryptoWalletState.isSaved) LaunchedEffect(Unit) {
+    if (uiState.cryptoWalletState.isSaved) LaunchedEffect(onCryptoWalletCreated) {
         onCryptoWalletCreated()
     }
 
@@ -105,7 +104,7 @@ internal fun NewCryptoWalletScreen(
         floatingActionButton = {
             if (uiState.mnemonic.isLoaded) {
                 NextButton(
-                    isProgress = uiState.cryptoWalletState.isSaving,
+                    isLoading = uiState.cryptoWalletState.isSaving,
                     onClick = onNextClick
                 )
             }
@@ -314,25 +313,20 @@ private fun CopyButton(
 @Composable
 private fun NextButton(
     modifier: Modifier = Modifier,
-    isProgress: Boolean = false,
+    isLoading: Boolean = false,
     onClick: () -> Unit
 ) {
-    FloatingActionButton(
+    LoadingActionButton(
         modifier = modifier,
-        onClick = onClick
-    ) {
-        when (isProgress) {
-            true -> CircularProgressIndicator(
-                modifier = Modifier.size(24.dp),
-                strokeWidth = 2.dp
-            )
-
-            else -> Icon(
+        isLoading = isLoading,
+        icon = {
+            Icon(
                 imageVector = Icons.Default.PlayArrow,
                 contentDescription = stringResource(id = R.string.next),
             )
-        }
-    }
+        },
+        onClick = onClick
+    )
 }
 
 private fun Context.copyMnemonic(mnemonic: NewCryptoWalletUiState.Mnemonic) {
