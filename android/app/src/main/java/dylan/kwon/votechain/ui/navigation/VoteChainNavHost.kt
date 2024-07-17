@@ -6,7 +6,7 @@ import androidx.navigation.compose.NavHost
 import dylan.kwon.votechain.core.ui.navigation.result.setResult
 import dylan.kwon.votechain.feature.auth.ui.screen.simplePassword.SimplePasswordNavigationResult
 import dylan.kwon.votechain.feature.auth.ui.screen.simplePassword.attachSimplePasswordScreen
-import dylan.kwon.votechain.feature.crypto_wallet.ui.addCryptoWallet.AddCryptoWalletNavigation
+import dylan.kwon.votechain.feature.auth.ui.screen.simplePassword.navigateToSimplePassword
 import dylan.kwon.votechain.feature.crypto_wallet.ui.addCryptoWallet.attachAddCryptoWalletScreen
 import dylan.kwon.votechain.feature.crypto_wallet.ui.addCryptoWallet.navigateToAddCryptoWallet
 import dylan.kwon.votechain.feature.crypto_wallet.ui.loadCryptoWallet.attachLoadCryptoWalletScreen
@@ -23,40 +23,44 @@ fun VoteChainNavHost(
     appState: VoteChainAppState,
     startDestination: Any = MainNavigation
 ) {
+    val navController = appState.navController
+
     NavHost(
         modifier = modifier,
-        navController = appState.navController,
+        navController = navController,
         startDestination = startDestination
     ) {
-        attachMainScreen {
-            appState.navController.navigateToAddCryptoWallet()
-        }
+        attachMainScreen(
+            onNavigateToAddCryptoWallet = {
+                navController.navigateToAddCryptoWallet()
+            }
+        )
 
         attachSimplePasswordScreen(
             onResult = { result ->
-                appState.navController.setResult(SimplePasswordNavigationResult.KEY, result)
-                appState.navController.popBackStack()
+                navController.setResult(SimplePasswordNavigationResult.KEY, result)
+                navController.popBackStack()
             }
         )
 
         attachAddCryptoWalletScreen(
             onCreateClick = {
-                appState.navController.navigateToNewCryptoWallet()
+                navController.navigateToNewCryptoWallet()
             },
             onLoadClick = {
-                appState.navController.navigateToLoadCryptoWallet()
+                navController.navigateToLoadCryptoWallet()
             }
         )
 
         attachNewCryptoWalletScreen(
             onCryptoWalletCreated = {
-                appState.navController.popBackStack()
+                navController.popBackStack()
             }
         )
 
         attachLoadCryptoWalletScreen(
             onCryptoWalletLoaded = {
-                appState.navController.popBackStack()
+                navController.popBackStack()
             }
         )
     }

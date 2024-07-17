@@ -9,6 +9,7 @@ import dylan.kwon.votechain.core.data.web3j.bip39.model.Bip39CryptoWallet
 import dylan.kwon.votechain.core.domain.cryptoWallet.entity.CryptoWallet
 import dylan.kwon.votechain.core.domain.cryptoWallet.entity.Mnemonic
 import dylan.kwon.votechain.core.domain.cryptoWallet.port.CryptoWalletRepository
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -52,6 +53,12 @@ class DefaultCryptoWalletRepository @Inject constructor(
                 publicKey = cryptoWallet.publicKey,
                 privateKey = cryptoWallet.privateKey
             )
+        }
+    }
+
+    override suspend fun hasCryptoWallet(): Boolean {
+        return withContext(dispatcherProvider.io) {
+            dataStore.privateKey.first().isNotEmpty()
         }
     }
 }

@@ -1,9 +1,7 @@
 package dylan.kwon.votechain.ui.screen.main
 
-import androidx.compose.runtime.LaunchedEffect
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
-import androidx.navigation.NavOptions
 import androidx.navigation.NavOptionsBuilder
 import androidx.navigation.compose.composable
 import kotlinx.serialization.Serializable
@@ -11,12 +9,13 @@ import kotlinx.serialization.Serializable
 @Serializable
 object MainNavigation
 
-fun NavGraphBuilder.attachMainScreen(go: () -> Unit) {
+fun NavGraphBuilder.attachMainScreen(
+    onNavigateToAddCryptoWallet: () -> Unit
+) {
     composable<MainNavigation> {
-        MainRoute()
-        LaunchedEffect(Unit) {
-            go()
-        }
+        MainRoute(
+            onNavigateToAddCryptoWallet = onNavigateToAddCryptoWallet
+        )
     }
 }
 

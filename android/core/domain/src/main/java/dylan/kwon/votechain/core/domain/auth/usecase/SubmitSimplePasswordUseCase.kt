@@ -21,7 +21,7 @@ class SubmitSimplePasswordUseCase @Inject constructor(
     }
 
     private suspend fun isInitialized() =
-        authRepository.isInitializedSimplePassword.first()
+        authRepository.isSetupSimplePassword.first()
 
     private suspend fun onInitialized(password: SimplePassword): Boolean {
         return authRepository.authSimplePassword(password)

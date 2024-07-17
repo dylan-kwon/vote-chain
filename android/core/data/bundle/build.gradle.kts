@@ -12,5 +12,6 @@ dependencies {
     implementation(projects.core.domain)
     implementation(projects.core.coroutine.jvm)
     implementation(projects.core.data.datastore)
+    implementation(projects.core.data.firebase)
     implementation(projects.core.data.web3j)
 }

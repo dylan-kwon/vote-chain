@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">VoteChain</string>
+
+    <string name="exit">Exit</string>
+    <string name="error">Error</string>
+    <string name="auth_error_message">User authentication failed</string>
 </resources>

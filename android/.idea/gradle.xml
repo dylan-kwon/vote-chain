@@ -37,9 +37,11 @@
             <option value="$PROJECT_DIR$/core/data/bundle" />
             <option value="$PROJECT_DIR$/core/data/bundle-di" />
             <option value="$PROJECT_DIR$/core/data/datastore" />
+            <option value="$PROJECT_DIR$/core/data/firebase" />
             <option value="$PROJECT_DIR$/core/data/web3j" />
             <option value="$PROJECT_DIR$/core/domain" />
             <option value="$PROJECT_DIR$/core/ui" />
+            <option value="$PROJECT_DIR$/core/ui/compose-ext" />
             <option value="$PROJECT_DIR$/core/ui/design-system" />
             <option value="$PROJECT_DIR$/core/ui/navigation" />
             <option value="$PROJECT_DIR$/feature" />

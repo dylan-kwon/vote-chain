@@ -5,7 +5,9 @@ import kotlinx.coroutines.flow.Flow
 
 interface AuthRepository {
 
-    val isInitializedSimplePassword: Flow<Boolean>
+    val isSetupSimplePassword: Flow<Boolean>
+
+    suspend fun auth(): Boolean
 
     suspend fun updateSimplePassword(password: SimplePassword)
 
