@@ -139,13 +139,11 @@ private fun LandscapeContent(
                 .weight(1f)
                 .offset(y = (-64).dp)
         )
-        Spacer(
-            modifier = Modifier.width(56.dp)
-        )
         Column(
             modifier = Modifier
                 .weight(1f)
-                .fillMaxHeight(),
+                .fillMaxHeight()
+                .padding(horizontal = 56.dp),
             verticalArrangement = Arrangement.Center
         ) {
             CreateButton(
