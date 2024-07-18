@@ -13,9 +13,11 @@ import dylan.kwon.votechain.feature.crypto_wallet.ui.loadCryptoWallet.attachLoad
 import dylan.kwon.votechain.feature.crypto_wallet.ui.loadCryptoWallet.navigateToLoadCryptoWallet
 import dylan.kwon.votechain.feature.crypto_wallet.ui.newCryptoWallet.attachNewCryptoWalletScreen
 import dylan.kwon.votechain.feature.crypto_wallet.ui.newCryptoWallet.navigateToNewCryptoWallet
+import dylan.kwon.votechain.feature.vote.list.attachVoteListScreen
 import dylan.kwon.votechain.ui.VoteChainAppState
 import dylan.kwon.votechain.ui.screen.main.MainNavigation
 import dylan.kwon.votechain.ui.screen.main.attachMainScreen
+import dylan.kwon.votechain.ui.screen.main.popToMain
 
 @Composable
 fun VoteChainNavHost(
@@ -31,8 +33,11 @@ fun VoteChainNavHost(
         startDestination = startDestination
     ) {
         attachMainScreen(
-            onNavigateToAddCryptoWallet = {
+            onNeedCryptoWallet = {
                 navController.navigateToAddCryptoWallet()
+            },
+            onNeedSimplePasswordVerify = {
+                navController.navigateToSimplePassword()
             }
         )
 
@@ -54,14 +59,16 @@ fun VoteChainNavHost(
 
         attachNewCryptoWalletScreen(
             onCryptoWalletCreated = {
-                navController.popBackStack()
+                navController.popToMain()
             }
         )
 
         attachLoadCryptoWalletScreen(
             onCryptoWalletLoaded = {
-                navController.popBackStack()
+                navController.popToMain()
             }
         )
+
+        attachVoteListScreen()
     }
 }

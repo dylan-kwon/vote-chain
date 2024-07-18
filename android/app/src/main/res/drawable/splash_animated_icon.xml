@@ -1,0 +1,89 @@
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt">
+
+    <aapt:attr name="android:drawable">
+        <vector
+            android:width="288dp"
+            android:height="288dp"
+            android:viewportWidth="288"
+            android:viewportHeight="288">
+
+            <!-- Group for the circle -->
+            <group
+                android:name="check_circle"
+                android:pivotX="144"
+                android:pivotY="144"
+                android:scaleX="0"
+                android:scaleY="0">
+                <path
+                    android:name="circle"
+                    android:fillColor="#00000000"
+                    android:pathData="M144,48a96,96 0,1 1,0,192a96,96 0,1 1,0,-192"
+                    android:strokeWidth="8"
+                    android:strokeColor="#BB86FC" />
+            </group>
+
+            <!-- Group for the check mark -->
+            <group
+                android:name="check_mark"
+                android:pivotX="48"
+                android:pivotY="48"
+                android:scaleX="0"
+                android:scaleY="0"
+                android:translateX="96"
+                android:translateY="96">
+                <path
+                    android:name="check"
+                    android:fillColor="#00000000"
+                    android:pathData="M12,48L36,72L84,24"
+                    android:strokeWidth="8"
+                    android:strokeColor="#BB86FC"
+                    android:strokeLineCap="round" />
+            </group>
+
+        </vector>
+    </aapt:attr>
+
+    <!-- Animation for the circle -->
+    <target android:name="check_circle">
+        <aapt:attr name="android:animation">
+            <set xmlns:android="http://schemas.android.com/apk/res/android">
+                <objectAnimator
+                    android:duration="500"
+                    android:interpolator="@android:interpolator/accelerate_decelerate"
+                    android:propertyName="scaleX"
+                    android:valueFrom="0"
+                    android:valueTo="1" />
+                <objectAnimator
+                    android:duration="500"
+                    android:interpolator="@android:interpolator/accelerate_decelerate"
+                    android:propertyName="scaleY"
+                    android:valueFrom="0"
+                    android:valueTo="1" />
+            </set>
+        </aapt:attr>
+    </target>
+
+    <!-- Animation for the check mark -->
+    <target android:name="check_mark">
+        <aapt:attr name="android:animation">
+            <set xmlns:android="http://schemas.android.com/apk/res/android">
+                <objectAnimator
+                    android:duration="500"
+                    android:interpolator="@android:interpolator/accelerate_decelerate"
+                    android:propertyName="scaleX"
+                    android:startOffset="500"
+                    android:valueFrom="0"
+                    android:valueTo="1" />
+                <objectAnimator
+                    android:duration="500"
+                    android:interpolator="@android:interpolator/accelerate_decelerate"
+                    android:propertyName="scaleY"
+                    android:startOffset="500"
+                    android:valueFrom="0"
+                    android:valueTo="1" />
+            </set>
+        </aapt:attr>
+    </target>
+
+</animated-vector>

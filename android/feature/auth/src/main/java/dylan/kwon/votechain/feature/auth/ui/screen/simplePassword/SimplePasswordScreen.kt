@@ -1,6 +1,7 @@
 package dylan.kwon.votechain.feature.auth.ui.screen.simplePassword
 
 import android.content.res.Configuration
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -15,12 +16,14 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import dylan.kwon.votechain.core.ui.compose_ext.findActivity
 import dylan.kwon.votechain.core.ui.design_system.theme.VoteChainTheme
 import dylan.kwon.votechain.core.ui.design_system.theme.composable.messageCard.MessageCard
 import dylan.kwon.votechain.feature.auth.ui.composable.numPad.NumPad
@@ -32,6 +35,7 @@ internal fun SimplePasswordRoute(
     viewModel: SimplePasswordViewModel = hiltViewModel(),
     onResult: (SimplePasswordNavigationResult) -> Unit
 ) {
+    val context = LocalContext.current
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
     val result = uiState.result
@@ -45,6 +49,10 @@ internal fun SimplePasswordRoute(
         onNumberClick = viewModel::inputPassword,
         onDeleteClick = viewModel::deletePassword
     )
+
+    BackHandler {
+        context.findActivity().finish()
+    }
 }
 
 @Composable

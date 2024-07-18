@@ -1,7 +1,7 @@
-@file:OptIn(ExperimentalStdlibApi::class)
-
 package dylan.kwon.voetchain.core.data.bundle.cryptoWallet
 
+import dylan.kwon.voetchain.core.data.bundle.cryptoWallet.mapper.toCryptoWallet
+import dylan.kwon.voetchain.core.data.bundle.cryptoWallet.mapper.toMnemonic
 import dylan.kwon.votechain.core.coroutine.jvm.dispatcher.DispatcherProvider
 import dylan.kwon.votechain.core.data.datastore.cryptoWallet.CryptoWalletDataStore
 import dylan.kwon.votechain.core.data.web3j.bip39.Bip39
@@ -28,9 +28,7 @@ class DefaultCryptoWalletRepository @Inject constructor(
 
     override suspend fun createMnemonic(): Mnemonic {
         return withContext(dispatcherProvider.io) {
-            Mnemonic(
-                words = bip39.create(PASSWORD).mnemonic
-            )
+            bip39.create(PASSWORD).toMnemonic()
         }
     }
 
@@ -40,10 +38,7 @@ class DefaultCryptoWalletRepository @Inject constructor(
                 PASSWORD,
                 Bip39CryptoWallet(mnemonic.words)
             )
-            CryptoWallet(
-                publicKey = keyPair.public.toHexString(),
-                privateKey = keyPair.private.toHexString(),
-            )
+            keyPair.toCryptoWallet()
         }
     }
 

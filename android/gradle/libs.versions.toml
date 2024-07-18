@@ -70,12 +70,15 @@ google-services = "4.4.2"
 firebase = "33.1.2"
 firebase-crashlytics = "3.0.2"
 firebase-perf = "1.4.2"
+splashscreen = "1.0.1"
+paging = "3.3.0"
 
 [libraries]
 
 # Android
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+androidx-splashscreen = { group = "androidx.core", name = "core-splashscreen", version.ref = "splashscreen" }
 androidx-startup-runtime = { group = "androidx.startup", name = "startup-runtime", version.ref = "startup" }
 android-desugarJdkLibs = { group = "com.android.tools", name = "desugar_jdk_libs", version.ref = "android-desugar-jdk-libs" }
 
@@ -95,9 +98,15 @@ compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling
 compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 compose-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 compose-material3 = { group = "androidx.compose.material3", name = "material3" }
-compose-navigation = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigation" }
 compose-gridLayout = { group = "com.cheonjaeung.compose.grid", name = "grid", version.ref = "compose-gridLayout" }
 compose-material-icons-extended = { group = "androidx.compose.material", name = "material-icons-extended" }
+
+#Navigation
+navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigation" }
+
+# Paging
+paging-common = { group = "androidx.paging", name = "paging-common", version.ref = "paging" }
+paging-compose = { group = "androidx.paging", name = "paging-compose", version.ref = "paging" }
 
 # Hilt
 hilt-core = { group = "com.google.dagger", name = "hilt-core", version.ref = "hilt" }

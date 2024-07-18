@@ -51,8 +51,9 @@ class ComposePlugin : ProjectPlugin() {
         add("implementation", libs.findLibrary("compose-material3").get())
         add("implementation", libs.findLibrary("compose-material-icons-extended").get())
 
-        add("implementation", libs.findLibrary("compose-navigation").get())
-
+        add("implementation", libs.findLibrary("paging-compose").get())
+        add("implementation", libs.findLibrary("navigation-compose").get())
+        
         add("debugImplementation", libs.findLibrary("compose-ui-tooling").get())
         add("debugImplementation", libs.findLibrary("compose-ui-test-manifest").get())
 

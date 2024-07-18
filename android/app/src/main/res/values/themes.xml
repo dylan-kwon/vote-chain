@@ -2,4 +2,8 @@
 <resources>
 
     <style name="Theme.VoteChain" parent="android:Theme.Material.Light.NoActionBar" />
+
+    <style name="Theme.VoteChain.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenAnimatedIcon">@drawable/splash_animated_icon</item>
+    </style>
 </resources>

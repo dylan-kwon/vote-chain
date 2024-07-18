@@ -7,4 +7,5 @@ plugins {
 
 dependencies {
     api(projects.core.architecture.cleanArchitecture)
+    api(libs.paging.common)
 }

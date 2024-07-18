@@ -22,16 +22,19 @@ android {
 }
 
 dependencies {
-    implementation(projects.core.data.bundleDi)
-    implementation(projects.core.domain)
 
-    implementation(projects.core.ui.composeExt)
-    implementation(projects.core.ui.navigation)
-    implementation(projects.core.ui.designSystem)
+    implementation(libs.androidx.splashscreen)
 
     implementation(projects.feature.auth)
     implementation(projects.feature.vote)
     implementation(projects.feature.cryptoWallet)
 
+    implementation(projects.core.ui.composeExt)
+    implementation(projects.core.ui.navigation)
+    implementation(projects.core.ui.designSystem)
+
     implementation(projects.core.architecture.mvi)
+
+    implementation(projects.core.data.bundleDi)
+    implementation(projects.core.domain)
 }

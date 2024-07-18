@@ -4,11 +4,14 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.NavOptionsBuilder
 import androidx.navigation.compose.composable
+import androidx.navigation.toRoute
 import kotlinx.serialization.Serializable
 
 
 @Serializable
-object AddCryptoWalletNavigation
+data class AddCryptoWalletNavigation(
+    val isBackToFinish: Boolean = true
+)
 
 
 fun NavGraphBuilder.attachAddCryptoWalletScreen(
@@ -17,6 +20,7 @@ fun NavGraphBuilder.attachAddCryptoWalletScreen(
 ) {
     composable<AddCryptoWalletNavigation> {
         AddCryptoWalletRoute(
+            navigation = it.toRoute<AddCryptoWalletNavigation>(),
             onCreateClick = onCreateClick,
             onLoadClick = onLoadClick
         )
@@ -24,8 +28,9 @@ fun NavGraphBuilder.attachAddCryptoWalletScreen(
 }
 
 fun NavHostController.navigateToAddCryptoWallet(
+    navigation: AddCryptoWalletNavigation = AddCryptoWalletNavigation(),
     builder: NavOptionsBuilder.() -> Unit = {},
 ) {
-    navigate(AddCryptoWalletNavigation, builder)
+    navigate(navigation, builder)
 }
 

@@ -19,19 +19,21 @@ fun <T> NavBackStackEntry.receiveResultAsStateWithLifecycle(
 
 @Composable
 fun <T> NavBackStackEntry.ReceiveResultEffect(
-    key: String,
+    resultKey: String,
+    vararg keys: Any?,
     collector: (T) -> Unit
 ) {
     LaunchedEffect(
         this,
         lifecycleScope,
-        key,
+        resultKey,
+        *keys,
         collector
     ) {
-        receiveResult<T>(key)
+        receiveResult<T>(resultKey)
             .filterNotNull()
             .onEach {
-                savedStateHandle.remove<T>(key)
+                savedStateHandle.remove<T>(resultKey)
             }
             .onEach(collector)
             .launchIn(this)

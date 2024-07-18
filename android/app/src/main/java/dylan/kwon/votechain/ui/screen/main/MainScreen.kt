@@ -1,5 +1,7 @@
 package dylan.kwon.votechain.ui.screen.main
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -9,10 +11,8 @@ import androidx.compose.material.icons.filled.ErrorOutline
 import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -23,16 +23,18 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.LifecycleResumeEffect
-import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import dylan.kwon.votechain.R
+import dylan.kwon.votechain.core.ui.compose_ext.OneShotLaunchedEffect
 import dylan.kwon.votechain.core.ui.compose_ext.findActivity
 import dylan.kwon.votechain.core.ui.design_system.theme.VoteChainTheme
+import dylan.kwon.votechain.feature.vote.list.VoteListRoute
 
 @Composable
 internal fun MainRoute(
     viewModel: MainViewModel = hiltViewModel(),
-    onNavigateToAddCryptoWallet: () -> Unit
+    onNeedCryptoWallet: () -> Unit,
+    onNeedSimplePasswordVerify: () -> Unit,
 ) {
     val context = LocalContext.current
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
@@ -42,40 +44,46 @@ internal fun MainRoute(
         onExitClick = {
             context.findActivity().finish()
         },
-        onNavigateToAddCryptoWallet = {
-            onNavigateToAddCryptoWallet()
-            viewModel.consumeNeedCryptoWallet()
-        }
-    )
-    if (uiState is MainUiState.NoSetup) {
-        LifecycleResumeEffect(viewModel) {
+        onResumeWhenNoSetup = {
             viewModel.setup()
-            onPauseOrDispose {}
-        }
-    }
+        },
+        onNeedCryptoWallet = {
+            onNeedCryptoWallet()
+        },
+        onNeedSimplePasswordVerify = {
+            onNeedSimplePasswordVerify()
+        },
+    )
+
 }
 
 @Composable
 internal fun MainScreen(
     uiState: MainUiState,
     onExitClick: () -> Unit,
-    onNavigateToAddCryptoWallet: () -> Unit
+    onNeedSimplePasswordVerify: () -> Unit,
+    onResumeWhenNoSetup: () -> Unit,
+    onNeedCryptoWallet: () -> Unit
 ) {
-    Scaffold { paddingValue ->
-        val modifier = Modifier
+    Box(
+        modifier = Modifier
             .fillMaxSize()
-            .padding(paddingValue)
+            .background(MaterialTheme.colorScheme.surface)
+    ) {
+        val modifier = Modifier.fillMaxSize()
 
         when (uiState) {
             is MainUiState.Setup -> Setup(
                 modifier = modifier,
-                uiState = uiState
+                uiState = uiState,
+                onNeedSimplePasswordVerify = onNeedSimplePasswordVerify,
             )
 
             is MainUiState.NoSetup -> NoSetup(
                 modifier = modifier,
                 uiState = uiState,
-                onNavigateToAddCryptoWallet = onNavigateToAddCryptoWallet
+                onResumeWhenNoSetup = onResumeWhenNoSetup,
+                onNeedCryptoWallet = onNeedCryptoWallet
             )
 
             is MainUiState.Error -> Error(
@@ -90,20 +98,36 @@ internal fun MainScreen(
 @Composable
 private fun Setup(
     modifier: Modifier = Modifier,
-    uiState: MainUiState.Setup
+    uiState: MainUiState.Setup,
+    onNeedSimplePasswordVerify: () -> Unit,
 ) {
-    Text(text = "setup")
+    when (uiState.isVerifiedSimplePassword) {
+        true -> VoteListRoute(
+            modifier = modifier
+        )
+
+        else -> OneShotLaunchedEffect(Unit) {
+            onNeedSimplePasswordVerify()
+        }
+    }
+
 }
 
 @Composable
 private fun NoSetup(
     modifier: Modifier = Modifier,
     uiState: MainUiState.NoSetup,
-    onNavigateToAddCryptoWallet: () -> Unit
+    onResumeWhenNoSetup: () -> Unit,
+    onNeedCryptoWallet: () -> Unit
 ) {
-    if (uiState.needCryptoWallet != null) LaunchedEffect(Unit) {
-        onNavigateToAddCryptoWallet()
+    if (uiState.needCryptoWallet) OneShotLaunchedEffect(Unit) {
+        onNeedCryptoWallet()
     }
+    LifecycleResumeEffect(onResumeWhenNoSetup) {
+        onResumeWhenNoSetup()
+        onPauseOrDispose { }
+    }
+    Box(modifier = modifier)
 }
 
 @Composable
@@ -143,7 +167,8 @@ private fun SetupPreview() {
     VoteChainTheme {
         Setup(
             modifier = Modifier.fillMaxSize(),
-            uiState = MainUiState.Setup
+            uiState = MainUiState.Setup(),
+            onNeedSimplePasswordVerify = {}
         )
     }
 }
@@ -155,7 +180,8 @@ private fun NoSetupPreview() {
         NoSetup(
             modifier = Modifier.fillMaxSize(),
             uiState = MainUiState.NoSetup(),
-            onNavigateToAddCryptoWallet = {}
+            onResumeWhenNoSetup = {},
+            onNeedCryptoWallet = {}
         )
     }
 }

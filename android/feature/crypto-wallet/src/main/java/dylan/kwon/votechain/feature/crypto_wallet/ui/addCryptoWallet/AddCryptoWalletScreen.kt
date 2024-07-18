@@ -1,6 +1,7 @@
 package dylan.kwon.votechain.feature.crypto_wallet.ui.addCryptoWallet
 
 import android.content.res.Configuration
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -11,7 +12,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
@@ -23,6 +23,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
@@ -32,21 +33,27 @@ import com.airbnb.lottie.compose.LottieAnimation
 import com.airbnb.lottie.compose.LottieCompositionSpec
 import com.airbnb.lottie.compose.LottieConstants
 import com.airbnb.lottie.compose.rememberLottieComposition
+import dylan.kwon.votechain.core.ui.compose_ext.findActivity
 import dylan.kwon.votechain.core.ui.design_system.theme.VoteChainTheme
 import dylan.kwon.votechain.feature.crypto_wallet.R
 
 @Composable
 internal fun AddCryptoWalletRoute(
+    navigation: AddCryptoWalletNavigation,
     viewModel: AddCryptoWalletViewModel = hiltViewModel(),
     onCreateClick: () -> Unit,
     onLoadClick: () -> Unit,
 ) {
+    val context = LocalContext.current
     // val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
     AddCryptoWalletScreen(
         onCreateClick = onCreateClick,
         onLoadClick = onLoadClick
     )
+    BackHandler(enabled = navigation.isBackToFinish) {
+        context.findActivity().finish()
+    }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)

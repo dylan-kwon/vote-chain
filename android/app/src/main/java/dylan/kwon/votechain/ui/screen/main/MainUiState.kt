@@ -3,11 +3,17 @@ package dylan.kwon.votechain.ui.screen.main
 import androidx.annotation.StringRes
 
 sealed interface MainUiState {
-    data object Setup : MainUiState
+    data class Setup(
+        val isVerifiedSimplePassword: Boolean = false,
+    ) : MainUiState
 
     data class NoSetup(
-        val needCryptoWallet: Unit? = null
-    ) : MainUiState
+        val isAuth: Boolean = false,
+        val hasCryptoWallet: Boolean = false
+    ) : MainUiState {
+        val needCryptoWallet: Boolean
+            get() = isAuth && !hasCryptoWallet
+    }
 
     data class Error(
         @StringRes
