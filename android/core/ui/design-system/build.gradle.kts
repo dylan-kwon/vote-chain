@@ -7,3 +7,7 @@ plugins {
 android {
     namespace = "dylan.kwon.votechain.core.ui.design_system"
 }
+
+dependencies {
+    implementation(libs.timeago)
+}

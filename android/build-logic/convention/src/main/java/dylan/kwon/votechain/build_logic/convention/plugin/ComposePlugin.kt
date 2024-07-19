@@ -53,6 +53,9 @@ class ComposePlugin : ProjectPlugin() {
 
         add("implementation", libs.findLibrary("paging-compose").get())
         add("implementation", libs.findLibrary("navigation-compose").get())
+
+        add("implementation", libs.findLibrary("coil-compose").get())
+        add("implementation", libs.findLibrary("airbnb-lottie-compose").get())
         
         add("debugImplementation", libs.findLibrary("compose-ui-tooling").get())
         add("debugImplementation", libs.findLibrary("compose-ui-test-manifest").get())

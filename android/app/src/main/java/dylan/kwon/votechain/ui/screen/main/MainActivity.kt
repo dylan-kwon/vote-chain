@@ -32,12 +32,10 @@ class MainActivity : ComponentActivity() {
 
     private fun SplashScreen.awaitSetup() {
         setKeepOnScreenCondition {
-            val uiState = viewModel.uiState.value
-
-            val isSetup = uiState is MainUiState.Setup
-            val isAuth = (uiState as? MainUiState.NoSetup)?.isAuth ?: false
-
-            isSetup || isAuth
+            when(val uiState = viewModel.uiState.value) {
+                is MainUiState.NoSetup -> !uiState.isAuth
+                else -> false
+            }
         }
     }
 }

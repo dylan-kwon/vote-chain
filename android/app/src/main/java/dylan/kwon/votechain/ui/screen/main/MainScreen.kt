@@ -82,7 +82,7 @@ internal fun MainScreen(
             is MainUiState.NoSetup -> NoSetup(
                 modifier = modifier,
                 uiState = uiState,
-                onResumeWhenNoSetup = onResumeWhenNoSetup,
+                onResume = onResumeWhenNoSetup,
                 onNeedCryptoWallet = onNeedCryptoWallet
             )
 
@@ -110,21 +110,20 @@ private fun Setup(
             onNeedSimplePasswordVerify()
         }
     }
-
 }
 
 @Composable
 private fun NoSetup(
     modifier: Modifier = Modifier,
     uiState: MainUiState.NoSetup,
-    onResumeWhenNoSetup: () -> Unit,
+    onResume: () -> Unit,
     onNeedCryptoWallet: () -> Unit
 ) {
     if (uiState.needCryptoWallet) OneShotLaunchedEffect(Unit) {
         onNeedCryptoWallet()
     }
-    LifecycleResumeEffect(onResumeWhenNoSetup) {
-        onResumeWhenNoSetup()
+    LifecycleResumeEffect(onResume) {
+        onResume()
         onPauseOrDispose { }
     }
     Box(modifier = modifier)
@@ -180,7 +179,7 @@ private fun NoSetupPreview() {
         NoSetup(
             modifier = Modifier.fillMaxSize(),
             uiState = MainUiState.NoSetup(),
-            onResumeWhenNoSetup = {},
+            onResume = {},
             onNeedCryptoWallet = {}
         )
     }

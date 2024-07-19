@@ -25,7 +25,5 @@ class AndroidFeaturePlugin : ProjectPlugin() {
         add("implementation", project(":core:ui:design-system"))
         add("implementation", project(":core:coroutine:jvm"))
         add("testImplementation", project(":core:coroutine:test"))
-
-        add("implementation", libs.findLibrary("airbnb-lottie-compose").get())
     }
 }

@@ -21,4 +21,5 @@ internal fun DependencyHandler.addAndroidTestDependencies(libs: VersionCatalog) 
     addJvmTestDependencies(libs)
     add("testImplementation", libs.findLibrary("androidx-espresso-core").get())
     add("androidTestImplementation", libs.findLibrary("androidx-junit-ktx").get())
+    add("androidTestImplementation", libs.findLibrary("androidx-test-runner").get())
 }

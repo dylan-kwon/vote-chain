@@ -2,5 +2,8 @@
 <resources>
 
     <string name="vote_list">Vote List</string>
+    <string name="retry">Retry</string>
+    <string name="add">Add</string>
+    <string name="search">Search</string>
 
 </resources>

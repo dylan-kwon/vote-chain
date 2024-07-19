@@ -10,6 +10,8 @@ import javax.inject.Inject
 class GetVoteSummariesUseCase @Inject constructor(
     private val voteRepository: VoteRepository
 ) : FlowUseCase<Unit, PagingData<VoteSummary>>() {
+
     override fun onInvoke(input: Unit): Flow<PagingData<VoteSummary>> =
         voteRepository.getVoteSummaries()
+
 }
