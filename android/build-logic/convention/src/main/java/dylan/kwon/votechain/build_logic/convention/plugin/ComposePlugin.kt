@@ -52,11 +52,12 @@ class ComposePlugin : ProjectPlugin() {
         add("implementation", libs.findLibrary("compose-material-icons-extended").get())
 
         add("implementation", libs.findLibrary("paging-compose").get())
-        add("implementation", libs.findLibrary("navigation-compose").get())
+        add("implementation", libs.findLibrary("compose-navigation").get())
 
-        add("implementation", libs.findLibrary("coil-compose").get())
-        add("implementation", libs.findLibrary("airbnb-lottie-compose").get())
-        
+        add("implementation", libs.findLibrary("compose-coil").get())
+        add("implementation", libs.findLibrary("compose-lottie").get())
+        add("implementation", libs.findLibrary("compose-shimmer").get())
+
         add("debugImplementation", libs.findLibrary("compose-ui-tooling").get())
         add("debugImplementation", libs.findLibrary("compose-ui-test-manifest").get())
 

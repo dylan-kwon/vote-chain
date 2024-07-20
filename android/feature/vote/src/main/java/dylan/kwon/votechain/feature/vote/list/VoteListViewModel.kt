@@ -1,11 +1,13 @@
 package dylan.kwon.votechain.feature.vote.list
 
 import androidx.lifecycle.viewModelScope
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
 import androidx.paging.cachedIn
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dylan.kwon.votechain.core.architecture.mvi.MviViewModel
-import dylan.kwon.votechain.core.domain.vote.usecase.GetVoteSummariesUseCase
 import dylan.kwon.votechain.feature.vote.list.mapper.VoteListUiMapper
+import dylan.kwon.votechain.feature.vote.list.paging.VoteSummaryPagingSourceFactory
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.flatMapLatest
@@ -17,10 +19,16 @@ import javax.inject.Inject
 @HiltViewModel
 class VoteListViewModel @Inject constructor(
     uiMapper: VoteListUiMapper,
-    private val getVoteSummariesUseCase: GetVoteSummariesUseCase
+    private val voteSummaryPagingSourceFactory: VoteSummaryPagingSourceFactory,
 ) : MviViewModel<VoteListUiState>(
     initialUiState = VoteListUiState()
 ), VoteListUiMapper by uiMapper {
+
+    private val votePager = Pager(
+        config = PagingConfig(pageSize = 30, enablePlaceholders = true)
+    ) {
+        voteSummaryPagingSourceFactory.create()
+    }
 
     private val search = Channel<String>()
     val voteList = search.toVoteList()
@@ -33,7 +41,7 @@ class VoteListViewModel @Inject constructor(
         .distinctUntilChanged()
         .flatMapLatest { searchKeyword ->
             // Firestore Like Query not supported.
-            getVoteSummariesUseCase(Unit).filterBy(searchKeyword)
+            votePager.flow.filterBy(searchKeyword)
         }
         .map { pagingData ->
             pagingData.toVoteListUiState()

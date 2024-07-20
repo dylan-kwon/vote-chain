@@ -1,17 +1,39 @@
 package dylan.kwon.votechain.core.data.firebase.firestore.vote
 
-import androidx.paging.PagingSource
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
+import com.google.firebase.firestore.toObject
 import dylan.kwon.votechain.core.data.firebase.firestore.vote.model.VoteDocument
+import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
 class DefaultVoteFireStore @Inject constructor(
-    private val firestore: FirebaseFirestore
+    firestore: FirebaseFirestore
 ) : VoteFireStore {
 
-    override fun createVoteListPagingSource(): PagingSource<Long, VoteDocument> =
-        VoteListPagingSource(firestore)
+    private val ref by lazy {
+        firestore.collection("Votes")
+    }
 
+    override suspend fun getVoteDocuments(
+        id: Long,
+        pageSize: Long,
+        order: Query.Direction,
+    ): List<VoteDocument> = ref
+        .whereLessThan(
+            VoteDocument.Field.ID,
+            id
+        )
+        .orderBy(
+            VoteDocument.Field.ID,
+            Query.Direction.DESCENDING
+        )
+        .limit(pageSize)
+        .get()
+        .await()
+        .map {
+            it.toObject<VoteDocument>()
+        }
 }

@@ -161,11 +161,6 @@ private fun VoteList(
     // Refresh.
     val fullToRefreshState = rememberPullToRefreshState()
 
-    // Refresh indicator exposed on first composition.
-    OneShotLaunchedEffect {
-        fullToRefreshState.startRefresh()
-    }
-
     // Refresh when refresh indicator is exposed.
     if (fullToRefreshState.isRefreshing) OneShotLaunchedEffect(Unit) {
         voteListItems.refresh()
@@ -202,9 +197,12 @@ private fun VoteList(
                 contentType = {
                     VoteListItemUiState::class
                 }
-            ) {
-                when (val vote = voteListItems[it]) {
-                    null -> VoteListItem.Placeholder()
+            ) { index ->
+                when (val vote = voteListItems[index]) {
+                    null -> {
+                        VoteListItem.Placeholder()
+                    }
+
                     else -> VoteListItem(
                         modifier = Modifier.fillMaxWidth(),
                         uiState = vote,
@@ -212,6 +210,13 @@ private fun VoteList(
                             onVoteListItemClick(vote)
                         }
                     )
+                }
+            }
+
+            // Placeholder
+            if (voteListItems.itemCount == 0) {
+                items(100) {
+                    VoteListItem.Placeholder()
                 }
             }
 

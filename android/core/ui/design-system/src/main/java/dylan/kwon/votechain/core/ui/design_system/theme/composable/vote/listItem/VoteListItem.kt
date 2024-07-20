@@ -1,6 +1,10 @@
+@file:Suppress("UnusedReceiverParameter")
+
 package dylan.kwon.votechain.core.ui.design_system.theme.composable.vote.listItem
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ListItem
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -8,7 +12,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import com.github.marlonlom.utilities.timeago.TimeAgo
+import com.valentinilk.shimmer.shimmer
 import dylan.kwon.votechain.core.ui.design_system.R
 
 object VoteListItem
@@ -37,13 +43,10 @@ fun VoteListItem(
 }
 
 @Composable
-fun VoteListItem.Placeholder() {
-    ListItem(headlineContent = {})
-}
-
-@Composable
-private fun Status(status: VoteListItemUiState.Status) {
-
+private fun Status(
+    modifier: Modifier = Modifier,
+    status: VoteListItemUiState.Status
+) {
     val typography = MaterialTheme.typography
     val colorScheme = MaterialTheme.colorScheme
 
@@ -64,15 +67,63 @@ private fun Status(status: VoteListItemUiState.Status) {
         }
     }
     Text(
+        modifier = modifier,
         text = stringResource(id = stringResId),
         style = textStyle
     )
 }
 
 @Composable
-private fun TimeAgo(createdAt: Long) {
+private fun TimeAgo(
+    modifier: Modifier = Modifier,
+    createdAt: Long
+) {
     val timeAgo = remember(createdAt) {
         TimeAgo.using(createdAt)
     }
-    Text(text = timeAgo)
+    Text(
+        modifier = modifier,
+        text = timeAgo
+    )
+}
+
+@Composable
+fun VoteListItem.Placeholder(
+    modifier: Modifier = Modifier
+) {
+    ListItem(
+        modifier = modifier.shimmer(),
+        overlineContent = {
+            PlaceholderShimmer(length = 10)
+        },
+        headlineContent = {
+            PlaceholderShimmer(
+                modifier = Modifier.padding(top = 4.dp),
+                length = 20
+            )
+        },
+        supportingContent = {
+            PlaceholderShimmer(
+                modifier = Modifier.padding(top = 4.dp),
+                length = 40
+            )
+        },
+        trailingContent = {
+            PlaceholderShimmer(
+                modifier = Modifier.padding(top = 4.dp),
+                length = 10
+            )
+        }
+    )
+}
+
+@Composable
+private fun VoteListItem.PlaceholderShimmer(
+    modifier: Modifier = Modifier,
+    length: Int
+) {
+    Text(
+        modifier = modifier.background(MaterialTheme.colorScheme.surfaceDim),
+        text = " ".repeat(length)
+    )
 }
