@@ -13,6 +13,9 @@ import dylan.kwon.votechain.feature.crypto_wallet.ui.loadCryptoWallet.attachLoad
 import dylan.kwon.votechain.feature.crypto_wallet.ui.loadCryptoWallet.navigateToLoadCryptoWallet
 import dylan.kwon.votechain.feature.crypto_wallet.ui.newCryptoWallet.attachNewCryptoWalletScreen
 import dylan.kwon.votechain.feature.crypto_wallet.ui.newCryptoWallet.navigateToNewCryptoWallet
+import dylan.kwon.votechain.feature.vote.detail.VoteDetailNavigation
+import dylan.kwon.votechain.feature.vote.detail.attachVoteDetailScreen
+import dylan.kwon.votechain.feature.vote.detail.navigateToVoteDetail
 import dylan.kwon.votechain.feature.vote.list.attachVoteListScreen
 import dylan.kwon.votechain.ui.VoteChainAppState
 import dylan.kwon.votechain.ui.screen.main.MainNavigation
@@ -38,6 +41,14 @@ fun VoteChainNavHost(
             },
             onNeedSimplePasswordVerify = {
                 navController.navigateToSimplePassword()
+            },
+            onVoteAddClick = {
+                // todo:
+            },
+            onVoteListItemClick = { voteListItemUiState ->
+                navController.navigateToVoteDetail(
+                    navigation = VoteDetailNavigation(voteListItemUiState.id)
+                )
             }
         )
 
@@ -69,6 +80,19 @@ fun VoteChainNavHost(
             }
         )
 
-        attachVoteListScreen()
+        attachVoteListScreen(
+            onVoteAddClick = {
+                // todo:
+            },
+            onVoteListItemClick = { voteListItemUiState ->
+                navController.navigateToVoteDetail(
+                    navigation = VoteDetailNavigation(voteListItemUiState.id)
+                )
+            }
+        )
+
+        attachVoteDetailScreen(
+            onBackClick = navController::popBackStack
+        )
     }
 }

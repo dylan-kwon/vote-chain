@@ -12,7 +12,7 @@ class VoteSummaryPagingSource @Inject constructor(
 
     override suspend fun load(params: LoadParams<Long>): LoadResult<Long, VoteSummary> {
         try {
-            val key = params.key ?: Long.MAX_VALUE
+            val key = params.key
             val result = getVoteSummariesUseCase(key).getOrThrow()
 
             return LoadResult.Page(
@@ -29,6 +29,6 @@ class VoteSummaryPagingSource @Inject constructor(
         val anchorPosition = state.anchorPosition ?: return null
         val anchorPage = state.closestPageToPosition(anchorPosition) ?: return null
         val firstId = anchorPage.data.firstOrNull()?.id ?: return null
-        return firstId + 1
+        return firstId + 1L
     }
 }

@@ -18,14 +18,19 @@ class DefaultVoteFireStore @Inject constructor(
     }
 
     override suspend fun getVoteDocuments(
-        id: Long,
+        id: Long?,
         pageSize: Long,
         order: Query.Direction,
     ): List<VoteDocument> = ref
-        .whereLessThan(
-            VoteDocument.Field.ID,
-            id
-        )
+        .run {
+            when (id) {
+                null -> this
+                else -> whereLessThan(
+                    VoteDocument.Field.ID,
+                    id
+                )
+            }
+        }
         .orderBy(
             VoteDocument.Field.ID,
             Query.Direction.DESCENDING

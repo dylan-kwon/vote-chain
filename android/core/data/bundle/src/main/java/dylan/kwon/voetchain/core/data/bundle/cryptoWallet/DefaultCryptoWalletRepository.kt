@@ -19,7 +19,6 @@ class DefaultCryptoWalletRepository @Inject constructor(
     private val dispatcherProvider: DispatcherProvider,
     private val bip39: Bip39,
     private val dataStore: CryptoWalletDataStore
-
 ) : CryptoWalletRepository {
 
     companion object {
@@ -53,7 +52,16 @@ class DefaultCryptoWalletRepository @Inject constructor(
 
     override suspend fun hasCryptoWallet(): Boolean {
         return withContext(dispatcherProvider.io) {
-            dataStore.privateKey.first().isNotEmpty()
+            getSavedCryptoWallet().privateKey.isNotEmpty()
+        }
+    }
+
+    override suspend fun getSavedCryptoWallet(): CryptoWallet {
+        return withContext(dispatcherProvider.io) {
+            CryptoWallet(
+                publicKey = dataStore.publicKey.first(),
+                privateKey = dataStore.privateKey.first(),
+            )
         }
     }
 }

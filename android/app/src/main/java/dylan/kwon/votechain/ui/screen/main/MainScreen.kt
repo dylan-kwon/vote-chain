@@ -28,6 +28,7 @@ import dylan.kwon.votechain.R
 import dylan.kwon.votechain.core.ui.compose_ext.OneShotLaunchedEffect
 import dylan.kwon.votechain.core.ui.compose_ext.findActivity
 import dylan.kwon.votechain.core.ui.design_system.theme.VoteChainTheme
+import dylan.kwon.votechain.core.ui.design_system.theme.composable.vote.listItem.VoteListItemUiState
 import dylan.kwon.votechain.feature.vote.list.VoteListRoute
 
 @Composable
@@ -35,6 +36,8 @@ internal fun MainRoute(
     viewModel: MainViewModel = hiltViewModel(),
     onNeedCryptoWallet: () -> Unit,
     onNeedSimplePasswordVerify: () -> Unit,
+    onVoteAddClick: () -> Unit,
+    onVoteListItemClick: (VoteListItemUiState) -> Unit
 ) {
     val context = LocalContext.current
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
@@ -44,17 +47,12 @@ internal fun MainRoute(
         onExitClick = {
             context.findActivity().finish()
         },
-        onResumeWhenNoSetup = {
-            viewModel.setup()
-        },
-        onNeedCryptoWallet = {
-            onNeedCryptoWallet()
-        },
-        onNeedSimplePasswordVerify = {
-            onNeedSimplePasswordVerify()
-        },
+        onResumeWhenNoSetup = viewModel::setup,
+        onNeedCryptoWallet = onNeedCryptoWallet,
+        onNeedSimplePasswordVerify = onNeedSimplePasswordVerify,
+        onVoteAddClick = onVoteAddClick,
+        onVoteListItemClick = onVoteListItemClick,
     )
-
 }
 
 @Composable
@@ -63,7 +61,9 @@ internal fun MainScreen(
     onExitClick: () -> Unit,
     onNeedSimplePasswordVerify: () -> Unit,
     onResumeWhenNoSetup: () -> Unit,
-    onNeedCryptoWallet: () -> Unit
+    onNeedCryptoWallet: () -> Unit,
+    onVoteAddClick: () -> Unit,
+    onVoteListItemClick: (VoteListItemUiState) -> Unit
 ) {
     Box(
         modifier = Modifier
@@ -77,6 +77,8 @@ internal fun MainScreen(
                 modifier = modifier,
                 uiState = uiState,
                 onNeedSimplePasswordVerify = onNeedSimplePasswordVerify,
+                onVoteAddClick = onVoteAddClick,
+                onVoteListItemClick = onVoteListItemClick,
             )
 
             is MainUiState.NoSetup -> NoSetup(
@@ -100,10 +102,14 @@ private fun Setup(
     modifier: Modifier = Modifier,
     uiState: MainUiState.Setup,
     onNeedSimplePasswordVerify: () -> Unit,
+    onVoteAddClick: () -> Unit,
+    onVoteListItemClick: (VoteListItemUiState) -> Unit
 ) {
     when (uiState.isVerifiedSimplePassword) {
         true -> VoteListRoute(
-            modifier = modifier
+            modifier = modifier,
+            onVoteAddClick = onVoteAddClick,
+            onVoteListItemClick = onVoteListItemClick
         )
 
         else -> OneShotLaunchedEffect(Unit) {
@@ -167,7 +173,9 @@ private fun SetupPreview() {
         Setup(
             modifier = Modifier.fillMaxSize(),
             uiState = MainUiState.Setup(),
-            onNeedSimplePasswordVerify = {}
+            onNeedSimplePasswordVerify = {},
+            onVoteAddClick = {},
+            onVoteListItemClick = {}
         )
     }
 }

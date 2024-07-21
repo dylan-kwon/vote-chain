@@ -5,7 +5,7 @@ import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dylan.kwon.voetchain.core.data.bundle.vote.DefaultVoteRepository
-import dylan.kwon.votechain.core.domain.vote.part.VoteRepository
+import dylan.kwon.votechain.core.domain.vote.port.VoteRepository
 import javax.inject.Singleton
 
 @Module

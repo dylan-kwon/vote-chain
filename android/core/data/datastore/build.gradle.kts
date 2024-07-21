@@ -11,5 +11,5 @@ android {
 
 dependencies {
     implementation(projects.core.coroutine.jvm)
-    implementation(projects.core.crypto)
+    implementation(libs.datastore.preferences.crypto)
 }

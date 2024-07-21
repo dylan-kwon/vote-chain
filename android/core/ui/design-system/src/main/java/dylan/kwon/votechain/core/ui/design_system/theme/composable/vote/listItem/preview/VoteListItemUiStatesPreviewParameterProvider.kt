@@ -26,14 +26,14 @@ class VoteListItemUiStatesPreviewParameterProvider :
         PagingData.from(
             data = listOf(
                 VoteListItemUiState(
-                    id = 1,
+                    id = 1L,
                     title = "Vote-1",
                     content = "content",
                     createdAt = System.currentTimeMillis(),
                     status = VoteListItemUiState.Status.IN_PROGRESS
                 ),
                 VoteListItemUiState(
-                    id = 2,
+                    id = 2L,
                     title = "Vote-2",
                     content = "content",
                     createdAt = System.currentTimeMillis(),

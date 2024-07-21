@@ -13,4 +13,6 @@ interface CryptoWalletRepository {
 
     suspend fun hasCryptoWallet(): Boolean
 
+    suspend fun getSavedCryptoWallet(): CryptoWallet
+
 }

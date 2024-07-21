@@ -10,7 +10,7 @@ interface VoteFireStore {
     }
 
     suspend fun getVoteDocuments(
-        id: Long,
+        id: Long?,
         pageSize: Long = DEFAULT_PAGE_SIZE,
         order: Query.Direction = Query.Direction.DESCENDING
     ): List<VoteDocument>

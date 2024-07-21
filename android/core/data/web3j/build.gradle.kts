@@ -10,5 +10,5 @@ android {
 }
 
 dependencies {
-    implementation(libs.web3j.android)
+    implementation(libs.web3j)
 }

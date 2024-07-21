@@ -20,6 +20,7 @@ class FirebasePlugin : ProjectPlugin() {
         add("implementation", libs.findLibrary("firebase-firestore").get())
         add("implementation", libs.findLibrary("firebase-crashlytics").get())
         add("implementation", libs.findLibrary("firebase-perf").get())
+        add("implementation", libs.findLibrary("firebase-config").get())
     }
 
 }

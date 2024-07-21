@@ -62,7 +62,7 @@ datastore-crypto = "1.1.1-beta03"
 startup = "1.1.1"
 lottie-compose = "6.4.1"
 shimmer-compose = "1.3.0"
-web3j = "4.8.9-android"
+web3j = "4.12.0"
 coil-compose = "2.7.0"
 timeago = "4.0.3"
 truth = "1.4.4"
@@ -143,9 +143,10 @@ firebase-auth = { group = "com.google.firebase", name = "firebase-auth-ktx" }
 firebase-firestore = { group = "com.google.firebase", name = "firebase-firestore-ktx" }
 firebase-crashlytics = { group = "com.google.firebase", name = "firebase-crashlytics-ktx" }
 firebase-perf = { group = "com.google.firebase", name = "firebase-perf-ktx" }
+firebase-config = { group = "com.google.firebase", name = "firebase-config-ktx" }
 
 # Web3j
-web3j-android = { group = "org.web3j", name = "core", version.ref = "web3j" }
+web3j = { group = "org.web3j", name = "core", version.ref = "web3j" }
 
 # Time Ago
 timeago = { group = "com.github.marlonlom", name = "timeago", version.ref = "timeago" }

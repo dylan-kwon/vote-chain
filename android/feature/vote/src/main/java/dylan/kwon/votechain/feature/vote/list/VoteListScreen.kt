@@ -54,7 +54,9 @@ import kotlinx.coroutines.flow.Flow
 @Composable
 fun VoteListRoute(
     modifier: Modifier = Modifier,
-    viewModel: VoteListViewModel = hiltViewModel()
+    viewModel: VoteListViewModel = hiltViewModel(),
+    onVoteAddClick: () -> Unit,
+    onVoteListItemClick: (VoteListItemUiState) -> Unit
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
     val voteList = viewModel.voteList.collectAsLazyPagingItems()
@@ -70,12 +72,8 @@ fun VoteListRoute(
             focusManager.clearFocus()
         },
         onSearchKeywordChange = viewModel::updateSearchKeyword,
-        onVoteListItemClick = {
-            // todo:
-        },
-        onVoteAddClick = {
-            // todo:
-        }
+        onVoteListItemClick = onVoteListItemClick,
+        onVoteAddClick = onVoteAddClick
     )
 }
 

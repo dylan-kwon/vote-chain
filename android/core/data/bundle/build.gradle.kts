@@ -14,4 +14,6 @@ dependencies {
     implementation(projects.core.data.datastore)
     implementation(projects.core.data.firebase)
     implementation(projects.core.data.web3j)
+    implementation(projects.core.data.voteContract)
+    implementation(libs.web3j)
 }

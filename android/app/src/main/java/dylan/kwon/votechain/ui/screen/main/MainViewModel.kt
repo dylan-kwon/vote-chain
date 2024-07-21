@@ -11,7 +11,6 @@ import kotlinx.coroutines.flow.consumeAsFlow
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.mapLatest
 import kotlinx.coroutines.flow.onEach
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -44,6 +43,7 @@ class MainViewModel @Inject constructor(
         when (result.getOrNull()) {
             AppSetupResult.NeedCryptoWallet -> onNeedCryptoWallet()
             AppSetupResult.Completed -> onSetupCompleted()
+            AppSetupResult.ConfigError -> onConfigError()
             else -> onAuthError()
         }
     }
@@ -60,6 +60,14 @@ class MainViewModel @Inject constructor(
     private fun onSetupCompleted() {
         setState {
             MainUiState.Setup()
+        }
+    }
+
+    private fun onConfigError() {
+        setState {
+            MainUiState.Error(
+                messageResId = R.string.config_error_message
+            )
         }
     }
 
