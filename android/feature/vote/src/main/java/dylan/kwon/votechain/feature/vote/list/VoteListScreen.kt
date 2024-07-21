@@ -176,6 +176,9 @@ private fun VoteList(
         state.scrollToItem(0)
     }
 
+    // List is empty
+    val isEmpty = voteListItems.itemCount == 0
+
     // List + Pull to Refresh
     Box(
         modifier = modifier.nestedScroll(
@@ -214,14 +217,16 @@ private fun VoteList(
             }
 
             // Placeholder
-            if (voteListItems.itemCount == 0) {
+            val isRefreshLoading = voteListItems.loadState.refresh is LoadState.Loading
+            if (isEmpty && isRefreshLoading) {
                 items(100) {
                     VoteListItem.Placeholder()
                 }
             }
 
             // Refresh Button in List
-            if (voteListItems.loadState.append is LoadState.Error) {
+            val isAppendError = voteListItems.loadState.append is LoadState.Error
+            if (isAppendError) {
                 item(
                     key = -1,
                     contentType = {
@@ -245,7 +250,8 @@ private fun VoteList(
         }
 
         // Retry Button
-        if (voteListItems.loadState.refresh is LoadState.Error) {
+        val isRefreshError = voteListItems.loadState.refresh is LoadState.Error
+        if (isRefreshError) {
             RetryButton(
                 modifier = Modifier.align(Alignment.Center),
                 onRetryClick = {
