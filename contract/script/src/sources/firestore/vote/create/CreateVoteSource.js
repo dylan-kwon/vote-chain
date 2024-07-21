@@ -14,7 +14,7 @@ const {
     password
 } = secrets;
 
-if (!dbName || !id || !title || !content || !imageUrl || !createdAt || !isClosed) {
+if (!dbName || !id || !title || !content || !createdAt || !isClosed) {
     throw Error('Args Error');
 }
 

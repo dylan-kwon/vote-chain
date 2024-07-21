@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7fb9e483-79da-4d17-940e-191076c70784" name="Changes" comment="[Android] Add android project and common gradle plugins">
-      <change beforePath="$PROJECT_DIR$/android/.idea/deploymentTargetSelector.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/.idea/deploymentTargetSelector.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/feature/crypto-wallet/src/main/java/dylan/kwon/votechain/feature/crypto_wallet/ui/newCryptoWallet/NewCryptoWalletScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/feature/crypto-wallet/src/main/java/dylan/kwon/votechain/feature/crypto_wallet/ui/newCryptoWallet/NewCryptoWalletScreen.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/feature/crypto-wallet/src/main/java/dylan/kwon/votechain/feature/crypto_wallet/ui/newCryptoWallet/NewCryptoWalletViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/feature/crypto-wallet/src/main/java/dylan/kwon/votechain/feature/crypto_wallet/ui/newCryptoWallet/NewCryptoWalletViewModel.kt" afterDir="false" />
-    </list>
+    <list default="true" id="7fb9e483-79da-4d17-940e-191076c70784" name="Changes" comment="[Android] Add android project and common gradle plugins" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -93,6 +89,7 @@
       <workItem from="1720037199600" duration="93000" />
       <workItem from="1720037295042" duration="112000" />
       <workItem from="1720037409530" duration="7000" />
+      <workItem from="1721388467079" duration="619000" />
     </task>
     <task id="LOCAL-00001" summary="Update .gitignore&#10;+ .DS_Store">
       <option name="closed" value="true" />
