@@ -10,6 +10,7 @@ library Model {
         string imageUrl;
         BallotItem[] ballotItems;
         mapping(address => Voter) voters;
+        uint voterCount;
         bool isAllowDuplicateVoting;
         uint createdAt;
         bool isClosed;
