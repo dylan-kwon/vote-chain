@@ -41,7 +41,7 @@ import androidx.paging.PagingData
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.itemKey
-import dylan.kwon.votechain.core.ui.compose_ext.OneShotLaunchedEffect
+import dylan.kwon.votechain.core.ui.compose_ext.composable.OneShotLaunchedEffect
 import dylan.kwon.votechain.core.ui.design_system.theme.VoteChainTheme
 import dylan.kwon.votechain.core.ui.design_system.theme.composable.vote.listItem.Placeholder
 import dylan.kwon.votechain.core.ui.design_system.theme.composable.vote.listItem.VoteListItem

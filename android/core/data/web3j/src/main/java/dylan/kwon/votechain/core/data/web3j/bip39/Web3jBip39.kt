@@ -3,7 +3,7 @@ package dylan.kwon.votechain.core.data.web3j.bip39
 import android.content.Context
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dylan.kwon.votechain.core.data.web3j.bip39.model.Bip39CryptoWallet
-import dylan.kwon.votechain.core.data.web3j.bip39.model.KeyPair
+import dylan.kwon.votechain.core.data.web3j.bip39.model.Credential
 import org.web3j.crypto.WalletUtils
 import java.io.File
 import javax.inject.Inject
@@ -32,14 +32,15 @@ class Web3jBip39 @Inject constructor(
         )
     }
 
-    override fun loadKeyPair(password: String, cryptoWallet: Bip39CryptoWallet): KeyPair {
+    override fun loadCredentials(password: String, cryptoWallet: Bip39CryptoWallet): Credential {
         val credentials = WalletUtils.loadBip39Credentials(
             password,
             cryptoWallet.mnemonic.joinToString(separator = " ")
         )
-        return KeyPair(
+        return Credential(
             public = credentials.ecKeyPair.publicKey.toByteArray(),
-            private = credentials.ecKeyPair.privateKey.toByteArray()
+            private = credentials.ecKeyPair.privateKey.toByteArray(),
+            address = credentials.address
         )
     }
 }

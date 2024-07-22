@@ -9,6 +9,12 @@ data class Vote(
 
     val imageUrl: String?,
 
+    val voterCount: Long,
+
+    val isOwner: Boolean,
+
+    val isVoted: Boolean,
+
     val isClosed: Boolean,
 
     val isAllowDuplicateVoting: Boolean,

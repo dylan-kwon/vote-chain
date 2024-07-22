@@ -456,6 +456,37 @@
 		"type": "function"
 	},
 	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "id",
+				"type": "uint256"
+			}
+		],
+		"name": "getVoter",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "address",
+						"name": "id",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "votings",
+						"type": "uint256[]"
+					}
+				],
+				"internalType": "struct Model.Voter",
+				"name": "",
+				"type": "tuple"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
 		"inputs": [],
 		"name": "lastRequestId",
 		"outputs": [
@@ -580,6 +611,11 @@
 				"internalType": "string",
 				"name": "imageUrl",
 				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "voterCount",
+				"type": "uint256"
 			},
 			{
 				"internalType": "bool",

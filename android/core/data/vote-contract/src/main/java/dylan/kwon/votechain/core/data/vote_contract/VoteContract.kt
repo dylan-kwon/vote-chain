@@ -1,8 +1,8 @@
 package dylan.kwon.votechain.core.data.vote_contract
 
-import dylan.kwon.votechain.core.data.vote_contract.VoteContractImpl.BallotItem
+import dylan.kwon.votechain.core.data.vote_contract.model.BallotItem
 import dylan.kwon.votechain.core.data.vote_contract.model.Vote
-import java.math.BigInteger
+import dylan.kwon.votechain.core.data.vote_contract.model.Voter
 
 interface VoteContract {
 
@@ -11,8 +11,10 @@ interface VoteContract {
         contractAddress: String
     )
 
-    suspend fun getVote(id: BigInteger, privateKey: String): Vote?
+    suspend fun getVote(id: Long, privateKey: String): Vote?
 
-    suspend fun getBallotItems(id: BigInteger, privateKey: String): List<BallotItem>?
+    suspend fun getVoter(id: Long, privateKey: String): Voter?
+
+    suspend fun getBallotItems(id: Long, privateKey: String): List<BallotItem>?
 
 }

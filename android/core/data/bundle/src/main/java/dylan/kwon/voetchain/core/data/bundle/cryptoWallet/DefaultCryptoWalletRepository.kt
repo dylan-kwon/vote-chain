@@ -33,11 +33,11 @@ class DefaultCryptoWalletRepository @Inject constructor(
 
     override suspend fun loadCryptoWallet(mnemonic: Mnemonic): CryptoWallet {
         return withContext(dispatcherProvider.io) {
-            val keyPair = bip39.loadKeyPair(
+            val credential = bip39.loadCredentials(
                 PASSWORD,
                 Bip39CryptoWallet(mnemonic.words)
             )
-            keyPair.toCryptoWallet()
+            credential.toCryptoWallet()
         }
     }
 
@@ -45,7 +45,8 @@ class DefaultCryptoWalletRepository @Inject constructor(
         withContext(dispatcherProvider.io) {
             dataStore.update(
                 publicKey = cryptoWallet.publicKey,
-                privateKey = cryptoWallet.privateKey
+                privateKey = cryptoWallet.privateKey,
+                address = cryptoWallet.address
             )
         }
     }
@@ -61,6 +62,7 @@ class DefaultCryptoWalletRepository @Inject constructor(
             CryptoWallet(
                 publicKey = dataStore.publicKey.first(),
                 privateKey = dataStore.privateKey.first(),
+                address = dataStore.address.first()
             )
         }
     }

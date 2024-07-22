@@ -3,5 +3,7 @@
 
     <string name="closed">Closed</string>
     <string name="inprogress">In Progress</string>
+    <string name="error">Error</string>
+    <string name="loading">Loading</string>
 
 </resources>

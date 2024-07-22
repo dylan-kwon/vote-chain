@@ -4,7 +4,51 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7fb9e483-79da-4d17-940e-191076c70784" name="Changes" comment="[Android] Add android project and common gradle plugins" />
+    <list default="true" id="7fb9e483-79da-4d17-940e-191076c70784" name="Changes" comment="[Android] Update CreateVoteSource.js&#10;- ImageUrl Optional">
+      <change afterPath="$PROJECT_DIR$/android/core/data/vote-contract/src/main/java/dylan/kwon/votechain/core/data/vote_contract/mapper/BallotItemMapper.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/core/data/vote-contract/src/main/java/dylan/kwon/votechain/core/data/vote_contract/mapper/VoterMapper.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/core/data/vote-contract/src/main/java/dylan/kwon/votechain/core/data/vote_contract/model/BallotItem.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/feature/vote/src/main/java/dylan/kwon/votechain/feature/vote/detail/uiMapper/DefaultVoteDetailUiMapper.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/feature/vote/src/main/java/dylan/kwon/votechain/feature/vote/detail/uiMapper/DefaultVoteDetailUiMapperModule.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/feature/vote/src/main/java/dylan/kwon/votechain/feature/vote/detail/uiMapper/VoteDetailUiMapper.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/dylan/kwon/votechain/ui/navigation/VoteChainNavHost.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/java/dylan/kwon/votechain/ui/navigation/VoteChainNavHost.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/dylan/kwon/votechain/ui/screen/main/MainScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/java/dylan/kwon/votechain/ui/screen/main/MainScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/core/data/bundle/src/main/java/dylan/kwon/voetchain/core/data/bundle/cryptoWallet/DefaultCryptoWalletRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/core/data/bundle/src/main/java/dylan/kwon/voetchain/core/data/bundle/cryptoWallet/DefaultCryptoWalletRepository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/core/data/bundle/src/main/java/dylan/kwon/voetchain/core/data/bundle/cryptoWallet/mapper/CryptoWalletMapper.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/core/data/bundle/src/main/java/dylan/kwon/voetchain/core/data/bundle/cryptoWallet/mapper/CryptoWalletMapper.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/core/data/bundle/src/main/java/dylan/kwon/voetchain/core/data/bundle/vote/DefaultVoteRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/core/data/bundle/src/main/java/dylan/kwon/voetchain/core/data/bundle/vote/DefaultVoteRepository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/core/data/bundle/src/main/java/dylan/kwon/voetchain/core/data/bundle/vote/mapper/BallotItemMapper.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/core/data/bundle/src/main/java/dylan/kwon/voetchain/core/data/bundle/vote/mapper/BallotItemMapper.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/core/data/bundle/src/main/java/dylan/kwon/voetchain/core/data/bundle/vote/mapper/VoteMapper.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/core/data/bundle/src/main/java/dylan/kwon/voetchain/core/data/bundle/vote/mapper/VoteMapper.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/core/data/bundle/src/main/java/dylan/kwon/voetchain/core/data/bundle/vote/mapper/VoterMapper.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/core/data/datastore/src/main/java/dylan/kwon/votechain/core/data/datastore/cryptoWallet/CryptoWalletDataStore.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/core/data/datastore/src/main/java/dylan/kwon/votechain/core/data/datastore/cryptoWallet/CryptoWalletDataStore.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/core/data/datastore/src/main/java/dylan/kwon/votechain/core/data/datastore/cryptoWallet/DefaultCryptoWalletDataStore.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/core/data/datastore/src/main/java/dylan/kwon/votechain/core/data/datastore/cryptoWallet/DefaultCryptoWalletDataStore.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/core/data/vote-contract/abi/VoteContract.bin" beforeDir="false" afterPath="$PROJECT_DIR$/android/core/data/vote-contract/abi/VoteContract.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/core/data/vote-contract/abi/VoteContractImpl.abi" beforeDir="false" afterPath="$PROJECT_DIR$/android/core/data/vote-contract/abi/VoteContractImpl.abi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/core/data/vote-contract/src/main/java/dylan/kwon/votechain/core/data/vote_contract/DefaultVoteContract.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/core/data/vote-contract/src/main/java/dylan/kwon/votechain/core/data/vote_contract/Web3jVoteContract.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/core/data/vote-contract/src/main/java/dylan/kwon/votechain/core/data/vote_contract/DefaultVoteContractModule.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/core/data/vote-contract/src/main/java/dylan/kwon/votechain/core/data/vote_contract/DefaultVoteContractModule.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/core/data/vote-contract/src/main/java/dylan/kwon/votechain/core/data/vote_contract/VoteContract.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/core/data/vote-contract/src/main/java/dylan/kwon/votechain/core/data/vote_contract/VoteContract.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/core/data/vote-contract/src/main/java/dylan/kwon/votechain/core/data/vote_contract/mapper/VoteMapper.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/core/data/vote-contract/src/main/java/dylan/kwon/votechain/core/data/vote_contract/mapper/VoteMapper.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/core/data/vote-contract/src/main/java/dylan/kwon/votechain/core/data/vote_contract/model/Vote.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/core/data/vote-contract/src/main/java/dylan/kwon/votechain/core/data/vote_contract/model/Vote.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/core/data/vote-contract/src/main/java/dylan/kwon/votechain/core/data/vote_contract/model/Voter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/core/data/vote-contract/src/main/java/dylan/kwon/votechain/core/data/vote_contract/model/Voter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/core/data/web3j/src/main/java/dylan/kwon/votechain/core/data/web3j/bip39/Bip39.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/core/data/web3j/src/main/java/dylan/kwon/votechain/core/data/web3j/bip39/Bip39.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/core/data/web3j/src/main/java/dylan/kwon/votechain/core/data/web3j/bip39/Web3jBip39.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/core/data/web3j/src/main/java/dylan/kwon/votechain/core/data/web3j/bip39/Web3jBip39.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/core/data/web3j/src/main/java/dylan/kwon/votechain/core/data/web3j/bip39/model/KeyPair.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/core/data/web3j/src/main/java/dylan/kwon/votechain/core/data/web3j/bip39/model/Credential.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/core/domain/src/main/java/dylan/kwon/votechain/core/domain/cryptoWallet/entity/CryptoWallet.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/core/domain/src/main/java/dylan/kwon/votechain/core/domain/cryptoWallet/entity/CryptoWallet.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/core/domain/src/main/java/dylan/kwon/votechain/core/domain/vote/entity/BallotItem.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/core/domain/src/main/java/dylan/kwon/votechain/core/domain/vote/entity/BallotItem.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/core/domain/src/main/java/dylan/kwon/votechain/core/domain/vote/entity/Vote.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/core/domain/src/main/java/dylan/kwon/votechain/core/domain/vote/entity/Vote.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/core/ui/compose-ext/src/main/java/dylan/kwon/votechain/core/ui/compose_ext/FindActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/core/ui/compose-ext/src/main/java/dylan/kwon/votechain/core/ui/compose_ext/extension/FindActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/core/ui/compose-ext/src/main/java/dylan/kwon/votechain/core/ui/compose_ext/OneShotLaunchedEffect.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/core/ui/compose-ext/src/main/java/dylan/kwon/votechain/core/ui/compose_ext/composable/OneShotLaunchedEffect.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/core/ui/design-system/src/main/java/dylan/kwon/votechain/core/ui/design_system/theme/composable/image/VoteChainImage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/core/ui/design-system/src/main/java/dylan/kwon/votechain/core/ui/design_system/theme/composable/image/VoteChainImage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/core/ui/design-system/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/core/ui/design-system/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/feature/auth/src/main/java/dylan/kwon/votechain/feature/auth/ui/screen/simplePassword/SimplePasswordScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/feature/auth/src/main/java/dylan/kwon/votechain/feature/auth/ui/screen/simplePassword/SimplePasswordScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/feature/crypto-wallet/src/main/java/dylan/kwon/votechain/feature/crypto_wallet/ui/addCryptoWallet/AddCryptoWalletScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/feature/crypto-wallet/src/main/java/dylan/kwon/votechain/feature/crypto_wallet/ui/addCryptoWallet/AddCryptoWalletScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/feature/vote/src/main/java/dylan/kwon/votechain/feature/vote/detail/VoteDetailNavigation.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/feature/vote/src/main/java/dylan/kwon/votechain/feature/vote/detail/VoteDetailNavigation.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/feature/vote/src/main/java/dylan/kwon/votechain/feature/vote/detail/VoteDetailScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/feature/vote/src/main/java/dylan/kwon/votechain/feature/vote/detail/VoteDetailScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/feature/vote/src/main/java/dylan/kwon/votechain/feature/vote/detail/VoteDetailUiState.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/feature/vote/src/main/java/dylan/kwon/votechain/feature/vote/detail/VoteDetailUiState.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/feature/vote/src/main/java/dylan/kwon/votechain/feature/vote/detail/VoteDetailViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/feature/vote/src/main/java/dylan/kwon/votechain/feature/vote/detail/VoteDetailViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/feature/vote/src/main/java/dylan/kwon/votechain/feature/vote/list/VoteListScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/feature/vote/src/main/java/dylan/kwon/votechain/feature/vote/list/VoteListScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/feature/vote/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/feature/vote/src/main/res/values/strings.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -89,7 +133,7 @@
       <workItem from="1720037199600" duration="93000" />
       <workItem from="1720037295042" duration="112000" />
       <workItem from="1720037409530" duration="7000" />
-      <workItem from="1721388467079" duration="619000" />
+      <workItem from="1721388467079" duration="2721000" />
     </task>
     <task id="LOCAL-00001" summary="Update .gitignore&#10;+ .DS_Store">
       <option name="closed" value="true" />
@@ -315,7 +359,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720626015707</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="[Android] Update CreateVoteSource.js&#10;- ImageUrl Optional">
+      <option name="closed" value="true" />
+      <created>1721603216403</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1721603216403</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -387,6 +439,7 @@
     <MESSAGE value="[Contract] Update contract README.md&#10;- gasLimit to chainLinkGasLimit" />
     <MESSAGE value="[Contract] Update contract README.md&#10;- Correcting a typo" />
     <MESSAGE value="[Android] Add android project and common gradle plugins" />
-    <option name="LAST_COMMIT_MESSAGE" value="[Android] Add android project and common gradle plugins" />
+    <MESSAGE value="[Android] Update CreateVoteSource.js&#10;- ImageUrl Optional" />
+    <option name="LAST_COMMIT_MESSAGE" value="[Android] Update CreateVoteSource.js&#10;- ImageUrl Optional" />
   </component>
 </project>

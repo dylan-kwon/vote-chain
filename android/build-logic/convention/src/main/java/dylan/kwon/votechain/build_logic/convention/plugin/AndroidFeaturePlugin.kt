@@ -26,5 +26,7 @@ class AndroidFeaturePlugin : ProjectPlugin() {
         add("implementation", project(":core:json"))
         add("implementation", project(":core:coroutine:jvm"))
         add("testImplementation", project(":core:coroutine:test"))
+
+        add("implementation", libs.findLibrary("timeago").get())
     }
 }

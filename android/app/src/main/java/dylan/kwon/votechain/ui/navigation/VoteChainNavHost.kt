@@ -1,5 +1,8 @@
+@file:OptIn(ExperimentalSharedTransitionApi::class)
+
 package dylan.kwon.votechain.ui.navigation
 
+import androidx.compose.animation.ExperimentalSharedTransitionApi
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
@@ -92,7 +95,7 @@ fun VoteChainNavHost(
         )
 
         attachVoteDetailScreen(
-            onBackClick = navController::popBackStack
+            onBackClick = navController::popBackStack,
         )
     }
 }

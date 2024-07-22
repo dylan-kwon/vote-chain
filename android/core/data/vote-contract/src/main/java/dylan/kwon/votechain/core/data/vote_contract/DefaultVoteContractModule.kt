@@ -13,7 +13,7 @@ abstract class DefaultVoteContractModule {
     @Binds
     @Singleton
     abstract fun bindsDefaultVoteContract(
-        contract: DefaultVoteContract
+        contract: Web3jVoteContract
     ): VoteContract
 
 }

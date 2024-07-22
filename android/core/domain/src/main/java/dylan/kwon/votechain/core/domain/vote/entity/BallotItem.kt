@@ -1,8 +1,8 @@
 package dylan.kwon.votechain.core.domain.vote.entity
 
-import java.math.BigInteger
-
 data class BallotItem(
+    val id: Int,
     val name: String,
-    val count: BigInteger
+    val count: Long,
+    val isVoted: Boolean
 )

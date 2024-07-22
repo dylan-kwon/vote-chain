@@ -11,8 +11,11 @@ interface CryptoWalletDataStore {
 
     val privateKey: Flow<String>
 
+    val address: Flow<String>
+
     suspend fun update(
         publicKey: String,
-        privateKey: String
+        privateKey: String,
+        address: String
     )
 }

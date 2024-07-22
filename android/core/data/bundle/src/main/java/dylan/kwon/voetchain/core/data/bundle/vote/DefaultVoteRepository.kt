@@ -16,8 +16,9 @@ import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 import javax.inject.Singleton
-import dylan.kwon.votechain.core.data.vote_contract.VoteContractImpl.BallotItem as ContractBallotItem
-import dylan.kwon.votechain.core.data.vote_contract.model.Vote as ContractVote
+import dylan.kwon.votechain.core.data.vote_contract.model.BallotItem as VoteContractBallotItem
+import dylan.kwon.votechain.core.data.vote_contract.model.Vote as VoteContractVote
+import dylan.kwon.votechain.core.data.vote_contract.model.Voter as VoteContractVoter
 
 @Singleton
 class DefaultVoteRepository @Inject constructor(
@@ -35,25 +36,56 @@ class DefaultVoteRepository @Inject constructor(
         cryptoWallet: CryptoWallet,
     ): Vote {
         return withContext(dispatcherProvider.io) {
+
+            // Await 3-Requests.
             val results = awaitAll(
+
+                // 1. Get Vote Data
                 async {
                     voteContract.getVote(
-                        id = id.toBigInteger(),
+                        id = id,
                         privateKey = cryptoWallet.privateKey
                     )
                 },
+
+                // 2. Get Ballot Item Data of Vote
                 async {
                     voteContract.getBallotItems(
-                        id = id.toBigInteger(),
+                        id = id,
                         privateKey = cryptoWallet.privateKey
                     )
-                }
+                },
+
+                // 3. Get Voter Data
+                async {
+                    voteContract.getVoter(
+                        id = id,
+                        privateKey = cryptoWallet.privateKey
+                    )
+                },
             )
-            val vote = results.first() as ContractVote
-            val ballotItems = results.last() as List<ContractBallotItem>
+
+            // Vote Null-Check
+            val vote = results[0] as VoteContractVote?
+            if (vote == null) {
+                throw NullPointerException()
+            }
+
+            // BallotItems Null-Check
+            val ballotItems = results[1] as List<VoteContractBallotItem>?
+            if (ballotItems == null) {
+                throw NullPointerException()
+            }
+
+            // If the caller has not yet voted on the poll, it may be null.
+            val voter = results[2] as VoteContractVoter?
+
+            val isOwner = cryptoWallet.address == vote.owner
 
             vote.toDomain(
-                ballotItems = ballotItems
+                isOwner = isOwner,
+                ballotItems = ballotItems,
+                voting = voter?.votings?.toSet() ?: setOf()
             )
         }
     }

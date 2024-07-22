@@ -1,4 +1,4 @@
-package dylan.kwon.votechain.core.ui.compose_ext
+package dylan.kwon.votechain.core.ui.compose_ext.extension
 
 import android.app.Activity
 import android.content.Context

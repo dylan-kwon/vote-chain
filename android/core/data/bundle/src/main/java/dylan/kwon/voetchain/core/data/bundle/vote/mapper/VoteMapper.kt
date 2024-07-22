@@ -1,22 +1,30 @@
 package dylan.kwon.voetchain.core.data.bundle.vote.mapper
 
 import dylan.kwon.votechain.core.domain.vote.entity.Vote
-import dylan.kwon.votechain.core.data.vote_contract.VoteContractImpl.BallotItem as VoteContractBallotItem
+import dylan.kwon.votechain.core.data.vote_contract.model.BallotItem as VoteContractBallotItem
 import dylan.kwon.votechain.core.data.vote_contract.model.Vote as VoteContractVote
 
 internal fun VoteContractVote.toDomain(
+    isOwner: Boolean,
+    voting: Set<Long>,
     ballotItems: List<VoteContractBallotItem>,
 ) = Vote(
-    id = id.toLong(),
+    id = id,
     title = title,
     content = content,
     imageUrl = imageUrl.takeIf {
         it.isNotEmpty()
     },
+    voterCount = voterCount,
     isClosed = isClosed,
     isAllowDuplicateVoting = isAllowDuplicateVoting,
-    ballotItems = ballotItems.map {
-        it.toDomain()
+    ballotItems = ballotItems.mapIndexed { index, ballotItem ->
+        ballotItem.toDomain(
+            id = index,
+            isVoted = voting.contains(index.toLong())
+        )
     },
-    createdAt = createdAt.toLong()
+    isOwner = isOwner,
+    isVoted = voting.isNotEmpty(),
+    createdAt = createdAt
 )

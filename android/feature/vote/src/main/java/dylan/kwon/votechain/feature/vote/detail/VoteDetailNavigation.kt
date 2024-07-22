@@ -1,5 +1,8 @@
+@file:OptIn(ExperimentalSharedTransitionApi::class)
+
 package dylan.kwon.votechain.feature.vote.detail
 
+import androidx.compose.animation.ExperimentalSharedTransitionApi
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.NavOptionsBuilder
@@ -16,7 +19,7 @@ fun NavGraphBuilder.attachVoteDetailScreen(
 ) {
     composable<VoteDetailNavigation> {
         VoteDetailRoute(
-            onBackClick = onBackClick
+            onBackClick = onBackClick,
         )
     }
 }

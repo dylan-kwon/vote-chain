@@ -33,7 +33,7 @@ import com.airbnb.lottie.compose.LottieAnimation
 import com.airbnb.lottie.compose.LottieCompositionSpec
 import com.airbnb.lottie.compose.LottieConstants
 import com.airbnb.lottie.compose.rememberLottieComposition
-import dylan.kwon.votechain.core.ui.compose_ext.findActivity
+import dylan.kwon.votechain.core.ui.compose_ext.extension.findActivity
 import dylan.kwon.votechain.core.ui.design_system.theme.VoteChainTheme
 import dylan.kwon.votechain.feature.crypto_wallet.R
 

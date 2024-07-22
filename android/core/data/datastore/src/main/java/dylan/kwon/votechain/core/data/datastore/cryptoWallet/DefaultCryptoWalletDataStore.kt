@@ -23,22 +23,36 @@ class DefaultCryptoWalletDataStore @Inject constructor(
     private object Key {
         val PUBLIC_KEY = stringPreferencesKey("public-key")
         val PRIVATE_KEY = stringPreferencesKey("private-key")
+        val ADDRESS = stringPreferencesKey("address")
     }
 
-    override val publicKey: Flow<String> = applicationContext.cryptoWalletDataStore.data
+    private val dataStore
+        get() = applicationContext.cryptoWalletDataStore
+
+    override val publicKey: Flow<String> = dataStore.data
         .map { prefs ->
             prefs[Key.PUBLIC_KEY] ?: ""
         }
 
-    override val privateKey: Flow<String> = applicationContext.cryptoWalletDataStore.data
+    override val privateKey: Flow<String> = dataStore.data
         .map { prefs ->
             prefs[Key.PRIVATE_KEY] ?: ""
         }
 
-    override suspend fun update(publicKey: String, privateKey: String) {
+    override val address: Flow<String> = dataStore.data
+        .map { prefs ->
+            prefs[Key.ADDRESS] ?: ""
+        }
+
+    override suspend fun update(
+        publicKey: String,
+        privateKey: String,
+        address: String
+    ) {
         applicationContext.cryptoWalletDataStore.edit { prefs ->
             prefs[Key.PUBLIC_KEY] = publicKey
             prefs[Key.PRIVATE_KEY] = privateKey
+            prefs[Key.ADDRESS] = address
         }
     }
 }

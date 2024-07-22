@@ -25,8 +25,8 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.LifecycleResumeEffect
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import dylan.kwon.votechain.R
-import dylan.kwon.votechain.core.ui.compose_ext.OneShotLaunchedEffect
-import dylan.kwon.votechain.core.ui.compose_ext.findActivity
+import dylan.kwon.votechain.core.ui.compose_ext.composable.OneShotLaunchedEffect
+import dylan.kwon.votechain.core.ui.compose_ext.extension.findActivity
 import dylan.kwon.votechain.core.ui.design_system.theme.VoteChainTheme
 import dylan.kwon.votechain.core.ui.design_system.theme.composable.vote.listItem.VoteListItemUiState
 import dylan.kwon.votechain.feature.vote.list.VoteListRoute

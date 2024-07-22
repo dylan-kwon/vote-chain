@@ -1,17 +1,20 @@
 package dylan.kwon.votechain.core.data.vote_contract.mapper
 
 import dylan.kwon.votechain.core.data.vote_contract.model.Vote
-import org.web3j.tuples.generated.Tuple8
+import org.web3j.tuples.generated.Tuple9
 import java.math.BigInteger
 
-internal fun Tuple8<BigInteger, String, String, String, String, Boolean, BigInteger, Boolean>.toVote() =
+typealias Web3jVote = Tuple9<BigInteger, String, String, String, String, BigInteger, Boolean, BigInteger, Boolean>
+
+internal fun Web3jVote.toVote() =
     Vote(
-        id = component1(),
+        id = component1().toLong(),
         owner = component2(),
         title = component3(),
         content = component4(),
         imageUrl = component5(),
-        isAllowDuplicateVoting = component6(),
-        createdAt = component7(),
-        isClosed = component8(),
+        voterCount = component6().toLong(),
+        isAllowDuplicateVoting = component7(),
+        createdAt = component8().toLong(),
+        isClosed = component9(),
     )

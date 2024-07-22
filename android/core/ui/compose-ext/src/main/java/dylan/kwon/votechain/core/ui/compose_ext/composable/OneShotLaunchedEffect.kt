@@ -1,4 +1,4 @@
-package dylan.kwon.votechain.core.ui.compose_ext
+package dylan.kwon.votechain.core.ui.compose_ext.composable
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect

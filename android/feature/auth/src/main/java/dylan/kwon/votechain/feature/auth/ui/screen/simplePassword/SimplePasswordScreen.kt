@@ -23,7 +23,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import dylan.kwon.votechain.core.ui.compose_ext.findActivity
+import dylan.kwon.votechain.core.ui.compose_ext.extension.findActivity
 import dylan.kwon.votechain.core.ui.design_system.theme.VoteChainTheme
 import dylan.kwon.votechain.core.ui.design_system.theme.composable.messageCard.MessageCard
 import dylan.kwon.votechain.feature.auth.ui.composable.numPad.NumPad

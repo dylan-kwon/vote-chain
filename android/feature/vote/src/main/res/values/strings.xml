@@ -5,5 +5,11 @@
     <string name="retry">Retry</string>
     <string name="add">Add</string>
     <string name="search">Search</string>
+    <string name="inprogress">In Progress</string>
+    <string name="closed">Closed</string>
+    <string name="more">More</string>
+    <string name="end_voting">End Voting</string>
+    <string name="voter_count">Voter Count</string>
+    <string name="status">Status</string>
 
 </resources>
