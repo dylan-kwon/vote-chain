@@ -150,8 +150,13 @@ contract Vote is ChainLinkClient {
         return request(source, args);
     }
 
-     function getVoteBallotItems(uint id) external view returns (Model.BallotItem[] memory) {
+    function getVoteBallotItems(uint id) external view returns (Model.BallotItem[] memory) {
         return votes[id].ballotItems;
+    }
+
+    function getVoter(uint id) external view returns (Model.Voter memory) {
+        Model.Vote storage vote = votes[id];
+        return vote.voters[msg.sender];
     }
 
     function voting(
@@ -181,6 +186,7 @@ contract Vote is ChainLinkClient {
             vote.ballotItems[index].count++;
         }
 
+        vote.voterCount++;
         vote.voters[msg.sender] = Model.Voter(
             msg.sender, indexes
         );
