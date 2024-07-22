@@ -73,15 +73,16 @@ Once the contract is deployed, the contract address must be registered as a cust
 
 ### Vote
 
-| Name               | Description                                                                        |
-|:-------------------|:-----------------------------------------------------------------------------------|
-| votes              | Return the voting data stored in the contract                                      |
-| voteCount          | Return the number of votes created                                                 |
-| lastVoteId         | Return the last created vote ID                                                    |
-| createVote         | Create a new vote                                                                  |
-| closeVote          | Calling this method will disable further voting on the specified vote              |
-| voting             | Each account can vote only once per vote, and voting is not allowed in ended votes |
-| getVoteBallotItems | Return the ballot items of the vote                                                |
+| Name               | Description                                                                                   |
+|:-------------------|:----------------------------------------------------------------------------------------------|
+| votes              | Return the voting data stored in the contract                                                 |
+| voteCount          | Return the number of votes created                                                            |
+| lastVoteId         | Return the last created vote ID                                                               |
+| createVote         | Create a new vote                                                                             |
+| closeVote          | Calling this method will disable further voting on the specified vote                         |
+| voting             | Each account can vote only once per vote, and voting is not allowed in ended votes            |
+| getVoter           | Return data on which item the caller voted for                                                |
+| getVoteBallotItems | Return the ballot items of the vote                                                           |
 
 ### ChainLink Settings
 
