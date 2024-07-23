@@ -1,4 +1,7 @@
-@file:OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3Api::class)
+@file:OptIn(
+    ExperimentalMaterial3Api::class, ExperimentalMaterial3Api::class,
+    ExperimentalMaterial3Api::class
+)
 
 package dylan.kwon.votechain.feature.vote.composable
 
@@ -13,6 +16,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -29,6 +33,7 @@ import dylan.kwon.votechain.feature.vote.detail.VoteDetailScreen
 @Composable
 internal fun VoteDetailScreen.TopBar(
     modifier: Modifier = Modifier,
+    scrollBehavior: TopAppBarScrollBehavior,
     title: String,
     isOwner: Boolean,
     isLoading: Boolean,
@@ -64,7 +69,8 @@ internal fun VoteDetailScreen.TopBar(
             if (isOwner) Menus(
                 onVoteCloseClick = onVoteCloseClick
             )
-        }
+        },
+        scrollBehavior = scrollBehavior
     )
 }
 
@@ -86,7 +92,7 @@ private fun Menus(
     ) {
         DropdownMenuItem(
             text = {
-                Text(text = stringResource(id = R.string.end_voting))
+                Text(text = stringResource(id = R.string.close_voting))
             },
             onClick = {
                 isExpanded = false

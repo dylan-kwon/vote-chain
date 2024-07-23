@@ -2,6 +2,7 @@
 
 package dylan.kwon.voetchain.core.data.bundle.vote
 
+import dylan.kwon.voetchain.core.data.bundle.vote.mapper.toCredential
 import dylan.kwon.voetchain.core.data.bundle.vote.mapper.toDomain
 import dylan.kwon.votechain.core.coroutine.jvm.dispatcher.DefaultDispatcherProvider
 import dylan.kwon.votechain.core.data.firebase.firestore.vote.VoteFireStore
@@ -44,7 +45,7 @@ class DefaultVoteRepository @Inject constructor(
                 async {
                     voteContract.getVote(
                         id = id,
-                        privateKey = cryptoWallet.privateKey
+                        credential = cryptoWallet.toCredential()
                     )
                 },
 
@@ -52,7 +53,7 @@ class DefaultVoteRepository @Inject constructor(
                 async {
                     voteContract.getBallotItems(
                         id = id,
-                        privateKey = cryptoWallet.privateKey
+                        credential = cryptoWallet.toCredential()
                     )
                 },
 
@@ -60,7 +61,7 @@ class DefaultVoteRepository @Inject constructor(
                 async {
                     voteContract.getVoter(
                         id = id,
-                        privateKey = cryptoWallet.privateKey
+                        credential = cryptoWallet.toCredential()
                     )
                 },
             )
@@ -99,6 +100,18 @@ class DefaultVoteRepository @Inject constructor(
                 .map {
                     it.toDomain()
                 }
+        }
+    }
+
+    override suspend fun voting(id: Long, ids: List<Int>, cryptoWallet: CryptoWallet) {
+        withContext(dispatcherProvider.io) {
+            voteContract.voting(id, ids, cryptoWallet.toCredential())
+        }
+    }
+
+    override suspend fun closeVote(id: Long, cryptoWallet: CryptoWallet) {
+        withContext(dispatcherProvider.io) {
+            voteContract.closeVote(id, cryptoWallet.toCredential())
         }
     }
 }

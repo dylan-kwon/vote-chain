@@ -57,6 +57,7 @@ class ComposePlugin : ProjectPlugin() {
         add("implementation", libs.findLibrary("compose-coil").get())
         add("implementation", libs.findLibrary("compose-lottie").get())
         add("implementation", libs.findLibrary("compose-shimmer").get())
+        add("implementation", libs.findLibrary("compose-vico").get())
 
         add("debugImplementation", libs.findLibrary("compose-ui-tooling").get())
         add("debugImplementation", libs.findLibrary("compose-ui-test-manifest").get())

@@ -4,13 +4,35 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7fb9e483-79da-4d17-940e-191076c70784" name="Changes" comment="[Android] Update CreateVoteSource.js&#10;- ImageUrl Optional" />
+    <list default="true" id="7fb9e483-79da-4d17-940e-191076c70784" name="Changes" comment="[Contract] Update ReadMe.md&#10;- Add getVoter Function">
+      <change afterPath="$PROJECT_DIR$/android/core/data/bundle/src/main/java/dylan/kwon/voetchain/core/data/bundle/vote/mapper/CryptoWalletMapper.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/core/data/vote-contract/src/main/java/dylan/kwon/votechain/core/data/vote_contract/mapper/VotingMapper.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/core/data/vote-contract/src/main/java/dylan/kwon/votechain/core/data/vote_contract/model/Credential.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/core/domain/src/main/java/dylan/kwon/votechain/core/domain/vote/usecase/VotingUseCase.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/build-logic/convention/src/main/java/dylan/kwon/votechain/build_logic/convention/plugin/ComposePlugin.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/build-logic/convention/src/main/java/dylan/kwon/votechain/build_logic/convention/plugin/ComposePlugin.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/core/data/bundle/src/main/java/dylan/kwon/voetchain/core/data/bundle/vote/DefaultVoteRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/core/data/bundle/src/main/java/dylan/kwon/voetchain/core/data/bundle/vote/DefaultVoteRepository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/core/data/datastore/src/main/java/dylan/kwon/votechain/core/data/datastore/cryptoWallet/DefaultCryptoWalletDataStore.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/core/data/datastore/src/main/java/dylan/kwon/votechain/core/data/datastore/cryptoWallet/DefaultCryptoWalletDataStore.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/core/data/vote-contract/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/android/core/data/vote-contract/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/core/data/vote-contract/src/main/java/dylan/kwon/votechain/core/data/vote_contract/VoteContract.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/core/data/vote-contract/src/main/java/dylan/kwon/votechain/core/data/vote_contract/VoteContract.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/core/data/vote-contract/src/main/java/dylan/kwon/votechain/core/data/vote_contract/Web3jVoteContract.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/core/data/vote-contract/src/main/java/dylan/kwon/votechain/core/data/vote_contract/Web3jVoteContract.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/core/data/vote-contract/src/main/java/dylan/kwon/votechain/core/data/vote_contract/connector/Web3jVoteContractConnector.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/core/data/vote-contract/src/main/java/dylan/kwon/votechain/core/data/vote_contract/connector/Web3jVoteContractConnector.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/core/domain/src/main/java/dylan/kwon/votechain/core/domain/vote/port/VoteRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/core/domain/src/main/java/dylan/kwon/votechain/core/domain/vote/port/VoteRepository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/feature/vote/src/main/java/dylan/kwon/votechain/feature/vote/composable/VoteDetailLoadedScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/feature/vote/src/main/java/dylan/kwon/votechain/feature/vote/composable/VoteDetailLoadedScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/feature/vote/src/main/java/dylan/kwon/votechain/feature/vote/composable/VoteDetailTopBar.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/feature/vote/src/main/java/dylan/kwon/votechain/feature/vote/composable/VoteDetailTopBar.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/feature/vote/src/main/java/dylan/kwon/votechain/feature/vote/detail/VoteDetailScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/feature/vote/src/main/java/dylan/kwon/votechain/feature/vote/detail/VoteDetailScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/feature/vote/src/main/java/dylan/kwon/votechain/feature/vote/detail/VoteDetailUiState.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/feature/vote/src/main/java/dylan/kwon/votechain/feature/vote/detail/VoteDetailUiState.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/feature/vote/src/main/java/dylan/kwon/votechain/feature/vote/detail/VoteDetailViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/feature/vote/src/main/java/dylan/kwon/votechain/feature/vote/detail/VoteDetailViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/feature/vote/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/feature/vote/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/gradle/libs.versions.toml" beforeDir="false" afterPath="$PROJECT_DIR$/android/gradle/libs.versions.toml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$" value="test" />
@@ -89,7 +111,7 @@
       <workItem from="1720037199600" duration="93000" />
       <workItem from="1720037295042" duration="112000" />
       <workItem from="1720037409530" duration="7000" />
-      <workItem from="1721388467079" duration="3477000" />
+      <workItem from="1721388467079" duration="6591000" />
     </task>
     <task id="LOCAL-00001" summary="Update .gitignore&#10;+ .DS_Store">
       <option name="closed" value="true" />
@@ -323,7 +345,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721603216403</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="[Contract] Update ReadMe.md&#10;- Add getVoter Function">
+      <option name="closed" value="true" />
+      <created>1721684441766</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1721684441766</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -371,7 +401,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Update .gitignore&#10;+ .DS_Store" />
     <MESSAGE value="Move constants defined in the Contract/Script to environment variables&#10;&#10;- donId&#10;- routerAddress&#10;- secretsUrls" />
     <MESSAGE value="Add README.md of contract/scripts&#10;&#10;- donId&#10;- routerAddress&#10;- secretsUrls" />
     <MESSAGE value="Add README.md of contract/scripts" />
@@ -396,6 +425,7 @@
     <MESSAGE value="[Contract] Update contract README.md&#10;- Correcting a typo" />
     <MESSAGE value="[Android] Add android project and common gradle plugins" />
     <MESSAGE value="[Android] Update CreateVoteSource.js&#10;- ImageUrl Optional" />
-    <option name="LAST_COMMIT_MESSAGE" value="[Android] Update CreateVoteSource.js&#10;- ImageUrl Optional" />
+    <MESSAGE value="[Contract] Update ReadMe.md&#10;- Add getVoter Function" />
+    <option name="LAST_COMMIT_MESSAGE" value="[Contract] Update ReadMe.md&#10;- Add getVoter Function" />
   </component>
 </project>

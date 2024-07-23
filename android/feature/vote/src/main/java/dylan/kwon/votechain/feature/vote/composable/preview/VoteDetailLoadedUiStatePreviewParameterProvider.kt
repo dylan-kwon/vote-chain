@@ -7,7 +7,7 @@ import kotlinx.collections.immutable.persistentListOf
 class VoteDetailLoadedUiStatePreviewParameterProvider :
     PreviewParameterProvider<VoteDetailUiState.Loaded> {
 
-    private val inProgress = VoteDetailUiState.Loaded(
+    private val inProgressAndVotable = VoteDetailUiState.Loaded(
         canVoting = true,
         canMultipleChoice = true,
         isMoreMenuShowing = true,
@@ -25,19 +25,29 @@ class VoteDetailLoadedUiStatePreviewParameterProvider :
         )
     )
 
-    private val closed = inProgress.copy(
-        vote = inProgress.vote.copy(
+    private val inProgressAndNotVotable = inProgressAndVotable.copy(
+        canVoting = false
+    )
+
+    private val closed = inProgressAndVotable.copy(
+        canVoting = false,
+        vote = inProgressAndVotable.vote.copy(
             voteStatus = VoteDetailUiState.Loaded.Vote.Status.CLOSED
         )
     )
 
-    private val noImage = inProgress.copy(
-        vote = inProgress.vote.copy(
+    private val noImage = inProgressAndVotable.copy(
+        vote = inProgressAndVotable.vote.copy(
             imageUrl = null
         )
     )
 
     override val values: Sequence<VoteDetailUiState.Loaded> =
-        sequenceOf(inProgress, closed, noImage)
+        sequenceOf(
+            inProgressAndVotable,
+            inProgressAndNotVotable,
+            closed,
+            noImage
+        )
 
 }

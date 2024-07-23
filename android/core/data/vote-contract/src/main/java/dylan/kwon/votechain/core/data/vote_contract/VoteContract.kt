@@ -1,6 +1,7 @@
 package dylan.kwon.votechain.core.data.vote_contract
 
 import dylan.kwon.votechain.core.data.vote_contract.model.BallotItem
+import dylan.kwon.votechain.core.data.vote_contract.model.Credential
 import dylan.kwon.votechain.core.data.vote_contract.model.Vote
 import dylan.kwon.votechain.core.data.vote_contract.model.Voter
 
@@ -11,10 +12,14 @@ interface VoteContract {
         contractAddress: String
     )
 
-    suspend fun getVote(id: Long, privateKey: String): Vote?
+    suspend fun getVote(id: Long, credential: Credential): Vote?
 
-    suspend fun getVoter(id: Long, privateKey: String): Voter?
+    suspend fun getVoter(id: Long, credential: Credential): Voter?
 
-    suspend fun getBallotItems(id: Long, privateKey: String): List<BallotItem>?
+    suspend fun getBallotItems(id: Long, credential: Credential): List<BallotItem>?
+
+    suspend fun voting(id: Long, ids: List<Int>, credential: Credential)
+
+    suspend fun closeVote(id: Long, credential: Credential)
 
 }

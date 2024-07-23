@@ -13,10 +13,10 @@ fun OneShotLaunchedEffect(
     vararg keys: Any?,
     block: suspend CoroutineScope.() -> Unit
 ) {
-    var isLaunched by rememberSaveable {
+    var isLaunched by rememberSaveable(*keys) {
         mutableStateOf(false)
     }
-    if (!isLaunched) LaunchedEffect(keys) {
+    if (!isLaunched) LaunchedEffect(Unit) {
         block()
         isLaunched = true
     }

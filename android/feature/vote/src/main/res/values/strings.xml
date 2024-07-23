@@ -8,8 +8,9 @@
     <string name="inprogress">In Progress</string>
     <string name="closed">Closed</string>
     <string name="more">More</string>
-    <string name="end_voting">End Voting</string>
+    <string name="close_voting">Close Voting</string>
     <string name="voter_count">Voter Count</string>
     <string name="status">Status</string>
+    <string name="submit">Submit</string>
 
 </resources>

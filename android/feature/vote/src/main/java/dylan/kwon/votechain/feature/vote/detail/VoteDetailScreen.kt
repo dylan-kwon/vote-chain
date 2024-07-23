@@ -1,4 +1,5 @@
 @file:Suppress("UnusedReceiverParameter")
+@file:OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3Api::class)
 
 package dylan.kwon.votechain.feature.vote.detail
 
@@ -13,12 +14,15 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.dp
@@ -45,7 +49,9 @@ internal fun VoteDetailRoute(
         onBackClick = onBackClick,
         onRetryClick = viewModel::retry,
         onVoteCloseClick = viewModel::closeVote,
-        onBallotItemCheckedChange = viewModel::updateBallotItemChecked
+        onBallotItemCheckedChange = viewModel::updateBallotItemChecked,
+        onSubmitClick = viewModel::voting,
+        onConsumedToastMessage = viewModel::consumeToastMessage
     )
 }
 
@@ -55,11 +61,18 @@ internal fun VoteDetailScreen(
     onBackClick: () -> Unit,
     onRetryClick: () -> Unit,
     onVoteCloseClick: () -> Unit,
-    onBallotItemCheckedChange: (BallotItemUiState) -> Unit
+    onBallotItemCheckedChange: (BallotItemUiState) -> Unit,
+    onSubmitClick: () -> Unit,
+    onConsumedToastMessage: () -> Unit
 ) {
+    val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior()
     Scaffold(
+        modifier = Modifier.nestedScroll(
+            scrollBehavior.nestedScrollConnection
+        ),
         topBar = {
             VoteDetailScreen.TopBar(
+                scrollBehavior = scrollBehavior,
                 title = uiState.title,
                 isOwner = uiState.isMoreMenuShowing,
                 isLoading = uiState.isLoading,
@@ -76,6 +89,9 @@ internal fun VoteDetailScreen(
         AnimatedContent(
             targetState = uiState,
             label = "vote-detail-screen",
+            contentKey = {
+                it::class
+            },
             transitionSpec = {
                 when (initialState.isLoaded) {
                     true -> EnterTransition.None togetherWith ExitTransition.Companion.None
@@ -92,7 +108,9 @@ internal fun VoteDetailScreen(
                 is VoteDetailUiState.Loaded -> VoteDetailScreen.Loaded(
                     modifier = modifier,
                     uiState = target,
-                    onBallotItemCheckedChange = onBallotItemCheckedChange
+                    onBallotItemCheckedChange = onBallotItemCheckedChange,
+                    onSubmitClick = onSubmitClick,
+                    onConsumedToastMessage = onConsumedToastMessage,
                 )
 
                 is VoteDetailUiState.Error -> VoteDetailScreen.Error(
@@ -125,7 +143,9 @@ internal fun LoadingPreview() {
             onBackClick = {},
             onRetryClick = {},
             onVoteCloseClick = {},
-            onBallotItemCheckedChange = {}
+            onBallotItemCheckedChange = {},
+            onSubmitClick = {},
+            onConsumedToastMessage = {}
         )
     }
 }
@@ -142,7 +162,9 @@ internal fun LoadedPreview(
             onBackClick = {},
             onRetryClick = {},
             onVoteCloseClick = {},
-            onBallotItemCheckedChange = {}
+            onBallotItemCheckedChange = {},
+            onSubmitClick = {},
+            onConsumedToastMessage = {}
         )
     }
 }
@@ -156,7 +178,9 @@ internal fun ErrorPreview() {
             onBackClick = {},
             onRetryClick = {},
             onVoteCloseClick = {},
-            onBallotItemCheckedChange = {}
+            onBallotItemCheckedChange = {},
+            onSubmitClick = {},
+            onConsumedToastMessage = {}
         )
     }
 }

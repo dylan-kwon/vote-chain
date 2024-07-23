@@ -23,6 +23,8 @@ sealed interface VoteDetailUiState {
         val vote: Vote,
         val canVoting: Boolean,
         val canMultipleChoice: Boolean,
+        val isProgressShowing: Boolean = false,
+        val toastMessage: String? = null,
         override val isMoreMenuShowing: Boolean,
     ) : VoteDetailUiState {
 
@@ -50,6 +52,9 @@ sealed interface VoteDetailUiState {
 
         override val title: String
             get() = vote.title
+
+        val isSubmitButtonEnabled: Boolean
+            get() = vote.ballotItems.find { it.isVoted } != null
     }
 
     data class Error(

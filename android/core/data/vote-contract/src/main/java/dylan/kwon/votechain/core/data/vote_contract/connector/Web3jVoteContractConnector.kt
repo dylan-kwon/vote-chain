@@ -6,8 +6,6 @@ import org.web3j.protocol.Web3j
 import org.web3j.protocol.websocket.WebSocketService
 import org.web3j.tx.RawTransactionManager
 import org.web3j.tx.gas.DefaultGasProvider
-import javax.inject.Inject
-import javax.inject.Singleton
 
 class Web3jVoteContractConnector(
     private val rpcUrl: String,
@@ -24,10 +22,6 @@ class Web3jVoteContractConnector(
             web3j = createWeb3j()
             voteContract = createVoteContractImpl(web3j, privateKey)
             return run(voteContract)
-
-        } catch (e: Exception) {
-            e.printStackTrace()
-            return null
 
         } finally {
             web3j?.shutdown()

@@ -6,4 +6,5 @@ plugins {
 
 dependencies {
     implementation(libs.web3j)
+    implementation(libs.kotlinx.coroutines.rx2)
 }

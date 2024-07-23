@@ -10,9 +10,13 @@ interface VoteRepository {
     suspend fun updateContractInfo(info: VoteContractInfo)
 
     suspend fun getVote(
-        id: Long, cryptoWallet: CryptoWallet
+        id: Long,
+        cryptoWallet: CryptoWallet
     ): Vote
 
     suspend fun getVoteSummaries(id: Long?): List<VoteSummary>
 
+    suspend fun voting(id: Long, ids: List<Int>, cryptoWallet: CryptoWallet)
+
+    suspend fun closeVote(id: Long, cryptoWallet: CryptoWallet)
 }
