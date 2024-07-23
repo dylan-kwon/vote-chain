@@ -192,7 +192,7 @@ contract Vote is ChainLinkClient {
         );
 
         emit Voting(
-            msg.sender,
+            owner,
             id,
             msg.sender,
             indexes
