@@ -10,6 +10,8 @@ import androidx.navigation.compose.composable
 import dylan.kwon.votechain.core.ui.design_system.theme.composable.vote.listItem.VoteListItemUiState
 import dylan.kwon.votechain.core.ui.navigation.result.ReceiveResultEffect
 import dylan.kwon.votechain.feature.auth.ui.screen.simplePassword.SimplePasswordNavigationResult
+import dylan.kwon.votechain.feature.vote.screen.add.AddVoteNavigationResult
+import dylan.kwon.votechain.feature.vote.screen.list.VoteListViewModel
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -22,23 +24,34 @@ fun NavGraphBuilder.attachMainScreen(
     onVoteListItemClick: (VoteListItemUiState) -> Unit
 ) {
     composable<MainNavigation> { backstackEntry ->
-        val viewModel: MainViewModel = hiltViewModel(
+        val mainViewModel: MainViewModel = hiltViewModel(
             requireNotNull(LocalView.current.findViewTreeViewModelStoreOwner())
         )
-        backstackEntry.ReceiveResultEffect<SimplePasswordNavigationResult>(
-            SimplePasswordNavigationResult.KEY, viewModel
-        ) { result ->
-            if (result.isSuccess) {
-                viewModel.verifiedSimplePassword()
-            }
-        }
+        val voteListViewModel: VoteListViewModel = hiltViewModel()
+
         MainRoute(
-            viewModel = viewModel,
+            viewModel = mainViewModel,
             onNeedCryptoWallet = onNeedCryptoWallet,
             onNeedSimplePasswordVerify = onNeedSimplePasswordVerify,
             onVoteAddClick = onVoteAddClick,
             onVoteListItemClick = onVoteListItemClick
         )
+
+        backstackEntry.ReceiveResultEffect<SimplePasswordNavigationResult>(
+            SimplePasswordNavigationResult.KEY, mainViewModel
+        ) { result ->
+            if (result.isSuccess) {
+                mainViewModel.verifiedSimplePassword()
+            }
+        }
+
+        backstackEntry.ReceiveResultEffect<AddVoteNavigationResult>(
+            AddVoteNavigationResult.KEY, voteListViewModel
+        ) { result ->
+            if (result.isCreated) {
+                voteListViewModel.refresh()
+            }
+        }
     }
 }
 

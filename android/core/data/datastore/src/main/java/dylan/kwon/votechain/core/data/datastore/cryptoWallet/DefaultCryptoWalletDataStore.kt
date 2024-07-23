@@ -37,13 +37,11 @@ class DefaultCryptoWalletDataStore @Inject constructor(
     override val privateKey: Flow<String> = dataStore.data
         .map { prefs ->
             prefs[Key.PRIVATE_KEY] ?: ""
-            "9f51be7f142ca9150a669f440bf5600eb2bd3b0f6ed76b1372e854f642002734"
         }
 
     override val address: Flow<String> = dataStore.data
         .map { prefs ->
             prefs[Key.ADDRESS] ?: ""
-            "0x4d727917eb5d33ca4af865844fbd47c96a7e6788"
         }
 
     override suspend fun update(

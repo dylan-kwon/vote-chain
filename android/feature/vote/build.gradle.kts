@@ -5,3 +5,7 @@ plugins {
 android {
     namespace = "dylan.kwon.votechain.feature.vote"
 }
+
+dependencies {
+    implementation(projects.core.ui.navigation)
+}

@@ -16,10 +16,13 @@ import dylan.kwon.votechain.feature.crypto_wallet.ui.loadCryptoWallet.attachLoad
 import dylan.kwon.votechain.feature.crypto_wallet.ui.loadCryptoWallet.navigateToLoadCryptoWallet
 import dylan.kwon.votechain.feature.crypto_wallet.ui.newCryptoWallet.attachNewCryptoWalletScreen
 import dylan.kwon.votechain.feature.crypto_wallet.ui.newCryptoWallet.navigateToNewCryptoWallet
-import dylan.kwon.votechain.feature.vote.detail.VoteDetailNavigation
-import dylan.kwon.votechain.feature.vote.detail.attachVoteDetailScreen
-import dylan.kwon.votechain.feature.vote.detail.navigateToVoteDetail
-import dylan.kwon.votechain.feature.vote.list.attachVoteListScreen
+import dylan.kwon.votechain.feature.vote.screen.add.AddVoteNavigationResult
+import dylan.kwon.votechain.feature.vote.screen.add.attachAddVoteScreen
+import dylan.kwon.votechain.feature.vote.screen.add.navigateToAddVote
+import dylan.kwon.votechain.feature.vote.screen.detail.VoteDetailNavigation
+import dylan.kwon.votechain.feature.vote.screen.detail.attachVoteDetailScreen
+import dylan.kwon.votechain.feature.vote.screen.detail.navigateToVoteDetail
+import dylan.kwon.votechain.feature.vote.screen.list.attachVoteListScreen
 import dylan.kwon.votechain.ui.VoteChainAppState
 import dylan.kwon.votechain.ui.screen.main.MainNavigation
 import dylan.kwon.votechain.ui.screen.main.attachMainScreen
@@ -46,7 +49,7 @@ fun VoteChainNavHost(
                 navController.navigateToSimplePassword()
             },
             onVoteAddClick = {
-                // todo:
+                navController.navigateToAddVote()
             },
             onVoteListItemClick = { voteListItemUiState ->
                 navController.navigateToVoteDetail(
@@ -85,7 +88,7 @@ fun VoteChainNavHost(
 
         attachVoteListScreen(
             onVoteAddClick = {
-                // todo:
+                navController.navigateToAddVote()
             },
             onVoteListItemClick = { voteListItemUiState ->
                 navController.navigateToVoteDetail(
@@ -96,6 +99,13 @@ fun VoteChainNavHost(
 
         attachVoteDetailScreen(
             onBackClick = navController::popBackStack,
+        )
+
+        attachAddVoteScreen(
+            onBackClick = navController::popBackStack,
+            onResult = { result ->
+                navController.setResult(AddVoteNavigationResult.KEY, result)
+            }
         )
     }
 }
