@@ -42,8 +42,7 @@ class VoteDetailViewModel @Inject constructor(
 //    )
 
     val currentId: Long?
-        //        get() = savedStateHandle["id"]
-        get() = 14
+        get() = savedStateHandle["id"]
 
     private val voteLoading = Channel<Long>()
     private val vote = voteLoading.toVoteLoadingFlow()
