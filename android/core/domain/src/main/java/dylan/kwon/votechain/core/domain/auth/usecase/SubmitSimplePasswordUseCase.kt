@@ -2,12 +2,12 @@ package dylan.kwon.votechain.core.domain.auth.usecase
 
 import dylan.kwon.votechain.core.architecture.clean_architecture.UseCase
 import dylan.kwon.votechain.core.domain.auth.entity.SimplePassword
-import dylan.kwon.votechain.core.domain.auth.port.AuthRepository
+import dylan.kwon.votechain.core.domain.auth.port.AuthPort
 import kotlinx.coroutines.flow.first
 import javax.inject.Inject
 
 class SubmitSimplePasswordUseCase @Inject constructor(
-    private val authRepository: AuthRepository
+    private val authPort: AuthPort
 ) : UseCase<SimplePassword, Boolean>() {
 
     override suspend fun onInvoke(input: SimplePassword): Boolean {
@@ -21,14 +21,14 @@ class SubmitSimplePasswordUseCase @Inject constructor(
     }
 
     private suspend fun isInitialized() =
-        authRepository.isSetupSimplePassword.first()
+        authPort.isSetupSimplePassword.first()
 
     private suspend fun onInitialized(password: SimplePassword): Boolean {
-        return authRepository.authSimplePassword(password)
+        return authPort.authSimplePassword(password)
     }
 
     private suspend fun onUninitialized(password: SimplePassword): Boolean {
-        authRepository.updateSimplePassword(password)
+        authPort.updateSimplePassword(password)
         return true
     }
 }

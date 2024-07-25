@@ -25,6 +25,8 @@
             <option value="$PROJECT_DIR$/build-logic" />
             <option value="$PROJECT_DIR$/build-logic/convention" />
             <option value="$PROJECT_DIR$/core" />
+            <option value="$PROJECT_DIR$/core/adapter" />
+            <option value="$PROJECT_DIR$/core/adapter/bundle" />
             <option value="$PROJECT_DIR$/core/architecture" />
             <option value="$PROJECT_DIR$/core/architecture/clean-architecture" />
             <option value="$PROJECT_DIR$/core/architecture/mvi" />
@@ -32,9 +34,6 @@
             <option value="$PROJECT_DIR$/core/coroutine/android-test" />
             <option value="$PROJECT_DIR$/core/coroutine/jvm" />
             <option value="$PROJECT_DIR$/core/coroutine/test" />
-            <option value="$PROJECT_DIR$/core/data" />
-            <option value="$PROJECT_DIR$/core/data/bundle" />
-            <option value="$PROJECT_DIR$/core/data/bundle-di" />
             <option value="$PROJECT_DIR$/core/domain" />
             <option value="$PROJECT_DIR$/core/driver" />
             <option value="$PROJECT_DIR$/core/driver/datastore" />

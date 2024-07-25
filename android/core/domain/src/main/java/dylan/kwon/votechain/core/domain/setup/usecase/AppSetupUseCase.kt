@@ -1,19 +1,19 @@
 package dylan.kwon.votechain.core.domain.setup.usecase
 
 import dylan.kwon.votechain.core.architecture.clean_architecture.UseCase
-import dylan.kwon.votechain.core.domain.auth.port.AuthRepository
-import dylan.kwon.votechain.core.domain.config.port.ConfigRepository
-import dylan.kwon.votechain.core.domain.cryptoWallet.port.CryptoWalletRepository
+import dylan.kwon.votechain.core.domain.auth.port.AuthPort
+import dylan.kwon.votechain.core.domain.config.port.ConfigPort
+import dylan.kwon.votechain.core.domain.cryptoWallet.port.CryptoWalletPort
 import dylan.kwon.votechain.core.domain.setup.entity.AppSetupResult
 import dylan.kwon.votechain.core.domain.vote.entity.toContractInfo
-import dylan.kwon.votechain.core.domain.vote.port.VoteRepository
+import dylan.kwon.votechain.core.domain.vote.port.VotePort
 import javax.inject.Inject
 
 class AppSetupUseCase @Inject constructor(
-    private val authRepository: AuthRepository,
-    private val configRepository: ConfigRepository,
-    private val cryptoWalletRepository: CryptoWalletRepository,
-    private val voteRepository: VoteRepository,
+    private val authPort: AuthPort,
+    private val configPort: ConfigPort,
+    private val cryptoWalletPort: CryptoWalletPort,
+    private val votePort: VotePort,
 ) : UseCase<Unit, AppSetupResult>() {
 
     override suspend fun onInvoke(input: Unit): AppSetupResult {
@@ -26,28 +26,28 @@ class AppSetupUseCase @Inject constructor(
         if (!checkCryptoWallet()) {
             return AppSetupResult.NeedCryptoWallet
         }
-        initVoteRepository()
+        initVotePort()
         return AppSetupResult.Completed
     }
 
     private suspend fun checkAuth(): Boolean {
-        return authRepository.auth()
+        return authPort.auth()
     }
 
     private suspend fun checkConfig(): Boolean {
-        if (configRepository.isReady()) {
+        if (configPort.isReady()) {
             return true
         }
-        return configRepository.setup()
+        return configPort.setup()
     }
 
     private suspend fun checkCryptoWallet(): Boolean {
-        return cryptoWalletRepository.hasCryptoWallet()
+        return cryptoWalletPort.hasCryptoWallet()
     }
 
-    private suspend fun initVoteRepository() {
-        voteRepository.updateContractInfo(
-            info = configRepository.getConfig().toContractInfo()
+    private suspend fun initVotePort() {
+        votePort.updateContractInfo(
+            info = configPort.getConfig().toContractInfo()
         )
     }
 }

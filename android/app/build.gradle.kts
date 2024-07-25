@@ -36,6 +36,6 @@ dependencies {
 
     implementation(projects.core.architecture.mvi)
 
-    implementation(projects.core.data.bundleDi)
+    implementation(projects.core.adapter)
     implementation(projects.core.domain)
 }

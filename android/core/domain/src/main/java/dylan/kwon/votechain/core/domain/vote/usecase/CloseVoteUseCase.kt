@@ -1,19 +1,19 @@
 package dylan.kwon.votechain.core.domain.vote.usecase
 
 import dylan.kwon.votechain.core.architecture.clean_architecture.UseCase
-import dylan.kwon.votechain.core.domain.cryptoWallet.port.CryptoWalletRepository
-import dylan.kwon.votechain.core.domain.vote.port.VoteRepository
+import dylan.kwon.votechain.core.domain.cryptoWallet.port.CryptoWalletPort
+import dylan.kwon.votechain.core.domain.vote.port.VotePort
 import javax.inject.Inject
 
 class CloseVoteUseCase @Inject constructor(
-    private val voteRepository: VoteRepository,
-    private val cryptoWalletRepository: CryptoWalletRepository
+    private val votePort: VotePort,
+    private val cryptoWalletPort: CryptoWalletPort
 ) : UseCase<Long, Unit>() {
 
     override suspend fun onInvoke(input: Long) {
-        voteRepository.closeVote(
+        votePort.closeVote(
             id = input,
-            cryptoWallet = cryptoWalletRepository.getSavedCryptoWallet()
+            cryptoWallet = cryptoWalletPort.getSavedCryptoWallet()
         )
     }
 
