@@ -40,7 +40,6 @@
             <option value="$PROJECT_DIR$/core/data/vote-contract" />
             <option value="$PROJECT_DIR$/core/data/web3j" />
             <option value="$PROJECT_DIR$/core/domain" />
-            <option value="$PROJECT_DIR$/core/json" />
             <option value="$PROJECT_DIR$/core/ui" />
             <option value="$PROJECT_DIR$/core/ui/compose-ext" />
             <option value="$PROJECT_DIR$/core/ui/design-system" />
