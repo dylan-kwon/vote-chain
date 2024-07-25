@@ -3,7 +3,11 @@
 
     <string name="vote_list">Vote List</string>
     <string name="retry">Retry</string>
+    <string name="title">Title</string>
+    <string name="content">Content</string>
     <string name="add">Add</string>
+    <string name="remove">Remove</string>
+    <string name="add_vote">Add Vote</string>
     <string name="search">Search</string>
     <string name="inprogress">In Progress</string>
     <string name="closed">Closed</string>
@@ -12,5 +16,9 @@
     <string name="voter_count">Voter Count</string>
     <string name="status">Status</string>
     <string name="submit">Submit</string>
+    <string name="go_back">Go Back</string>
+    <string name="image">Image</string>
+    <string name="ballot_item_placeholder">Ballot Item %s</string>
+    <string name="duplicate_votes_allowed">Duplicate votes allowed</string>
 
 </resources>

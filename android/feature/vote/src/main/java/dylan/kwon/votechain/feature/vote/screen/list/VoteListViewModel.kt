@@ -41,7 +41,6 @@ class VoteListViewModel @Inject constructor(
 
     init {
         search()
-        println("aaaaaaaaaaaaaa:  ${hashCode()}")
     }
 
     private fun Channel<String>.toVoteList() = receiveAsFlow()

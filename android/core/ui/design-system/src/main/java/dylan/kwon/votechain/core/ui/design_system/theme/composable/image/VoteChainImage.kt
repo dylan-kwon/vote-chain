@@ -13,8 +13,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.stringResource
+import coil.compose.AsyncImagePainter
 import coil.compose.SubcomposeAsyncImage
 import coil.compose.SubcomposeAsyncImageContent
+import coil.compose.SubcomposeAsyncImageScope
 import dylan.kwon.votechain.core.ui.design_system.R
 
 
@@ -24,31 +26,32 @@ fun VoteChainImage(
     model: Any?,
     contentDescription: String?,
     contentScale: ContentScale = ContentScale.Inside,
+    loading: @Composable (SubcomposeAsyncImageScope.(AsyncImagePainter.State.Loading) -> Unit)? = {
+        Placeholder(
+            imageVector = Icons.Default.Image,
+            contentDescription = stringResource(id = R.string.loading),
+        )
+    },
+    error: @Composable (SubcomposeAsyncImageScope.(AsyncImagePainter.State.Error) -> Unit)? = {
+        Placeholder(
+            imageVector = Icons.Default.BrokenImage,
+            contentDescription = stringResource(id = R.string.error),
+        )
+    },
+    success: @Composable (SubcomposeAsyncImageScope.(AsyncImagePainter.State.Success) -> Unit)? = {
+        SubcomposeAsyncImageContent(
+            contentScale = contentScale
+        )
+    }
 ) {
     SubcomposeAsyncImage(
-        modifier = Modifier
-            .background(MaterialTheme.colorScheme.surfaceContainerLow)
-            .then(modifier),
+        modifier = modifier.background(MaterialTheme.colorScheme.surfaceContainerLow),
         model = model,
         contentDescription = contentDescription,
         contentScale = ContentScale.Inside,
-        loading = {
-            Placeholder(
-                imageVector = Icons.Default.Image,
-                contentDescription = stringResource(id = R.string.loading),
-            )
-        },
-        error = {
-            Placeholder(
-                imageVector = Icons.Default.BrokenImage,
-                contentDescription = stringResource(id = R.string.error),
-            )
-        },
-        success = {
-            SubcomposeAsyncImageContent(
-                contentScale = contentScale
-            )
-        },
+        loading = loading,
+        error = error,
+        success = success,
     )
 }
 

@@ -1,4 +1,4 @@
-package dylan.kwon.votechain.core.data.firebase.firestore.vote
+package dylan.kwon.votechain.core.data.firebase.firestore
 
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore

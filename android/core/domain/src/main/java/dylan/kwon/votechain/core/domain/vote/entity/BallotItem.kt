@@ -10,11 +10,9 @@ data class BallotItem(
     val hasName: Boolean
         get() = name.isNotBlank()
 
-    fun isValid(isIncludeId: Boolean = true): Boolean {
-        if (isIncludeId) {
-            if (id <= 0) {
-                return false
-            }
+    fun isValid(): Boolean {
+        if (id <= 0) {
+            return false
         }
         if (!hasName) {
             return false

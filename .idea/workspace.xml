@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7fb9e483-79da-4d17-940e-191076c70784" name="Changes" comment="[Contract] Update ReadMe.md&#10;- Add getVoter Function" />
+    <list default="true" id="7fb9e483-79da-4d17-940e-191076c70784" name="Changes" comment="[Contract] Update ReadMe.md&#10;- Add getVoter Function">
+      <change afterPath="$PROJECT_DIR$/android/feature/vote/src/main/java/dylan/kwon/votechain/feature/vote/screen/add/preview/AddVoteUiStatePreviewParameterProvider.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/feature/vote/src/main/java/dylan/kwon/votechain/feature/vote/screen/add/AddVoteScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/feature/vote/src/main/java/dylan/kwon/votechain/feature/vote/screen/add/AddVoteScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/feature/vote/src/main/java/dylan/kwon/votechain/feature/vote/screen/add/AddVoteUiState.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/feature/vote/src/main/java/dylan/kwon/votechain/feature/vote/screen/add/AddVoteUiState.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/feature/vote/src/main/java/dylan/kwon/votechain/feature/vote/screen/add/AddVoteViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/feature/vote/src/main/java/dylan/kwon/votechain/feature/vote/screen/add/AddVoteViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/feature/vote/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/feature/vote/src/main/res/values/strings.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -90,7 +96,7 @@
       <workItem from="1720037199600" duration="93000" />
       <workItem from="1720037295042" duration="112000" />
       <workItem from="1720037409530" duration="7000" />
-      <workItem from="1721388467079" duration="7288000" />
+      <workItem from="1721388467079" duration="7890000" />
     </task>
     <task id="LOCAL-00001" summary="Update .gitignore&#10;+ .DS_Store">
       <option name="closed" value="true" />

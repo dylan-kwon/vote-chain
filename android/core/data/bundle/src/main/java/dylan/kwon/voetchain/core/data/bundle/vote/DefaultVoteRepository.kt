@@ -2,6 +2,7 @@
 
 package dylan.kwon.voetchain.core.data.bundle.vote
 
+import dylan.kwon.voetchain.core.data.bundle.vote.mapper.toCreateVoteData
 import dylan.kwon.voetchain.core.data.bundle.vote.mapper.toCredential
 import dylan.kwon.voetchain.core.data.bundle.vote.mapper.toDomain
 import dylan.kwon.votechain.core.coroutine.jvm.dispatcher.DefaultDispatcherProvider
@@ -10,6 +11,7 @@ import dylan.kwon.votechain.core.data.vote_contract.VoteContract
 import dylan.kwon.votechain.core.domain.cryptoWallet.entity.CryptoWallet
 import dylan.kwon.votechain.core.domain.vote.entity.Vote
 import dylan.kwon.votechain.core.domain.vote.entity.VoteContractInfo
+import dylan.kwon.votechain.core.domain.vote.entity.VoteForm
 import dylan.kwon.votechain.core.domain.vote.entity.VoteSummary
 import dylan.kwon.votechain.core.domain.vote.port.VoteRepository
 import kotlinx.coroutines.async
@@ -112,6 +114,15 @@ class DefaultVoteRepository @Inject constructor(
     override suspend fun closeVote(id: Long, cryptoWallet: CryptoWallet) {
         withContext(dispatcherProvider.io) {
             voteContract.closeVote(id, cryptoWallet.toCredential())
+        }
+    }
+
+    override suspend fun createVote(voteForm: VoteForm, cryptoWallet: CryptoWallet) {
+        withContext(dispatcherProvider.io) {
+            voteContract.createVote(
+                createVoteData = voteForm.toCreateVoteData(),
+                credential = cryptoWallet.toCredential()
+            )
         }
     }
 }

@@ -1,3 +1,5 @@
+package dylan.kwon.votechain.core.data.firebase.firestore
+
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -12,7 +14,7 @@ object ProdFireStoreModule {
 
     @Provides
     fun provideProdFireStore(): FirebaseFirestore =
-        return Firebase.firestore("(default)")
+        Firebase.firestore
 
 
 }

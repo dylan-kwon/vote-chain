@@ -35,7 +35,7 @@ internal fun CommonExtension<*, *, *, *, *, *>.configureAndroidCommon(projectRoo
                 val properties = loadProperties(
                     File(projectRootDir, keyStore.propertyPath).toString()
                 )
-                storeFile = File(properties.getProperty("storeFile"))
+                storeFile = File(projectRootDir, properties.getProperty("storeFile"))
                 storePassword = properties.getProperty("storePassword")
                 keyAlias = properties.getProperty("keyAlias")
                 keyPassword = properties.getProperty("keyPassword")

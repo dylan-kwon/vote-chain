@@ -147,6 +147,7 @@ firebase-firestore = { group = "com.google.firebase", name = "firebase-firestore
 firebase-crashlytics = { group = "com.google.firebase", name = "firebase-crashlytics-ktx" }
 firebase-perf = { group = "com.google.firebase", name = "firebase-perf-ktx" }
 firebase-config = { group = "com.google.firebase", name = "firebase-config-ktx" }
+firebase-storage = { group = "com.google.firebase", name = "firebase-storage-ktx" }
 
 # Web3j
 web3j = { group = "org.web3j", name = "core", version.ref = "web3j" }

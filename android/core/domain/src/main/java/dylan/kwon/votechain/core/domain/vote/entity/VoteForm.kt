@@ -1,40 +1,25 @@
 package dylan.kwon.votechain.core.domain.vote.entity
 
-typealias DomainVote = Vote
+typealias DomainVoteForm = VoteForm
 
-data class Vote(
-    val id: Long,
+data class VoteForm(
 
     val title: String,
 
     val content: String,
 
-    val imageUrl: String?,
-
-    val voterCount: Long,
-
-    val isOwner: Boolean,
-
-    val isVoted: Boolean,
-
-    val isClosed: Boolean,
+    val imageUri: String?,
 
     val isAllowDuplicateVoting: Boolean,
 
-    val ballotItems: List<BallotItem>,
-
-    val createdAt: Long
+    val ballotItems: List<String>
 
 ) {
 
     companion object {
-        const val BALLOT_ITEMS_MINIMUM_SIZE = 2
-        const val BALLOT_ITEMS_MAXIMUM_SIZE = 5
-
-        val BALLOT_ITEMS_SIZE_RANGE = IntRange(
-            BALLOT_ITEMS_MINIMUM_SIZE,
-            BALLOT_ITEMS_MAXIMUM_SIZE
-        )
+        const val BALLOT_ITEMS_MINIMUM_SIZE = Vote.BALLOT_ITEMS_MINIMUM_SIZE
+        const val BALLOT_ITEMS_MAXIMUM_SIZE = Vote.BALLOT_ITEMS_MAXIMUM_SIZE
+        val BALLOT_ITEMS_SIZE_RANGE = Vote.BALLOT_ITEMS_SIZE_RANGE
     }
 
     val hasTitle: Boolean
@@ -44,15 +29,12 @@ data class Vote(
         get() = content.isNotBlank()
 
     val hasImage: Boolean
-        get() = !imageUrl.isNullOrEmpty()
+        get() = !imageUri.isNullOrEmpty()
 
     val hasBallotItems: Boolean
         get() = ballotItems.isNotEmpty()
 
     fun isValid(): Boolean {
-        if (id <= 0) {
-            return false
-        }
         if (!hasTitle) {
             return false
         }
@@ -72,7 +54,7 @@ data class Vote(
         if (ballotItems.size !in BALLOT_ITEMS_SIZE_RANGE) {
             return false
         }
-        if (ballotItems.any { !it.isValid() }) {
+        if (ballotItems.any { it.isBlank() }) {
             return false
         }
         return true

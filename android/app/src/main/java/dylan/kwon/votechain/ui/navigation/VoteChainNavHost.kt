@@ -105,6 +105,7 @@ fun VoteChainNavHost(
             onBackClick = navController::popBackStack,
             onResult = { result ->
                 navController.setResult(AddVoteNavigationResult.KEY, result)
+                navController.popBackStack()
             }
         )
     }

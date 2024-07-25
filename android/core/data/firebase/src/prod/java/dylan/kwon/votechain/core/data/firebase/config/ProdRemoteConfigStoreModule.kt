@@ -8,12 +8,12 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-abstract class DefaultRemoteConfigStoreModule {
+abstract class ProdRemoteConfigStoreModule {
 
     @Binds
     @Singleton
-    abstract fun bindsDefaultRemoteConfigStore(
-        remoteConfigStore: DefaultRemoteConfigStore
+    abstract fun bindsDevRemoteConfigStore(
+        remoteConfigStore: ProdRemoteConfigStore
     ): RemoteConfigStore
 
 }

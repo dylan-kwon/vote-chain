@@ -8,7 +8,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-abstract class DefaultVoteContractModule {
+abstract class Web3jVoteContractModule {
 
     @Binds
     @Singleton

@@ -3,5 +3,13 @@ plugins {
 }
 
 android {
+    buildTypes {
+        release {
+            proguardFiles()
+        }
+    }
+}
+
+android {
     namespace = "dylan.kwon.votechain.feature.auth"
 }
