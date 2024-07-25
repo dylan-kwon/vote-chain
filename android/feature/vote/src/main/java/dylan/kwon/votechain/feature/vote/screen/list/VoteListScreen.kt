@@ -4,9 +4,12 @@
 
 package dylan.kwon.votechain.feature.vote.screen.list
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.rememberLazyListState
@@ -14,6 +17,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.HowToVote
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
@@ -21,6 +25,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SearchBar
+import androidx.compose.material3.SearchBarDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.pulltorefresh.PullToRefreshContainer
 import androidx.compose.material3.pulltorefresh.rememberPullToRefreshState
@@ -55,6 +60,7 @@ import kotlinx.coroutines.flow.Flow
 fun VoteListRoute(
     modifier: Modifier = Modifier,
     viewModel: VoteListViewModel = hiltViewModel(),
+    onSettingsClick: () -> Unit,
     onVoteAddClick: () -> Unit,
     onVoteListItemClick: (VoteListItemUiState) -> Unit
 ) {
@@ -64,6 +70,7 @@ fun VoteListRoute(
         modifier = modifier,
         viewModel = viewModel,
         voteListItems = voteListItems,
+        onSettingsClick = onSettingsClick,
         onVoteAddClick = onVoteAddClick,
         onVoteListItemClick = onVoteListItemClick,
     )
@@ -74,6 +81,7 @@ fun VoteListRoute(
     modifier: Modifier = Modifier,
     viewModel: VoteListViewModel,
     voteListItems: LazyPagingItems<VoteListItemUiState>,
+    onSettingsClick: () -> Unit,
     onVoteAddClick: () -> Unit,
     onVoteListItemClick: (VoteListItemUiState) -> Unit
 ) {
@@ -88,6 +96,7 @@ fun VoteListRoute(
             viewModel.search()
             focusManager.clearFocus()
         },
+        onSettingsClick = onSettingsClick,
         onSearchKeywordChange = viewModel::updateSearchKeyword,
         onVoteListItemClick = onVoteListItemClick,
         onVoteAddClick = onVoteAddClick
@@ -101,19 +110,28 @@ internal fun VoteListScreen(
     voteListItems: LazyPagingItems<VoteListItemUiState>,
     onSearchKeywordChange: (String) -> Unit,
     onSearch: () -> Unit,
+    onSettingsClick: () -> Unit,
     onVoteListItemClick: (VoteListItemUiState) -> Unit,
     onVoteAddClick: () -> Unit,
 ) {
     Scaffold(
         topBar = {
-            SearchBar(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 16.dp),
-                searchKeyword = uiState.searchKeyword,
-                onSearch = onSearch,
-                onSearchKeywordChange = onSearchKeywordChange
-            )
+            Row(
+                modifier = Modifier.padding(horizontal = 16.dp),
+                horizontalArrangement = Arrangement.spacedBy(4.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                SearchBar(
+                    modifier = Modifier.weight(1f),
+                    searchKeyword = uiState.searchKeyword,
+                    onSearch = onSearch,
+                    onSearchKeywordChange = onSearchKeywordChange
+                )
+                SettingButton(
+                    modifier = Modifier.windowInsetsPadding(SearchBarDefaults.windowInsets),
+                    onClick = onSettingsClick
+                )
+            }
         },
         floatingActionButton = {
             AddVoteButton(
@@ -164,6 +182,22 @@ private fun SearchBar(
         },
         content = { }
     )
+}
+
+@Composable
+private fun SettingButton(
+    modifier: Modifier = Modifier,
+    onClick: () -> Unit
+) {
+    IconButton(
+        modifier = modifier,
+        onClick = onClick
+    ) {
+        Icon(
+            imageVector = Icons.Default.Settings,
+            contentDescription = stringResource(id = R.string.settings),
+        )
+    }
 }
 
 @Composable
@@ -325,7 +359,8 @@ private fun Preview(
             onVoteListItemClick = {},
             onVoteAddClick = {},
             onSearch = {},
-            onSearchKeywordChange = {}
+            onSearchKeywordChange = {},
+            onSettingsClick = {}
         )
     }
 }

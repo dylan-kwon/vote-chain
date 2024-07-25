@@ -20,6 +20,7 @@ object MainNavigation
 fun NavGraphBuilder.attachMainScreen(
     onNeedCryptoWallet: () -> Unit,
     onNeedSimplePasswordVerify: () -> Unit,
+    onSettingsClick: () -> Unit,
     onVoteAddClick: () -> Unit,
     onVoteListItemClick: (VoteListItemUiState) -> Unit
 ) {
@@ -33,6 +34,7 @@ fun NavGraphBuilder.attachMainScreen(
             viewModel = mainViewModel,
             onNeedCryptoWallet = onNeedCryptoWallet,
             onNeedSimplePasswordVerify = onNeedSimplePasswordVerify,
+            onSettingsClick = onSettingsClick,
             onVoteAddClick = onVoteAddClick,
             onVoteListItemClick = onVoteListItemClick
         )

@@ -21,6 +21,7 @@ class AndroidFeaturePlugin : ProjectPlugin() {
     override fun DependencyHandler.onDependencies() {
         add("implementation", project(":core:domain"))
         add("implementation", project(":core:architecture:mvi"))
+        add("implementation", project(":core:ui:navigation"))
         add("implementation", project(":core:ui:compose-ext"))
         add("implementation", project(":core:ui:design-system"))
         add("implementation", project(":core:json"))

@@ -28,6 +28,7 @@ dependencies {
     implementation(projects.feature.auth)
     implementation(projects.feature.vote)
     implementation(projects.feature.cryptoWallet)
+    implementation(projects.feature.settings)
 
     implementation(projects.core.ui.composeExt)
     implementation(projects.core.ui.navigation)

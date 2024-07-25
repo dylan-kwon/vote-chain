@@ -20,5 +20,6 @@
     <string name="image">Image</string>
     <string name="ballot_item_placeholder">Ballot Item %s</string>
     <string name="duplicate_votes_allowed">Duplicate votes allowed</string>
+    <string name="settings">Settings</string>
 
 </resources>

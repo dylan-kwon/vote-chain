@@ -16,6 +16,7 @@ object VoteListNavigation
 
 
 fun NavGraphBuilder.attachVoteListScreen(
+    onSettingsClick: () -> Unit,
     onVoteAddClick: () -> Unit,
     onVoteListItemClick: (VoteListItemUiState) -> Unit
 ) {
@@ -26,6 +27,7 @@ fun NavGraphBuilder.attachVoteListScreen(
         VoteListRoute(
             viewModel = viewModel,
             voteListItems = voteListItems,
+            onSettingsClick = onSettingsClick,
             onVoteAddClick = onVoteAddClick,
             onVoteListItemClick = onVoteListItemClick
         )

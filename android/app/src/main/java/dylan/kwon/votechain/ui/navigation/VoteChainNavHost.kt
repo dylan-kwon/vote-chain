@@ -6,7 +6,9 @@ import androidx.compose.animation.ExperimentalSharedTransitionApi
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
+import dylan.kwon.votechain.core.ui.navigation.result.ReceiveResultEffect
 import dylan.kwon.votechain.core.ui.navigation.result.setResult
+import dylan.kwon.votechain.feature.auth.ui.screen.simplePassword.SimplePasswordNavigation
 import dylan.kwon.votechain.feature.auth.ui.screen.simplePassword.SimplePasswordNavigationResult
 import dylan.kwon.votechain.feature.auth.ui.screen.simplePassword.attachSimplePasswordScreen
 import dylan.kwon.votechain.feature.auth.ui.screen.simplePassword.navigateToSimplePassword
@@ -16,6 +18,8 @@ import dylan.kwon.votechain.feature.crypto_wallet.ui.loadCryptoWallet.attachLoad
 import dylan.kwon.votechain.feature.crypto_wallet.ui.loadCryptoWallet.navigateToLoadCryptoWallet
 import dylan.kwon.votechain.feature.crypto_wallet.ui.newCryptoWallet.attachNewCryptoWalletScreen
 import dylan.kwon.votechain.feature.crypto_wallet.ui.newCryptoWallet.navigateToNewCryptoWallet
+import dylan.kwon.votechain.feature.settings.ui.settings.attachSettingsScreen
+import dylan.kwon.votechain.feature.settings.ui.settings.navigateToSettings
 import dylan.kwon.votechain.feature.vote.screen.add.AddVoteNavigationResult
 import dylan.kwon.votechain.feature.vote.screen.add.attachAddVoteScreen
 import dylan.kwon.votechain.feature.vote.screen.add.navigateToAddVote
@@ -47,6 +51,9 @@ fun VoteChainNavHost(
             },
             onNeedSimplePasswordVerify = {
                 navController.navigateToSimplePassword()
+            },
+            onSettingsClick = {
+                navController.navigateToSettings()
             },
             onVoteAddClick = {
                 navController.navigateToAddVote()
@@ -87,6 +94,9 @@ fun VoteChainNavHost(
         )
 
         attachVoteListScreen(
+            onSettingsClick = {
+                navController.navigateToSettings()
+            },
             onVoteAddClick = {
                 navController.navigateToAddVote()
             },
@@ -108,5 +118,23 @@ fun VoteChainNavHost(
                 navController.popBackStack()
             }
         )
+
+        attachSettingsScreen(
+            onBackClick = navController::popBackStack,
+            onPrivateKeyShowClick = {
+                navController.navigateToSimplePassword(
+                    navigation = SimplePasswordNavigation(canBack = true)
+                )
+            }
+        ) { navBackStackEntry, viewModel ->
+            navBackStackEntry.ReceiveResultEffect<SimplePasswordNavigationResult>(
+                resultKey = SimplePasswordNavigationResult.KEY, viewModel
+            ) {
+                if (it.isSuccess) {
+                    viewModel.verified()
+
+                }
+            }
+        }
     }
 }

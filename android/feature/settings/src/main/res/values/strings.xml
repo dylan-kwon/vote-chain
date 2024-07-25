@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings">Settings</string>
+    <string name="copy">Copy</string>
+    <string name="go_back">Go Back</string>
+    <string name="crypto_wallet_address">Crypto Wallet Address</string>
+    <string name="private_key">Private Key</string>
+    <string name="show_private_key">Show Private Key</string>
+</resources>

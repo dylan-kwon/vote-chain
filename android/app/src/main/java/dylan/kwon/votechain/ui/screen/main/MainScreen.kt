@@ -36,6 +36,7 @@ internal fun MainRoute(
     viewModel: MainViewModel = hiltViewModel(),
     onNeedCryptoWallet: () -> Unit,
     onNeedSimplePasswordVerify: () -> Unit,
+    onSettingsClick: () -> Unit,
     onVoteAddClick: () -> Unit,
     onVoteListItemClick: (VoteListItemUiState) -> Unit
 ) {
@@ -50,6 +51,7 @@ internal fun MainRoute(
         onResumeWhenNoSetup = viewModel::setup,
         onNeedCryptoWallet = onNeedCryptoWallet,
         onNeedSimplePasswordVerify = onNeedSimplePasswordVerify,
+        onSettingsClick = onSettingsClick,
         onVoteAddClick = onVoteAddClick,
         onVoteListItemClick = onVoteListItemClick,
     )
@@ -62,6 +64,7 @@ internal fun MainScreen(
     onNeedSimplePasswordVerify: () -> Unit,
     onResumeWhenNoSetup: () -> Unit,
     onNeedCryptoWallet: () -> Unit,
+    onSettingsClick: () -> Unit,
     onVoteAddClick: () -> Unit,
     onVoteListItemClick: (VoteListItemUiState) -> Unit
 ) {
@@ -77,6 +80,7 @@ internal fun MainScreen(
                 modifier = modifier,
                 uiState = uiState,
                 onNeedSimplePasswordVerify = onNeedSimplePasswordVerify,
+                onSettingsClick = onSettingsClick,
                 onVoteAddClick = onVoteAddClick,
                 onVoteListItemClick = onVoteListItemClick,
             )
@@ -102,12 +106,14 @@ private fun Setup(
     modifier: Modifier = Modifier,
     uiState: MainUiState.Setup,
     onNeedSimplePasswordVerify: () -> Unit,
+    onSettingsClick: () -> Unit,
     onVoteAddClick: () -> Unit,
     onVoteListItemClick: (VoteListItemUiState) -> Unit
 ) {
     when (uiState.isVerifiedSimplePassword) {
         true -> VoteListRoute(
             modifier = modifier,
+            onSettingsClick = onSettingsClick,
             onVoteAddClick = onVoteAddClick,
             onVoteListItemClick = onVoteListItemClick
         )
@@ -174,6 +180,7 @@ private fun SetupPreview() {
             modifier = Modifier.fillMaxSize(),
             uiState = MainUiState.Setup(),
             onNeedSimplePasswordVerify = {},
+            onSettingsClick = {},
             onVoteAddClick = {},
             onVoteListItemClick = {}
         )

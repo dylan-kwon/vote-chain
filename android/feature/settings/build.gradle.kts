@@ -1,7 +1,8 @@
 plugins {
     alias(libs.plugins.votechain.android.feature)
+
 }
 
 android {
-    namespace = "dylan.kwon.votechain.feature.auth"
+    namespace = "dylan.kwon.votechain.feature.settings"
 }

@@ -32,6 +32,7 @@ import dylan.kwon.votechain.feature.auth.ui.composable.passwordDisplay.PasswordD
 @Composable
 internal fun SimplePasswordRoute(
     modifier: Modifier = Modifier,
+    navigation: SimplePasswordNavigation,
     viewModel: SimplePasswordViewModel = hiltViewModel(),
     onResult: (SimplePasswordNavigationResult) -> Unit
 ) {
@@ -50,7 +51,7 @@ internal fun SimplePasswordRoute(
         onDeleteClick = viewModel::deletePassword
     )
 
-    BackHandler {
+    BackHandler(enabled = !navigation.canBack) {
         context.findActivity().finish()
     }
 }
