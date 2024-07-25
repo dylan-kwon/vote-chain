@@ -1,6 +1,6 @@
 package dylan.kwon.voetchain.core.data.bundle.config
 
-import dylan.kwon.votechain.core.data.firebase.config.RemoteConfigStore
+import dylan.kwon.votechain.core.driver.firebase.config.RemoteConfigStore
 import dylan.kwon.votechain.core.domain.config.model.Config
 import dylan.kwon.votechain.core.domain.config.port.ConfigRepository
 import javax.inject.Inject

@@ -1,6 +1,6 @@
 package dylan.kwon.voetchain.core.data.bundle.cloudStorage
 
-import dylan.kwon.votechain.core.data.firebase.storage.VoteFirebaseStorage
+import dylan.kwon.votechain.core.driver.firebase.storage.VoteFirebaseStorage
 import dylan.kwon.votechain.core.domain.cloudStorage.CloudStorage
 import javax.inject.Inject
 import javax.inject.Singleton

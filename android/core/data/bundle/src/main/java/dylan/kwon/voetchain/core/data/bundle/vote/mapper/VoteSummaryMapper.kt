@@ -1,6 +1,6 @@
 package dylan.kwon.voetchain.core.data.bundle.vote.mapper
 
-import dylan.kwon.votechain.core.data.firebase.firestore.vote.model.VoteDocument
+import dylan.kwon.votechain.core.driver.firebase.firestore.vote.model.VoteDocument
 import dylan.kwon.votechain.core.domain.vote.entity.VoteSummary
 
 internal fun VoteDocument.toDomain(): VoteSummary = VoteSummary(

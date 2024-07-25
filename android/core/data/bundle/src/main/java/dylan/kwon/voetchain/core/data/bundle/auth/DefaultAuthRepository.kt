@@ -1,8 +1,8 @@
 package dylan.kwon.voetchain.core.data.bundle.auth
 
 import dylan.kwon.votechain.core.coroutine.jvm.dispatcher.DispatcherProvider
-import dylan.kwon.votechain.core.data.datastore.auth.AuthDataStore
-import dylan.kwon.votechain.core.data.firebase.auth.DefaultFirebaseAuth
+import dylan.kwon.votechain.core.driver.datastore.auth.AuthDataStore
+import dylan.kwon.votechain.core.driver.firebase.auth.DefaultFirebaseAuth
 import dylan.kwon.votechain.core.domain.auth.entity.SimplePassword
 import dylan.kwon.votechain.core.domain.auth.port.AuthRepository
 import kotlinx.coroutines.flow.Flow

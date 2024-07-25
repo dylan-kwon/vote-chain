@@ -3,9 +3,9 @@ package dylan.kwon.voetchain.core.data.bundle.cryptoWallet
 import dylan.kwon.voetchain.core.data.bundle.cryptoWallet.mapper.toCryptoWallet
 import dylan.kwon.voetchain.core.data.bundle.cryptoWallet.mapper.toMnemonic
 import dylan.kwon.votechain.core.coroutine.jvm.dispatcher.DispatcherProvider
-import dylan.kwon.votechain.core.data.datastore.cryptoWallet.CryptoWalletDataStore
-import dylan.kwon.votechain.core.data.web3j.bip39.Bip39
-import dylan.kwon.votechain.core.data.web3j.bip39.model.Bip39CryptoWallet
+import dylan.kwon.votechain.core.driver.datastore.cryptoWallet.CryptoWalletDataStore
+import dylan.kwon.votechain.core.driver.web3j.bip39.Bip39
+import dylan.kwon.votechain.core.driver.web3j.bip39.model.Bip39CryptoWallet
 import dylan.kwon.votechain.core.domain.cryptoWallet.entity.CryptoWallet
 import dylan.kwon.votechain.core.domain.cryptoWallet.entity.Mnemonic
 import dylan.kwon.votechain.core.domain.cryptoWallet.port.CryptoWalletRepository

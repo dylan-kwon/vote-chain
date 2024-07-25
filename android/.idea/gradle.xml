@@ -35,11 +35,12 @@
             <option value="$PROJECT_DIR$/core/data" />
             <option value="$PROJECT_DIR$/core/data/bundle" />
             <option value="$PROJECT_DIR$/core/data/bundle-di" />
-            <option value="$PROJECT_DIR$/core/data/datastore" />
-            <option value="$PROJECT_DIR$/core/data/firebase" />
-            <option value="$PROJECT_DIR$/core/data/vote-contract" />
-            <option value="$PROJECT_DIR$/core/data/web3j" />
             <option value="$PROJECT_DIR$/core/domain" />
+            <option value="$PROJECT_DIR$/core/driver" />
+            <option value="$PROJECT_DIR$/core/driver/datastore" />
+            <option value="$PROJECT_DIR$/core/driver/firebase" />
+            <option value="$PROJECT_DIR$/core/driver/vote-contract" />
+            <option value="$PROJECT_DIR$/core/driver/web3j" />
             <option value="$PROJECT_DIR$/core/ui" />
             <option value="$PROJECT_DIR$/core/ui/compose-ext" />
             <option value="$PROJECT_DIR$/core/ui/design-system" />

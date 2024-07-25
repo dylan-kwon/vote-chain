@@ -6,8 +6,8 @@ import dylan.kwon.voetchain.core.data.bundle.vote.mapper.toCreateVoteData
 import dylan.kwon.voetchain.core.data.bundle.vote.mapper.toCredential
 import dylan.kwon.voetchain.core.data.bundle.vote.mapper.toDomain
 import dylan.kwon.votechain.core.coroutine.jvm.dispatcher.DefaultDispatcherProvider
-import dylan.kwon.votechain.core.data.firebase.firestore.vote.VoteFireStore
-import dylan.kwon.votechain.core.data.vote_contract.VoteContract
+import dylan.kwon.votechain.core.driver.firebase.firestore.vote.VoteFireStore
+import dylan.kwon.votechain.core.driver.vote_contract.VoteContract
 import dylan.kwon.votechain.core.domain.cryptoWallet.entity.CryptoWallet
 import dylan.kwon.votechain.core.domain.vote.entity.Vote
 import dylan.kwon.votechain.core.domain.vote.entity.VoteContractInfo
@@ -19,9 +19,9 @@ import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 import javax.inject.Singleton
-import dylan.kwon.votechain.core.data.vote_contract.model.BallotItem as VoteContractBallotItem
-import dylan.kwon.votechain.core.data.vote_contract.model.Vote as VoteContractVote
-import dylan.kwon.votechain.core.data.vote_contract.model.Voter as VoteContractVoter
+import dylan.kwon.votechain.core.driver.vote_contract.model.BallotItem as VoteContractBallotItem
+import dylan.kwon.votechain.core.driver.vote_contract.model.Vote as VoteContractVote
+import dylan.kwon.votechain.core.driver.vote_contract.model.Voter as VoteContractVoter
 
 @Singleton
 class DefaultVoteRepository @Inject constructor(

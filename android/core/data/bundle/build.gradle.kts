@@ -11,9 +11,9 @@ android {
 dependencies {
     implementation(projects.core.domain)
     implementation(projects.core.coroutine.jvm)
-    implementation(projects.core.data.datastore)
-    implementation(projects.core.data.firebase)
-    implementation(projects.core.data.web3j)
-    implementation(projects.core.data.voteContract)
+    implementation(projects.core.driver.datastore)
+    implementation(projects.core.driver.firebase)
+    implementation(projects.core.driver.web3j)
+    implementation(projects.core.driver.voteContract)
     implementation(libs.web3j)
 }

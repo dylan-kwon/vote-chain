@@ -1,8 +1,8 @@
 package dylan.kwon.voetchain.core.data.bundle.vote.mapper
 
 import dylan.kwon.votechain.core.domain.vote.entity.Vote
-import dylan.kwon.votechain.core.data.vote_contract.model.BallotItem as VoteContractBallotItem
-import dylan.kwon.votechain.core.data.vote_contract.model.Vote as VoteContractVote
+import dylan.kwon.votechain.core.driver.vote_contract.model.BallotItem as VoteContractBallotItem
+import dylan.kwon.votechain.core.driver.vote_contract.model.Vote as VoteContractVote
 
 internal fun VoteContractVote.toDomain(
     isOwner: Boolean,
