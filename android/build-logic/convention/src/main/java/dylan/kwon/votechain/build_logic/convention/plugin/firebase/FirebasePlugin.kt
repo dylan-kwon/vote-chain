@@ -1,4 +1,4 @@
-package dylan.kwon.votechain.build_logic.convention.plugin
+package dylan.kwon.votechain.build_logic.convention.plugin.firebase
 
 import dylan.kwon.votechain.build_logic.convention.plugin.base.ProjectPlugin
 import org.gradle.api.artifacts.dsl.DependencyHandler

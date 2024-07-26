@@ -1,9 +1,9 @@
-package dylan.kwon.votechain.build_logic.convention.plugin
+package dylan.kwon.votechain.build_logic.convention.plugin.android
 
 import dylan.kwon.votechain.build_logic.convention.plugin.base.ProjectPlugin
 import org.gradle.api.artifacts.dsl.DependencyHandler
 
-class DataStorePlugin : ProjectPlugin() {
+class AndroidDataStorePlugin : ProjectPlugin() {
 
     override fun DependencyHandler.onDependencies() {
         if (isAndroid) {

@@ -27,7 +27,7 @@ votechain-android-compose = { id = "votechain.android.compose", version = "unspe
 votechain-kotlinx-coroutine = { id = "votechain.kotlinx.coroutine", version = "unspecified" }
 votechain-kotlinx-serialization = { id = "votechain.kotlinx.serialization", version = "unspecified" }
 votechain-kotlinx-immutableCollections = { id = "votechain.kotlinx.immutableCollections", version = "unspecified" }
-votechain-datastore = { id = "votechain.datastore", version = "unspecified" }
+votechain-android-datastore = { id = "votechain.android.datastore", version = "unspecified" }
 votechain-firebase = { id = "votechain.firebase", version = "unspecified" }
 
 [versions]

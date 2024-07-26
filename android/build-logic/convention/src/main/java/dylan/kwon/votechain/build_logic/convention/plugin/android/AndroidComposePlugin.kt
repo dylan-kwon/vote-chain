@@ -1,4 +1,4 @@
-package dylan.kwon.votechain.build_logic.convention.plugin
+package dylan.kwon.votechain.build_logic.convention.plugin.android
 
 import com.android.build.api.dsl.ApplicationExtension
 import com.android.build.gradle.LibraryExtension
@@ -10,7 +10,7 @@ import org.gradle.api.plugins.ExtensionContainer
 import org.gradle.api.plugins.PluginManager
 import org.gradle.kotlin.dsl.configure
 
-class ComposePlugin : ProjectPlugin() {
+class AndroidComposePlugin : ProjectPlugin() {
 
     override fun PluginManager.onPlugin() {
         apply("org.jetbrains.kotlin.plugin.compose")

@@ -1,4 +1,4 @@
-package dylan.kwon.votechain.build_logic.convention.plugin
+package dylan.kwon.votechain.build_logic.convention.plugin.android
 
 import com.android.build.api.dsl.ApplicationExtension
 import dylan.kwon.votechain.build_logic.convention.common.BuildType

@@ -1,10 +1,10 @@
-package dylan.kwon.votechain.build_logic.convention.plugin
+package dylan.kwon.votechain.build_logic.convention.plugin.kotlinx
 
 import dylan.kwon.votechain.build_logic.convention.plugin.base.ProjectPlugin
 import org.gradle.api.artifacts.dsl.DependencyHandler
 import org.gradle.api.plugins.PluginManager
 
-class KotlinSerializationPlugin : ProjectPlugin() {
+class SerializationPlugin : ProjectPlugin() {
 
     override fun PluginManager.onPlugin() {
         apply("org.jetbrains.kotlin.plugin.serialization")

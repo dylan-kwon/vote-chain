@@ -2,15 +2,13 @@
 
 This project is currently in progress
 
-## Documents
+## Smart Contract
 
-### Smart Contract
-
-- [Structure and Features of the VoteChain Contract](./contract)
+- [Structures](./contract)
 - ChainLink
     - [Environment Setup](./contract/script)
-    - [Encryption Env and Secret Key](./contract/script/src/secrets)
+    - [Generate Secret Key](./contract/script/src/secrets)
 
-### Client
+## Client
 
 - [In Progress](./android)

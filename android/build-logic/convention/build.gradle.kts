@@ -28,55 +28,55 @@ gradlePlugin {
     plugins {
         register("jvmLibrary") {
             id = "votechain.jvm.library"
-            implementationClass = "${pluginPackage}.JvmLibraryPlugin"
+            implementationClass = "${pluginPackage}.jvm.JvmLibraryPlugin"
         }
         register("androidLibrary") {
             id = "votechain.android.library"
-            implementationClass = "${pluginPackage}.AndroidLibraryPlugin"
+            implementationClass = "${pluginPackage}.android.AndroidLibraryPlugin"
         }
         register("androidApplication") {
             id = "votechain.android.application"
-            implementationClass = "${pluginPackage}.AndroidApplicationPlugin"
+            implementationClass = "${pluginPackage}.android.AndroidApplicationPlugin"
         }
         register("androidLifecycle") {
             id = "votechain.android.lifecycle"
-            implementationClass = "${pluginPackage}.AndroidLifecyclePlugin"
+            implementationClass = "${pluginPackage}.android.AndroidLifecyclePlugin"
         }
         register("compose") {
             id = "votechain.android.compose"
-            implementationClass = "${pluginPackage}.ComposePlugin"
+            implementationClass = "${pluginPackage}.android.AndroidComposePlugin"
         }
         register("hilt") {
             id = "votechain.hilt"
-            implementationClass = "${pluginPackage}.HiltPlugin"
+            implementationClass = "${pluginPackage}.hilt.HiltPlugin"
         }
         register("coroutine") {
             id = "votechain.kotlinx.coroutine"
-            implementationClass = "${pluginPackage}.CoroutinePlugin"
+            implementationClass = "${pluginPackage}.kotlinx.CoroutinePlugin"
         }
         register("serialization") {
             id = "votechain.kotlinx.serialization"
-            implementationClass = "${pluginPackage}.KotlinSerializationPlugin"
+            implementationClass = "${pluginPackage}.kotlinx.SerializationPlugin"
         }
         register("immutableCollections") {
             id = "votechain.kotlinx.immutableCollections"
-            implementationClass = "${pluginPackage}.KotlinImmutableCollectionsPlugin"
+            implementationClass = "${pluginPackage}.kotlinx.ImmutableCollectionsPlugin"
         }
         register("dataStore") {
-            id = "votechain.datastore"
-            implementationClass = "${pluginPackage}.DataStorePlugin"
+            id = "votechain.android.datastore"
+            implementationClass = "${pluginPackage}.android.AndroidDataStorePlugin"
         }
         register("parcelize") {
             id = "votechain.android.parcelize"
-            implementationClass = "${pluginPackage}.ParcelizePlugin"
+            implementationClass = "${pluginPackage}.android.AndroidParcelizePlugin"
         }
         register("androidFeature") {
-            implementationClass = "${pluginPackage}.AndroidFeaturePlugin"
+            implementationClass = "${pluginPackage}.android.AndroidFeaturePlugin"
             id = "votechain.android.feature"
         }
         register("firebase") {
-            implementationClass = "${pluginPackage}.FirebasePlugin"
             id = "votechain.firebase"
+            implementationClass = "${pluginPackage}.firebase.FirebasePlugin"
         }
     }
 }

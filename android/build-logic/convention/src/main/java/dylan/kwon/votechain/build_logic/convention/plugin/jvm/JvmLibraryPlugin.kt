@@ -1,4 +1,4 @@
-package dylan.kwon.votechain.build_logic.convention.plugin
+package dylan.kwon.votechain.build_logic.convention.plugin.jvm
 
 import dylan.kwon.votechain.build_logic.convention.extension.jvm.addJvmLibraryCommonDependencies
 import dylan.kwon.votechain.build_logic.convention.extension.jvm.applyJvmLibraryPlugins
