@@ -110,6 +110,8 @@ Once the contract is deployed, the contract address must be registered as a cust
 | setCreateVoteSource | Set the JS code to create voting data in Firestore                                   |
 | setCloseVoteSource  | Set the JS code to change the voting end flag to true for a vote stored in Firestore |
 
+<br>
+
 ## Event
 
 In the `External` method, if it changes the state and has a return value, it can be received using `eth_getlogs`.
