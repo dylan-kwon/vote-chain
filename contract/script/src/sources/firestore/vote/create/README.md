@@ -1,4 +1,4 @@
-## Summary
+## Overview
 
 This section contains the source code for storing voting information in Firestore from the smart contract, as well as
 simulation code for testing.

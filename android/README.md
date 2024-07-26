@@ -1,32 +1,17 @@
 # VoteChain - Android
 
-In Progress..
+This document describes an Android app that provides voting functionality by integrating with
+a [smart contract](../contract).
 
-## KeyStore
+## Architecture
 
-Add the release and debug keyStores and properties.
+## Build
 
-1. `/${android-root}/keystore/{build-type}/{build-type}.keystore`
-2. `/${android-root}/keystore/{build-type}/{build-type}-keystore.properties`
-
-### KeyStore Properties
-
-```properties
-storeFile=..
-keyAlias=..
-keyPassword=..
-storePassword=..
-```
+[Here](./docs/Build.md)
 
 ## Update Dependency
 
-- Run the version update command
-
-```
- $ ./gradlew refreshVersions 
-```
-
-- Uncomment the desired version in Update [libs.versions.toml](./gradle/libs.versions.toml)
+[Here](./docs/UpdateDependency.md)
 
 ## Convention Plugin
 

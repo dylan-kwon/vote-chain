@@ -1,4 +1,4 @@
-## Summary
+## Overview
 
 This document explains how to encrypt the [environment](../..#environment) and securely pass it to ChainLink Functions.
 
@@ -9,7 +9,7 @@ This document explains how to encrypt the [environment](../..#environment) and s
 `.env.enc` is encrypted twice using ChainLink's DON public key and the Threshold public key.
 
 ```
-$ node .{Path}/CreateSecretsJson.js
+$ node ./{Path}/CreateSecretsJson.js
 ```
 
 > Create `.offchain-secrets.json` in the project root

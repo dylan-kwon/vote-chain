@@ -1,4 +1,4 @@
-## Summary
+## Overview
 
 This section contains the source code for closing voting from the smart contract, as well as
 simulation code for testing.
