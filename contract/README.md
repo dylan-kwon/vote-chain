@@ -5,6 +5,10 @@ This section describes the architecture and functionality of the voting smart co
 ## Architecture
 
 ![architecture](docs/res/architecture.drawio.png)
+As explained in [here](..#firebase), Firestore exists solely for the quick retrieval of votes. Therefore, important information
+such as statistics is not stored; only data for search purposes, such as the title, content, and vote creation date, are
+saved. Chainlink serves this purpose by receiving requests from the smart contract to access Firebase and returning the
+results back to the smart contract.
 
 ## Class Diagram
 

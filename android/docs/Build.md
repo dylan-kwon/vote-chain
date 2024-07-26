@@ -29,7 +29,7 @@ storePassword=..
 
 ## 2. Create Smart Contract from ABI
 ```
-$ cd ./#{ANDROID_ROOT}/core/driver/vote-contract
+$ cd ./${ANDROID_ROOT}/core/driver/vote-contract
 ```
 ```
 web3j generate solidity -b ./abi/VoteContract.bin -a ./abi/VoteContractImpl.abi -o ./src/main/java/ -p dylan.kwon.votechain.core.driver.vote_contract
