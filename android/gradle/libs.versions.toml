@@ -23,10 +23,10 @@ votechain-android-lifecycle = { id = "votechain.android.lifecycle", version = "u
 votechain-android-parcelize = { id = "votechain.android.parcelize", version = "unspecified" }
 votechain-android-feature = { id = "votechain.android.feature", version = "unspecified" }
 votechain-hilt = { id = "votechain.hilt", version = "unspecified" }
-votechain-compose = { id = "votechain.compose", version = "unspecified" }
-votechain-coroutine = { id = "votechain.coroutine", version = "unspecified" }
-votechain-serialization = { id = "votechain.serialization", version = "unspecified" }
-votechain-immutableCollections = { id = "votechain.immutableCollections", version = "unspecified" }
+votechain-android-compose = { id = "votechain.android.compose", version = "unspecified" }
+votechain-kotlinx-coroutine = { id = "votechain.kotlinx.coroutine", version = "unspecified" }
+votechain-kotlinx-serialization = { id = "votechain.kotlinx.serialization", version = "unspecified" }
+votechain-kotlinx-immutableCollections = { id = "votechain.kotlinx.immutableCollections", version = "unspecified" }
 votechain-datastore = { id = "votechain.datastore", version = "unspecified" }
 votechain-firebase = { id = "votechain.firebase", version = "unspecified" }
 
@@ -113,7 +113,7 @@ compose-vico = { group = "com.patrykandpatrick.vico", name = "compose-m3", versi
 
 # Paging
 paging-common = { group = "androidx.paging", name = "paging-common", version.ref = "paging" }
-paging-compose = { group = "androidx.paging", name = "paging-compose", version.ref = "paging" }
+compose-paging = { group = "androidx.paging", name = "paging-compose", version.ref = "paging" }
 
 # Hilt
 hilt-core = { group = "com.google.dagger", name = "hilt-core", version.ref = "hilt" }

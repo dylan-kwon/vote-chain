@@ -79,7 +79,6 @@ class AndroidApplicationPlugin : ProjectPlugin() {
 
     override fun DependencyHandler.onDependencies() {
         addAndroidCommonDependencies(libs)
-        add("implementation", libs.findLibrary("androidx-startup-runtime").get())
     }
 
 }

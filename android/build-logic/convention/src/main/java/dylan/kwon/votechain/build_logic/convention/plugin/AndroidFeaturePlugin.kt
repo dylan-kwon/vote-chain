@@ -11,11 +11,11 @@ class AndroidFeaturePlugin : ProjectPlugin() {
         apply("votechain.android.library")
         apply("votechain.android.parcelize")
         apply("votechain.android.lifecycle")
-        apply("votechain.coroutine")
-        apply("votechain.serialization")
-        apply("votechain.immutableCollections")
+        apply("votechain.android.compose")
+        apply("votechain.kotlinx.coroutine")
+        apply("votechain.kotlinx.serialization")
+        apply("votechain.kotlinx.immutableCollections")
         apply("votechain.hilt")
-        apply("votechain.compose")
     }
 
     override fun DependencyHandler.onDependencies() {

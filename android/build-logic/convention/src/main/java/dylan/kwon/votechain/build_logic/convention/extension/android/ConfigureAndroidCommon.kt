@@ -56,7 +56,7 @@ internal fun CommonExtension<*, *, *, *, *, *>.configureAndroidCommon(projectRoo
 
     buildTypes {
         BuildType.values().forEach { buildType ->
-            getByName(buildType.buildName) {
+            getOrCreate(buildType.buildName) {
                 isMinifyEnabled = buildType.isMinifyEnabled
             }
         }

@@ -43,7 +43,7 @@ gradlePlugin {
             implementationClass = "${pluginPackage}.AndroidLifecyclePlugin"
         }
         register("compose") {
-            id = "votechain.compose"
+            id = "votechain.android.compose"
             implementationClass = "${pluginPackage}.ComposePlugin"
         }
         register("hilt") {
@@ -51,15 +51,15 @@ gradlePlugin {
             implementationClass = "${pluginPackage}.HiltPlugin"
         }
         register("coroutine") {
-            id = "votechain.coroutine"
+            id = "votechain.kotlinx.coroutine"
             implementationClass = "${pluginPackage}.CoroutinePlugin"
         }
         register("serialization") {
-            id = "votechain.serialization"
+            id = "votechain.kotlinx.serialization"
             implementationClass = "${pluginPackage}.KotlinSerializationPlugin"
         }
         register("immutableCollections") {
-            id = "votechain.immutableCollections"
+            id = "votechain.kotlinx.immutableCollections"
             implementationClass = "${pluginPackage}.KotlinImmutableCollectionsPlugin"
         }
         register("dataStore") {

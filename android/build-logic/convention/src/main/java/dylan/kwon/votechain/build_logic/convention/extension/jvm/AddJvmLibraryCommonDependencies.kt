@@ -4,5 +4,5 @@ import org.gradle.api.artifacts.VersionCatalog
 import org.gradle.api.artifacts.dsl.DependencyHandler
 
 internal fun DependencyHandler.addJvmLibraryCommonDependencies(libs: VersionCatalog) {
-    addJvmTestDependencies(libs)
+    addJvmTestDependencies("testImplementation", libs)
 }

@@ -1,6 +1,6 @@
 plugins {
     alias(libs.plugins.votechain.android.library)
-    alias(libs.plugins.votechain.coroutine)
+    alias(libs.plugins.votechain.kotlinx.coroutine)
     alias(libs.plugins.votechain.hilt)
 }
 

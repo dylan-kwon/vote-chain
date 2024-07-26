@@ -11,12 +11,9 @@ class CoroutinePlugin : ProjectPlugin() {
                 add("implementation", libs.findLibrary("kotlinx-coroutines-android").get())
             }
 
-            isJvmLibrary -> {
-                add("implementation", libs.findLibrary("kotlinx-coroutines-core").get())
-            }
-
-            else -> throw Exception()
+            else -> add("implementation", libs.findLibrary("kotlinx-coroutines-core").get())
         }
         add("testImplementation", libs.findLibrary("kotlinx-coroutines-test").get())
     }
+
 }

@@ -1,6 +1,6 @@
 plugins {
     alias(libs.plugins.votechain.android.library)
-    alias(libs.plugins.votechain.compose)
+    alias(libs.plugins.votechain.android.compose)
 }
 
 android {

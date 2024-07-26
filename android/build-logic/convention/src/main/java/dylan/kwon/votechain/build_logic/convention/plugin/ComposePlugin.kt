@@ -34,11 +34,11 @@ class ComposePlugin : ProjectPlugin() {
     }
 
     override fun DependencyHandler.onDependencies() {
-        firstPartyLibs()
-        thirdPartyLibs()
+        addFirstPartyLibs()
+        addThirdPartyLibs()
     }
 
-    private fun DependencyHandler.firstPartyLibs() {
+    private fun DependencyHandler.addFirstPartyLibs() {
         val bom = libs.findLibrary("compose-bom").get()
 
         add("implementation", platform(bom))
@@ -51,13 +51,8 @@ class ComposePlugin : ProjectPlugin() {
         add("implementation", libs.findLibrary("compose-material3").get())
         add("implementation", libs.findLibrary("compose-material-icons-extended").get())
 
-        add("implementation", libs.findLibrary("paging-compose").get())
+        add("implementation", libs.findLibrary("compose-paging").get())
         add("implementation", libs.findLibrary("compose-navigation").get())
-
-        add("implementation", libs.findLibrary("compose-coil").get())
-        add("implementation", libs.findLibrary("compose-lottie").get())
-        add("implementation", libs.findLibrary("compose-shimmer").get())
-        add("implementation", libs.findLibrary("compose-vico").get())
 
         add("debugImplementation", libs.findLibrary("compose-ui-tooling").get())
         add("debugImplementation", libs.findLibrary("compose-ui-test-manifest").get())
@@ -65,7 +60,11 @@ class ComposePlugin : ProjectPlugin() {
         add("androidTestImplementation", libs.findLibrary("compose-ui-test-junit4").get())
     }
 
-    private fun DependencyHandler.thirdPartyLibs() {
+    private fun DependencyHandler.addThirdPartyLibs() {
+        add("implementation", libs.findLibrary("compose-coil").get())
+        add("implementation", libs.findLibrary("compose-lottie").get())
+        add("implementation", libs.findLibrary("compose-shimmer").get())
+        add("implementation", libs.findLibrary("compose-vico").get())
         add("implementation", libs.findLibrary("compose-gridLayout").get())
     }
 
