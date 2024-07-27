@@ -13,20 +13,20 @@ An executable Android application module composed of submodules divided into lar
 
 ### Feature
 
-This module is responsible for some of the functionalities provided within the app, such as authentication, crypto
-wallet, and voting. Each feature module provides a UI for user interaction with the app and calls use cases to access
-the domain layer.
+Each feature module is responsible for some of the functionalities provided within the app, such as authentication,
+crypto wallet, and voting. Also provides a UI for user interaction with the app and calls use cases to access the domain
+layer.
 
 ### Domain
 
 The domain module is responsible for handling business logic and is primarily composed of three parts: Entity, UseCase,
 and Port.
 
-| Name    | Type                                                                                                                                                                                                         |
-|:--------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Entity  | The domain objects are defined, and the business logic is implemented                                                                                                                                        |
-| UseCase | It serves as the entry point (In-Port) for accessing the domain from external layers, invoking the business logic ofentities and the service logic of external drivers to meet domain requirements.          |
-| Port    | The Port provides an interface (Output-Port) within the domain for accessing external drivers. This is to ensure that the domain module does not have direct dependencies on specific drivers (or services). |
+| Name    | Type                                                                                                                                                                                       |
+|:--------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Entity  | The domain objects are defined, and the business logic is implemented                                                                                                                      |
+| UseCase | It serves as the entry point (In-Port) for accessing the domain from external layers, invoking the business logic of entities and calling external drivers to meet domain requirements.    |
+| Port    | The Port provides an interface (Output-Port) for accessing external drivers. This is to ensure that the domain module does not have direct dependencies on specific drivers (or services). |
 
 ### Adapter
 
@@ -64,8 +64,9 @@ storePassword=..
 
 ### 2. Create Smart Contract from ABI
 
-The source code that can be used on the client side must be generated from the ABI of the smart contracts included in
-the project.
+Using Web3j, source code that can be used on the client side must be generated from
+the [Contract ABI](./core/driver/vote-contract/abi/VoteContractImpl.abi) included in the
+project.
 
 ```
 $ cd ./${ANDROID_ROOT}/core/driver/vote-contract
