@@ -38,3 +38,9 @@ drawbacks of smart contracts and forces the smart contract to be called to acces
 ## Demo Video
 
 <video src="https://github.com/user-attachments/assets/14620fae-e06d-4daf-8fcf-18b4cb61bd67"></video>
+
+## Free Testnet Token
+
+Arbitrum-Spolia and Link tokens can be obtained for free from this [link](https://faucets.chain.link/). This project is
+intended for personal learning
+purposes and not for commercial use, so testnets are used even in the release build to save costs
