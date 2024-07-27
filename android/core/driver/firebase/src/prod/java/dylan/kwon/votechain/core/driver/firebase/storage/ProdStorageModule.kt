@@ -10,7 +10,7 @@ import dagger.hilt.components.SingletonComponent
 
 @Module
 @InstallIn(SingletonComponent::class)
-object DevStorageModule {
+object ProdStorageModule {
 
     @Provides
     fun provideDevFireStore(): FirebaseStorage =
