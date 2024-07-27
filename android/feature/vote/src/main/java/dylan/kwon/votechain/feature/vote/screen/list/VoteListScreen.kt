@@ -53,6 +53,7 @@ import dylan.kwon.votechain.core.ui.design_system.theme.composable.vote.listItem
 import dylan.kwon.votechain.core.ui.design_system.theme.composable.vote.listItem.VoteListItemUiState
 import dylan.kwon.votechain.core.ui.design_system.theme.composable.vote.listItem.preview.VoteListItemUiStatesPreviewParameterProvider
 import dylan.kwon.votechain.feature.vote.R
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 
 
@@ -221,7 +222,8 @@ private fun VoteList(
     }
 
     // Reset scroll position upon refresh completion.
-    if (voteListItems.loadState.refresh is LoadState.Loading) OneShotLaunchedEffect {
+    if (voteListItems.loadState.refresh is LoadState.NotLoading) OneShotLaunchedEffect {
+        delay(200)
         state.scrollToItem(0)
     }
 
