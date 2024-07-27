@@ -6,6 +6,14 @@ This project is an application that creates and manages voting using Ethereum sm
 
 ![architecture](./docs/res/architecture.drawio.png)
 
+### Android
+
+The Android application calls the smart contract and Firebase to enable users to participate in voting. For searching
+votes, it uses Firebase, while important tasks such as viewing vote statistics and participating in the voting process
+are handled by calling the smart contract.
+
+[Show More](./android)
+
 ### Smart Contract
 
 The smart contract provides functions such as creating votes, voting, and ending votes. To facilitate quick retrieval on
@@ -20,14 +28,6 @@ ChainLink is used to call Firebase from the smart contract. ChainLink executes J
 data received from the smart contract and returns the result.
 
 [Show More](./contract/script)
-
-### Android
-
-The Android application calls the smart contract and Firebase to enable users to participate in voting. For searching
-votes, it uses Firebase, while important tasks such as viewing vote statistics and participating in the voting process
-are handled by calling the smart contract.
-
-[Show More](./android)
 
 ### Firebase
 

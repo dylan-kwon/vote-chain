@@ -46,9 +46,7 @@ app.
 | Third-Party UI | `coil` `lottie` `shimmer` `vico` `hilt` `grid-layout`                                    |
 | Kotlinx        | `coroutine` `serialization` `immutableCollections`                                       |
 | Firebase       | `auth` `firestore` `remote-config` `storage`                                             |
-| Firebase       | `auth` `firestore` `remote-config` `storage`                                             |
-
-`web3j`
+| Etc            | `web3j` `refreshVErsions`                                                                |
 
 ## Build
 
@@ -88,7 +86,7 @@ $ cd ./${ANDROID_ROOT}/core/driver/vote-contract
 web3j generate solidity -b ./abi/VoteContract.bin -a ./abi/VoteContractImpl.abi -o ./src/main/java/ -p dylan.kwon.votechain.core.driver.vote_contract
 ```
 
-> Output: ./src/main/java/dylan/kwon/votechain/core/driver/vote_contract/VoteContractImpl.java
+> Output: ./${:core:driver:vote_contract}/src/main/java/dylan/kwon/votechain/core/driver/vote_contract/VoteContractImpl.java
 
 ## Update Dependency
 
