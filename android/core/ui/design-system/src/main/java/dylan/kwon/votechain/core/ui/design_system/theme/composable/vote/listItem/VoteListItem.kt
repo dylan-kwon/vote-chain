@@ -31,7 +31,7 @@ fun VoteListItem(
             Status(status = uiState.status)
         },
         headlineContent = {
-            Text(text = uiState.title)
+            Text(text = uiState.title, maxLines = 1)
         },
         supportingContent = {
             Text(text = uiState.content)
