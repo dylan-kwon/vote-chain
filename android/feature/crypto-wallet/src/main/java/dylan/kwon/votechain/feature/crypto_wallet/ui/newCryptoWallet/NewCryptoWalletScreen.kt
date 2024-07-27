@@ -24,6 +24,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.CopyAll
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.Refresh
@@ -41,6 +42,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -61,6 +63,7 @@ import kotlinx.collections.immutable.persistentListOf
 @Composable
 internal fun NewCryptoWalletRoute(
     viewModel: NewCryptoWalletViewModel = hiltViewModel(),
+    onBackClick: () -> Unit,
     onCryptoWalletCreated: () -> Unit
 ) {
     val context = LocalContext.current
@@ -74,6 +77,7 @@ internal fun NewCryptoWalletRoute(
         uiState = uiState,
         onRefreshClick = viewModel::refresh,
         onNextClick = viewModel::save,
+        onBackClick = onBackClick,
         onCopyClick = {
             context.copyMnemonic(uiState.mnemonic)
         },
@@ -83,22 +87,20 @@ internal fun NewCryptoWalletRoute(
 @Composable
 internal fun NewCryptoWalletScreen(
     uiState: NewCryptoWalletUiState,
+    onBackClick: () -> Unit,
     onRefreshClick: () -> Unit,
     onCopyClick: () -> Unit,
     onNextClick: () -> Unit
 ) {
     val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior()
     Scaffold(
-        modifier = Modifier
-            .nestedScroll(scrollBehavior.nestedScrollConnection),
+        modifier = Modifier.nestedScroll(
+            scrollBehavior.nestedScrollConnection
+        ),
         topBar = {
-            TopAppBar(
-                title = {
-                    Text(
-                        text = stringResource(id = R.string.create_new_crypto_wallet)
-                    )
-                },
-                scrollBehavior = scrollBehavior
+            TopBar(
+                scrollBehavior = scrollBehavior,
+                onBackClick = onBackClick
             )
         },
         floatingActionButton = {
@@ -140,6 +142,31 @@ internal fun NewCryptoWalletScreen(
             )
         }
     }
+}
+
+@Composable
+fun TopBar(
+    modifier: Modifier = Modifier,
+    scrollBehavior: TopAppBarScrollBehavior,
+    onBackClick: () -> Unit,
+) {
+    TopAppBar(
+        modifier = modifier,
+        title = {
+            Text(
+                text = stringResource(id = R.string.create_new_crypto_wallet)
+            )
+        },
+        navigationIcon = {
+            IconButton(onClick = onBackClick) {
+                Icon(
+                    imageVector = Icons.AutoMirrored.Default.ArrowBack,
+                    contentDescription = stringResource(id = R.string.go_back)
+                )
+            }
+        },
+        scrollBehavior = scrollBehavior
+    )
 }
 
 @Composable
@@ -349,6 +376,7 @@ private fun LoadingPreview() {
             uiState = NewCryptoWalletUiState(
                 mnemonic = NewCryptoWalletUiState.Mnemonic.Loading,
             ),
+            onBackClick = {},
             onRefreshClick = {},
             onNextClick = {},
             onCopyClick = {},
@@ -379,6 +407,7 @@ private fun LoadedPreview() {
                     )
                 ),
             ),
+            onBackClick = {},
             onRefreshClick = {},
             onNextClick = {},
             onCopyClick = {},
@@ -394,6 +423,7 @@ private fun ErrorPreview() {
             uiState = NewCryptoWalletUiState(
                 mnemonic = NewCryptoWalletUiState.Mnemonic.Error,
             ),
+            onBackClick = {},
             onRefreshClick = {},
             onNextClick = {},
             onCopyClick = {},

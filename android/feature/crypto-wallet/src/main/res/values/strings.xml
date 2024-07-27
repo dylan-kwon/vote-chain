@@ -7,6 +7,7 @@
     <string name="create">Create</string>
     <string name="refresh">Refresh</string>
     <string name="copy">Copy</string>
+    <string name="go_back">Go Back</string>
     <string name="next">Next</string>
     <string name="mnemonic">Mnemonic</string>
     <string name="mnemonic_guide_message">Please remember the following words.</string>

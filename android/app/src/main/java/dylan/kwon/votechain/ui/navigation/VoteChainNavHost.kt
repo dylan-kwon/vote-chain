@@ -82,15 +82,13 @@ fun VoteChainNavHost(
         )
 
         attachNewCryptoWalletScreen(
-            onCryptoWalletCreated = {
-                navController.popToMain()
-            }
+            onBackClick = navController::popBackStack,
+            onCryptoWalletCreated = navController::popToMain
         )
 
         attachLoadCryptoWalletScreen(
-            onCryptoWalletLoaded = {
-                navController.popToMain()
-            }
+            onBackClick = navController::popBackStack,
+            onCryptoWalletLoaded = navController::popToMain
         )
 
         attachVoteListScreen(

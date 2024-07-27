@@ -13,9 +13,11 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -40,16 +42,18 @@ import dylan.kwon.votechain.feature.crypto_wallet.R
 @Composable
 internal fun LoadCryptoWalletRoute(
     viewModel: LoadCryptoWalletViewModel = hiltViewModel(),
+    onBackClick: () -> Unit,
     onCryptoWalletLoaded: () -> Unit
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
-    if(uiState.cryptoWalletState.isLoaded) LaunchedEffect(onCryptoWalletLoaded) {
+    if (uiState.cryptoWalletState.isLoaded) LaunchedEffect(onCryptoWalletLoaded) {
         onCryptoWalletLoaded()
     }
 
     LoadCryptoWalletScreen(
         uiState = uiState,
+        onBackClick = onBackClick,
         onMnemonicChange = viewModel::updateMnemonic,
         onLoadClick = viewModel::loadCryptoWallet
     )
@@ -58,6 +62,7 @@ internal fun LoadCryptoWalletRoute(
 @Composable
 internal fun LoadCryptoWalletScreen(
     uiState: LoadCryptoWalletUiState,
+    onBackClick: () -> Unit,
     onMnemonicChange: (String) -> Unit,
     onLoadClick: () -> Unit
 ) {
@@ -67,7 +72,10 @@ internal fun LoadCryptoWalletScreen(
             scrollBehavior.nestedScrollConnection
         ),
         topBar = {
-            TopBar(scrollBehavior = scrollBehavior)
+            TopBar(
+                onBackClick = onBackClick,
+                scrollBehavior = scrollBehavior
+            )
         },
         floatingActionButton = {
             if (uiState.mnemonicState.isValid) {
@@ -99,12 +107,21 @@ internal fun LoadCryptoWalletScreen(
 @Composable
 private fun TopBar(
     modifier: Modifier = Modifier,
+    onBackClick: () -> Unit,
     scrollBehavior: TopAppBarScrollBehavior
 ) {
     TopAppBar(
         modifier = modifier,
         title = {
             Text(text = stringResource(id = R.string.load_crypto_wallet))
+        },
+        navigationIcon = {
+            IconButton(onClick = onBackClick) {
+                Icon(
+                    imageVector = Icons.AutoMirrored.Default.ArrowBack,
+                    contentDescription = stringResource(id = R.string.go_back)
+                )
+            }
         },
         scrollBehavior = scrollBehavior
     )
@@ -156,6 +173,7 @@ private fun ErrorPreview() {
     VoteChainTheme {
         LoadCryptoWalletScreen(
             uiState = LoadCryptoWalletUiState(),
+            onBackClick = {},
             onMnemonicChange = {},
             onLoadClick = {}
         )

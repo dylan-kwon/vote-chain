@@ -10,10 +10,12 @@ import kotlinx.serialization.Serializable
 object NewCryptoWalletNavigation
 
 fun NavGraphBuilder.attachNewCryptoWalletScreen(
+    onBackClick: () -> Unit,
     onCryptoWalletCreated: () -> Unit
 ) {
     composable<NewCryptoWalletNavigation> {
         NewCryptoWalletRoute(
+            onBackClick = onBackClick,
             onCryptoWalletCreated = onCryptoWalletCreated
         )
     }
