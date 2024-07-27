@@ -34,3 +34,7 @@ are handled by calling the smart contract.
 Firebase is used for authentication and quick retrieval of voting data. Firestore does not store critical data such as
 ballot items and vote counts, only the data necessary for searches. This design addresses the slow speed and high cost
 drawbacks of smart contracts and forces the smart contract to be called to access meaningful voting data.
+
+## Demo Video
+
+<video src="https://github.com/user-attachments/assets/14620fae-e06d-4daf-8fcf-18b4cb61bd67"></video>
