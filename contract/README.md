@@ -24,8 +24,8 @@ results back to the smart contract.
 
 ## ChainLink Setup
 
-In the smart contract, you need to set up and provide environment variables for using ChainLink, ensuring they are
-encrypted.
+To use ChainLink in a smart contract, you need to refer to the following documentation to set up the environment
+variables. Then, encrypt the environment variables and provide them to the smart contract.
 
 - [Environment Setup](./script)
 - [Generate Secret Key](./script/src/secrets)
