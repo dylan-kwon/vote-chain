@@ -25,7 +25,7 @@ class DefaultVoteListUiMapper @Inject constructor() : VoteListUiMapper {
         id = id,
         title = title,
         content = content,
-        createdAt = createdAt * 1000,
+        createdAt = createdAt,
         status = when (isClosed) {
             true -> VoteListItemUiState.Status.CLOSED
             else -> VoteListItemUiState.Status.IN_PROGRESS

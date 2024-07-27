@@ -26,5 +26,5 @@ internal fun VoteContractVote.toDomain(
     },
     isOwner = isOwner,
     isVoted = voting.isNotEmpty(),
-    createdAt = createdAt
+    createdAt = createdAt * 1_000
 )

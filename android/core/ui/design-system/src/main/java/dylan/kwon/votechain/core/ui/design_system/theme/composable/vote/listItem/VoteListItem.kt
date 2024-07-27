@@ -31,10 +31,10 @@ fun VoteListItem(
             Status(status = uiState.status)
         },
         headlineContent = {
-            Text(text = uiState.title, maxLines = 1)
+            Text(text = uiState.title)
         },
         supportingContent = {
-            Text(text = uiState.content)
+            Text(text = uiState.content, maxLines = 1)
         },
         trailingContent = {
             TimeAgo(createdAt = uiState.createdAt)
