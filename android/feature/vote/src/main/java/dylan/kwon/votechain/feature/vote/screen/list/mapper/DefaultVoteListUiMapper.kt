@@ -13,7 +13,7 @@ class DefaultVoteListUiMapper @Inject constructor() : VoteListUiMapper {
 
     override fun Flow<PagingData<VoteSummary>>.filterBy(keyword: String) = map { pagingData ->
         pagingData.filter {
-            it.content.contains(keyword)
+            it.title.contains(keyword) || it.title.contains(keyword)
         }
     }
 
