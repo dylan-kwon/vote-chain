@@ -19,9 +19,7 @@ ChainLink.
 ChainLink is used to call Firebase from the smart contract. ChainLink executes JavaScript code to call Firebase with the
 data received from the smart contract and returns the result.
 
-[Environment Setup](./contract/script)
-
-[Generate Secret Key](./contract/script/src/secrets)
+[Show More](./contract/script)
 
 ### Android
 
