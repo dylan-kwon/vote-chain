@@ -462,7 +462,7 @@ private fun DuplicationAllowCheckBox(
             onCheckedChange = onCheckedChange
         )
         Text(
-            text = stringResource(id = R.string.duplicate_votes_allowed)
+            text = stringResource(id = R.string.multiple_votes_allowed)
         )
     }
 }
