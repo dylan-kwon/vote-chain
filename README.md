@@ -8,9 +8,9 @@ This project is an application that creates and manages voting using Ethereum sm
 
 ### Smart Contract
 
-The smart contract provides functions such as creating votes, casting votes, and ending votes. To facilitate quick
-retrieval on the client side, some data such as the title, content, and creation time of the votes are stored in
-Firebase via ChainLink.
+The smart contract provides functions such as creating votes, voting, and ending votes. To facilitate quick retrieval on
+the client side, some data such as the title, content, and creation time of the votes are copied in Firebase via
+ChainLink.
 
 [Show More](./contract)
 
@@ -18,6 +18,10 @@ Firebase via ChainLink.
 
 ChainLink is used to call Firebase from the smart contract. ChainLink executes JavaScript code to call Firebase with the
 data received from the smart contract and returns the result.
+
+[Environment Setup](./contract/script)
+
+[Generate Secret Key](./contract/script/src/secrets)
 
 ### Android
 
