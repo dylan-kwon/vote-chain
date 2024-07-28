@@ -44,3 +44,7 @@ drawbacks of smart contracts and forces the smart contract to be called to acces
 Arbitrum-Spolia and Link tokens can be obtained for free from this [link](https://faucets.chain.link/). This project is
 intended for personal learning
 purposes and not for commercial use, so testnets are used even in the release build to save costs
+
+## License
+
+This project is licensed under the Apache License 2.0. - see the [LICENSE](./LICENSE.txt) file for details.
