@@ -17,8 +17,4 @@ object Config {
         const val TARGET_SDK = 34
         const val MIN_SDK = 24
     }
-
-    object Compose {
-        const val COMPILER_VERSION = "1.5.1"
-    }
 }
