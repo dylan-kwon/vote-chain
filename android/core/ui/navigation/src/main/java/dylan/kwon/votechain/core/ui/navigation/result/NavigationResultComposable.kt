@@ -3,10 +3,10 @@ package dylan.kwon.votechain.core.ui.navigation.result
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavBackStackEntry
 import kotlinx.coroutines.flow.filterNotNull
-import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 
 @Composable
@@ -35,7 +35,9 @@ fun <T> NavBackStackEntry.ReceiveResultEffect(
             .onEach {
                 savedStateHandle.remove<T>(resultKey)
             }
-            .onEach(collector)
-            .launchIn(this)
+            .flowWithLifecycle(
+                this@ReceiveResultEffect.lifecycle
+            )
+            .collect(collector)
     }
 }
