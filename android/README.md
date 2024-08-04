@@ -3,6 +3,16 @@
 This document describes an Android app that provides voting functionality by integrating with
 a [smart contract](../contract).
 
+## Libraries used
+
+| Category       | Property File Path                                                                       |
+|:---------------|:-----------------------------------------------------------------------------------------|
+| Jetpack        | `lifecycle` `comopse` `navigation` `paging` `hilt` `splash-screen` `startup` `datastore` |
+| Third-Party UI | `coil` `lottie` `shimmer` `vico` `hilt` `grid-layout`                                    |
+| Kotlinx        | `coroutine` `serialization` `immutableCollections`                                       |
+| Firebase       | `auth` `firestore` `remote-config` `storage`                                             |
+| Etc            | `web3j` `refreshVErsions`                                                                |
+
 ## Architecture
 
 ![architecture](./docs/res/android_architecture.drawio.png)
@@ -37,16 +47,6 @@ the contract with the domain layer.
 
 It is a layer that accesses external services such as Firebase, SmartContract, and Web3j for the actual operation of the
 app.
-
-## Libraries used
-
-| Category       | Property File Path                                                                       |
-|:---------------|:-----------------------------------------------------------------------------------------|
-| Jetpack        | `lifecycle` `comopse` `navigation` `paging` `hilt` `splash-screen` `startup` `datastore` |
-| Third-Party UI | `coil` `lottie` `shimmer` `vico` `hilt` `grid-layout`                                    |
-| Kotlinx        | `coroutine` `serialization` `immutableCollections`                                       |
-| Firebase       | `auth` `firestore` `remote-config` `storage`                                             |
-| Etc            | `web3j` `refreshVErsions`                                                                |
 
 ## Build
 
