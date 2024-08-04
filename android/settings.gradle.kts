@@ -32,7 +32,7 @@ refreshVersions {
     versionsPropertiesFile = file("build/tmp/refreshVersions/versions.properties")
 }
 
-rootProject.name = "VoteChain"
+rootProject.name = "vote-chain"
 
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
